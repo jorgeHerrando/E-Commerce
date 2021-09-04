@@ -1,0 +1,54 @@
+<%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+
+    <main>
+      <div class="top-section-login">
+        <div class="content content-login">
+          <div class="contact-form-container">
+            <section class="login-form">
+              <h2 class="logo">Iniciar Sesión</h2>
+              <div class="contact-wrapper">
+                <div class="contact-form">
+                  <form action="">
+                    <p>
+                      <label for="nombreCompleto">Nombre de Usuario</label>
+                      <input
+                        type="text"
+                        name="nombreCompleto"
+                        id="nombreCompleto"
+                      />
+                    </p>
+                    <p>
+                      <label>Contraseña</label>
+                      <input type="password" name="password" />
+                    </p>
+                    <div class="block">
+                      <input type="checkbox" name="recordar" id="recordar" />
+                      <label>Recordar Mi Usuario</label>
+                    </div>
+                    <p class="block">
+                      <button type="submit">Iniciar Sesión</button>
+                    </p>
+                    <p class="centrado">
+                      <label for=""
+                        ><a href="#">¿Olvidaste tu contraseña?</a></label
+                      >
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </section>
+            <section class="signup-form">
+              <h2 class="logo">¿Eres nuevo? Regístrate:</h2>
+              <p class="block">
+                <a href="/users/register"><button type="submit">Registrate</button></a>
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

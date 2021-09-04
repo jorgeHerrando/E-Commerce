@@ -1,0 +1,58 @@
+<%- include('../partials/head') %>
+  <body>
+    <%- include('../partials/header') %>
+
+    <main class="main-shop">
+      <section class="shop-category">
+        <h1>Todos los productos</h1>
+        <article class="shop-category-picture">
+          <div class="top-promotion-top">
+            <img
+              src="/images/panoramic/1080x560_snowboarding_trick_jump_2.jpg"
+              alt="man jumping on snowboard"
+            />
+          </div>
+        </article>
+
+        <article class="shop-filter">
+          <button>Filtrar por</button>
+          <div class="shop-filter-select">
+            <select name="shop-filter" id="filter">
+              <option value="name">Nombre del producto</option>
+              <option value="price">Precio</option>
+              <option value="size">Talle</option>
+            </select>
+          </div>
+        </article>
+      </section>
+
+      <section class="shop-view">
+        <!-- por cada uno de los productos enviados desde el controlador, dame su... -->
+        <% for(i=0; i<products.length; i++) { %>
+          <article class="shop-view-img article-box-shadow">
+            <a href="/products/detail/<%= products[i].id %>">
+              <div class="shop-product-container">
+                <div class="shop-img-container">
+                  <img src="/images/tall/<%= products[i].image[0] %>" alt="foto producto"/>
+                </div>
+                <div class="shop-product-info">
+                  <div class="shop-article-title">
+                    <p><%= products[i].name %></p>
+                  </div>
+                  <div class="shop-article-price">
+                    <p>$<%= products[i].price %></p>
+                  </div>
+                </div>
+              </div>
+            </a>
+          </article>
+        <% } %> 
+      </section>
+
+      <section class="shop-more">
+        <a href="#" class="shop-more-button">Mostrar más productos</a>
+      </section>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

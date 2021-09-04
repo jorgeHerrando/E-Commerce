@@ -1,0 +1,1560 @@
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* -------------------------------------- General Rules ------------------------------------------ */
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+/* quitamos margen y padding y aplicamos box-sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* quitamos por defecto todos los colores y líneas de los a */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* box-shadow para articles con clase .box-shadow */
+.article-box-shadow {
+  transition: box-shadow 0.3s;
+}
+.article-box-shadow:hover {
+  box-shadow: 0 0 8px #153351;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* -----------------------------------------  HEADER --------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+/* header fixed y ajustar margin main */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #fff;
+}
+header div.top-header {
+  height: 88px;
+  border-bottom: 0.5px solid lightgray;
+}
+main {
+  margin-top: 88px;
+}
+/* este header solo se verá en tablets y desktop */
+.header-account {
+  padding: 7px 5%;
+  border-bottom: 0.5px solid lightgray;
+  display: none;
+  height: 30px;
+  /* background-color: #fff; */
+}
+/* hacemos la lista flex para situar li horizontalmente */
+.header-account ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 15px;
+  color: #888;
+}
+/* añadimos margen entre li */
+.header-account ul li {
+  margin-left: 1rem;
+}
+/* hacemos flex en el top header */
+/* con justify ponemos los items separados */
+/* con align los centramos verticalmente */
+header div.top-header {
+  padding: 10px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* tamaño del logo */
+div.top-header div.logo {
+  width: 60px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+/* que la img ocupe el 100% */
+div.top-header div.logo img {
+  width: 100%;
+}
+
+/* que la img ocupe el 100% */
+div.logo-list img {
+  width: 100%;
+}
+/* hacemos flex en los iconos y los ponemos a la dcha con flex-end */
+div.top-header div.header-icons {
+  max-width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 1rem;
+}
+/* hacemos flex la subcontainer para dejar espacio entr estos y barra menú */
+div.top-header div.header-icons div.header-icons-action {
+  display: flex;
+  justify-content: flex-end;
+}
+div.top-header div.header-icons div.header-icons-action a:hover {
+  color: #fcd89d;
+}
+/* aquí va el icon menú */
+div.top-header div.header-icons div.header-icon-menu {
+  min-width: 50px;
+  text-align: right;
+}
+/* tamaño y formato de iconos */
+div.top-header div.header-icons i {
+  font-size: 1.5rem;
+}
+
+div.top-header div.header-icons div.header-icons-action i {
+  padding: 0 3px;
+}
+div.top-header div.header-icons div.header-icons-action a:last-child i {
+  padding-right: 0;
+}
+/* damos formato a la barra de búsqueda */
+header form.form-search {
+  width: 50%;
+  margin: auto 0;
+  display: none;
+  flex-grow: 1;
+}
+header form.form-search input {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+/* damos un tamaño max a la barra y hacemos obj relative para posicionar lupa. la ponemos detrás del menú desplegable */
+header form.form-search div.input-search {
+  position: relative;
+  max-width: 320px;
+  margin: 0 auto;
+  z-index: -1;
+}
+/* posicionamos i */
+header form.form-search div.input-search i {
+  position: absolute;
+  color: #666666;
+  right: 3px;
+  top: 6px;
+}
+
+/* damos formato al toggle bottom */
+div.toggle-btn {
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+  float: right;
+  padding-top: 4px;
+  position: relative;
+}
+/* Styling the hamburger lines */
+div.toggle-btn .btn-line {
+  width: 28px;
+  height: 3px;
+  margin: 0 0 5px 0;
+  background: black;
+  transition: all 0.5s ease-out;
+}
+/* Adding transform to the X */
+
+/* Styling the three lines
+        to make it an X */
+.toggle-btn.close .btn-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.toggle-btn.close .btn-line:nth-child(2) {
+  opacity: 0;
+}
+
+.toggle-btn.close .btn-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -7px);
+}
+
+/* damos estilo al navbar de mobile */
+nav.nav-list {
+  /* display: none; */
+  width: 100%;
+  height: 100%;
+  background-color: #4abbc7;
+  position: fixed;
+  top: 88px;
+  left: -100%;
+  transition: 600ms;
+}
+nav.nav-list.is-open {
+  left: 0;
+}
+
+nav.nav-list a {
+  display: block;
+  font-size: 1.5rem;
+  justify-content: center;
+  color: #fff;
+  padding: 0 5%;
+  height: 40px;
+  border-bottom: 1px solid #fff;
+  display: flex;
+  align-items: center;
+  font-family: "Heebo", sans-serif;
+}
+nav.nav-list a:hover {
+  color: #153351;
+}
+/* tamaño logo nav-list */
+/* tamaño del logo */
+div.logo-list {
+  width: 60px;
+  padding-top: 1rem;
+  margin: 0 auto;
+}
+div.logo-list a {
+  border-bottom: none;
+}
+/* no se muestra de momento */
+nav.nav-desktop {
+  display: none;
+}
+
+/* style de los li de header-bottom */
+div.header-bottom nav ul li a {
+  position: relative;
+}
+div.header-bottom nav ul li a span {
+  position: relative;
+  z-index: 1;
+}
+div.header-bottom nav ul li a span i {
+  color: #4abbc7;
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: bold;
+}
+div.header-bottom nav ul li a b {
+  display: inline-block;
+  height: 8px;
+  width: 110%;
+  background-color: #fcd89d;
+  position: absolute;
+  border-radius: 8px;
+  left: -7%;
+  bottom: -2px;
+  transition-duration: 0.32s;
+  transition-timing-function: ease;
+}
+
+/* de momento no lo mostramos */
+div.header-bottom {
+  padding: 11px 5%;
+  display: none;
+  width: 100%;
+  height: 40px;
+  border-bottom: 0.5px solid lightgray;
+}
+/* quitamos diseño de lista predeterminado */
+div.header-bottom nav ul {
+  list-style: none;
+}
+div.header-bottom nav a {
+  transition: color 200ms;
+  color: chocolate;
+}
+/* animación al hacer hover */
+div.header-bottom nav a:hover {
+  /* padding-bottom: 3px; */
+  color: #fff;
+}
+div.header-bottom nav a:hover b {
+  height: 110%;
+  background-color: #153351;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* -----------------------------------  Página principal ----------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+/* que todas las secciones ocupen todo el ancho */
+main.main-index section {
+  width: 100%;
+}
+/* hacemos el contenedror de la img relative para colocar componentes encima, y le damos altura máxima */
+main section.top-promotion article.top-promotion-img {
+  width: 100%;
+  position: relative;
+}
+/* con esto se soluciona el mini gap que aparecía */
+main section.top-promotion article.top-promotion-img div.top-promotion-top {
+  display: flex;
+}
+/* centramos las imagenes */
+main section.top-promotion article.top-promotion-img img,
+main section.home-categories article.home-categories-img img {
+  width: 100%;
+  object-fit: cover;
+}
+main section.top-promotion article.top-promotion-img img {
+  object-position: 50% 0%;
+}
+/* altura maxmin de la imagen de arriba */
+main section.top-promotion article.top-promotion-img img {
+  max-height: 480px;
+  min-height: 200px;
+}
+/* será un elem flex cuando se vea para centrar a dentro. Se posiciona con absolute */
+main section.top-promotion article.top-promotion-img div.main-offer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  top: 20%;
+  left: 50%;
+  width: 50%;
+  min-width: 160px;
+  max-width: 380px;
+  transform: translateX(-50%);
+  background-color: #bbc2c454;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px #fcd89d;
+  transition: all 0.3s;
+}
+main section.top-promotion article.top-promotion-img div.main-offer:hover {
+  background-color: #fcd89d;
+  color: #000;
+}
+/* se le da padding a dicho a */
+main section.top-promotion article.top-promotion-img div.main-offer a {
+  padding: 12px 15px 10px;
+  font-size: 0.9rem;
+  width: 100%;
+  text-align: center;
+  /* MIRARRRRRRRRRRRRR */
+}
+
+/* se posiciona el botón shop now en la foto principal */
+main section.top-promotion article.top-promotion-img a.shop-now {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  max-width: 200px;
+  transform: translateX(-50%);
+  background-color: #4abbc7;
+  transition: all 0.3s;
+  text-align: center;
+  box-shadow: 0px 0px 2px #fcd89d;
+  padding: 15px 30px;
+  border-radius: 30px;
+}
+main section.top-promotion article.top-promotion-img a.shop-now:hover {
+  background-color: #153351;
+  color: #fff;
+}
+
+/* le damos padding a la seccion principal */
+main div.main-section {
+  padding: 0 3%;
+}
+
+section.top-info {
+  padding: 2rem 0;
+}
+/* centramos texto debajo de la foto princ */
+section.top-info p.top-info-p {
+  text-align: center;
+  padding: 10px 0;
+}
+/* margen entre articles */
+div.main-section section.home-categories article {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+div.main-section section.home-categories article a p {
+  margin-left: 5%;
+}
+div.main-section section.home-categories article a p:last-child {
+  padding-bottom: 1rem;
+}
+/* margen tras sales */
+main section.home-section-sales {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #bbc2c454;
+  border-bottom: 1px solid #bbc2c454;
+}
+/* título del sales */
+main section.home-section-sales h2.home-sales-title {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+/* contenedor flex */
+main section.home-section-sales div.home-sales {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+main section.home-section-sales div.home-sales article.home-sales-img h3,
+main section.home-section-sales div.home-sales article.home-sales-img p {
+  margin-left: 5%;
+  font-size: 0.9rem;
+}
+main section.home-section-sales div.home-sales article.home-sales-img p {
+  padding-top: 0.5rem;
+}
+/* dos en una línea */
+main section.home-section-sales div.home-sales article.home-sales-img {
+  width: 48%;
+  transition: all 0.5s;
+  max-height: 450px;
+  min-height: 280px;
+  margin-bottom: 1rem;
+}
+
+article.home-sales-img .sales-product-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+article.home-sales-img .sales-product-container .sales-img-container {
+  height: 72%;
+}
+article.home-sales-img .sales-product-container .sales-img-container img {
+  height: 100%;
+}
+article.home-sales-img .sales-product-container .sales-info-container {
+  height: 28%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+main section.home-section-sales div.home-sales article.home-sales-img:hover {
+  box-shadow: 0 0 11px #4abbc7;
+}
+/* main section.home-section-sales div.home-sales article.home-sales-img3,
+main section.home-section-sales div.home-sales article.home-sales-img4 {
+  display: none;
+} */
+/* para que las img no achiquen demasiado */
+main section.home-section-sales article.home-sales-img img {
+  width: 100%;
+  min-height: 180px;
+  object-fit: contain;
+}
+
+/* botón sales */
+section.home-section-sales div.sales-button {
+  text-align: center;
+  padding-top: 1.5rem;
+}
+
+section.home-section-sales div.sales-button button {
+  color: #fff;
+  padding: 0.8rem 4rem;
+  cursor: pointer;
+  background-color: #6db8ff;
+  border-radius: 1px;
+  border: 1px solid #fff;
+  font-size: 16px;
+  transition: background-color 450ms, color 450ms;
+}
+section.home-section-sales div.sales-button button:hover {
+  color: #000;
+  background-color: #75e2dc;
+}
+
+/*section.home-section-sales div.sales-button button {
+  padding: 0.3rem 5rem;
+  cursor: pointer;
+  background-color: #fcd89d;
+  border-radius: 5px;
+}*/
+
+/*  */
+/* bottom info */
+section.bottom-info {
+  padding: 2rem 0;
+}
+section.bottom-info p.bottom-info-p {
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* -----------------------------------------  Footer --------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+footer {
+  padding: 0 5%;
+  background-color: #000;
+  color: #fff;
+}
+
+/* logo */
+.logo-footer {
+  text-align: center;
+  padding-top: 1rem;
+}
+/* .logo-footer a {
+} */
+.logo-footer img {
+  width: 60px;
+}
+
+/* main-section */
+.main-footer {
+  margin-top: 1rem;
+}
+
+.main-footer .nav-footer ul {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+.main-footer .nav-footer ul.footer-menu {
+  margin-bottom: 0;
+}
+
+.main-footer .nav-footer ul li {
+  padding-bottom: 5px;
+}
+.main-footer .nav-footer ul li:first-child {
+  color: #fcd89d;
+}
+.main-footer .nav-footer ul li:last-child {
+  padding-bottom: 0;
+}
+
+.main-footer .nav-footer ul h3 {
+  margin-bottom: 5px;
+}
+
+section.social-footer-desktop {
+  display: none;
+}
+
+/* social-section */
+.social-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 1.5rem 8%;
+}
+
+.social-footer a {
+  max-width: 30px;
+}
+
+.social-footer a img {
+  width: 100%;
+  color: #fff;
+}
+
+ul.footer-info li a,
+ul.footer-menu li a {
+  transition: color 0.3s;
+}
+ul.footer-info li a:hover,
+ul.footer-menu li a:hover {
+  color: #4abbc7;
+}
+
+.subscribe-footer {
+  margin-bottom: 2rem;
+  padding-top: 0.5rem;
+}
+.subscribe-footer p {
+  padding-bottom: 5px;
+  /* color: #fcd89d; */
+}
+.subscribe-footer input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 70%;
+  max-width: 250px;
+}
+.subscribe-footer button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #4abbc7;
+}
+
+.copyright {
+  padding-bottom: 1rem;
+}
+.copyright p {
+  text-align: center;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* --------------------------------------------  SHOP -------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+section.shop-category {
+  position: relative;
+}
+section.shop-category h1 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+  left: 5%;
+  font-size: 1.5rem;
+  color: #fff;
+  font-family: "Heebo", sans-serif;
+  letter-spacing: 0.08rem;
+}
+section.shop-category article.shop-category-picture {
+  width: 100%;
+}
+section.shop-category article.shop-category-picture div.top-promotion-top {
+  display: flex;
+}
+section.shop-category article.shop-category-picture img {
+  width: 100%;
+}
+section.shop-category article.shop-filter {
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+}
+section.shop-category article.shop-filter button {
+  min-width: 80px;
+  max-width: 155px;
+  flex-grow: 1;
+  margin-right: 8px;
+}
+section.shop-category article.shop-filter div.shop-filter-select {
+  display: flex;
+  justify-content: flex-end;
+}
+section.shop-category article.shop-category-picture img {
+  max-height: 480px;
+  min-height: 200px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+section.shop-view {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem 5%;
+}
+section.shop-view article.shop-view-img {
+  width: 50%;
+  padding: 0.5rem 1rem;
+  max-height: 400px;
+  min-height: 300px;
+  margin: 1rem 0;
+}
+article.shop-view-img div.shop-product-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+article.shop-view-img div.shop-product-container div.shop-img-container {
+  height: 75%;
+}
+/* la cajita con precio y nombre de producto la mandamos abajo para que se vean todas alineadas */
+article.shop-view-img div.shop-product-container div.shop-product-info {
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: 0.8rem;
+}
+section.shop-view article.shop-view-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  min-height: 180px;
+}
+section.shop-view article.shop-view-img div.shop-product-info div {
+  padding: 0 5% 5px;
+}
+section.shop-view
+  article.shop-view-img
+  div.shop-product-info
+  div.shop-article-title {
+  padding-top: 5px;
+}
+section.shop-view article.shop-view-img div.shop-article-title {
+  border-bottom: 1px solid #bbc2c4;
+  padding-bottom: 0;
+}
+section.shop-view article.shop-view-img div.shop-article-price {
+  border-top: 1px solid #bbc2c4;
+  text-align: right;
+}
+
+section.shop-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+section.shop-more a.shop-more-button {
+  width: 200px;
+  max-width: 250px;
+  text-align: center;
+  background-color: #4abbc7;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------  Cart ------------------------------------------ */
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+main.main-cart {
+  padding: 5%;
+}
+section.cart-shopping article.cart-product-description {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-top: 1px solid #bbc2c4;
+  border-bottom: 1px solid #bbc2c4;
+  /* align-items: center; */
+}
+section.cart-shopping
+  article.cart-product-description
+  div.cart-product-img-container {
+  width: 30%;
+  max-width: 220px;
+}
+section.cart-shopping
+  article.cart-product-description
+  div.cart-product-img-container
+  img {
+  width: 100%;
+  object-fit: contain;
+}
+
+section.cart-shopping
+  article.cart-product-description
+  div.cart-product-container {
+  width: 60%;
+  /* flex-grow: 1; */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+section.cart-shopping
+  article.cart-product-description
+  div.cart-product-container
+  div.cart-product-top {
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: flex-start;
+}
+section.cart-shopping
+  article.cart-product-description
+  div.cart-product-container
+  div.cart-product-bottom {
+  margin-bottom: 1rem;
+}
+section.cart-shopping
+  article.cart-product-description
+  div.cart-product-container
+  div.cart-product-bottom
+  input {
+  width: 100px;
+}
+
+section.cart-shopping article.cart-product-description div.cart-trash {
+  width: 10%;
+  text-align: center;
+  margin-top: 1rem;
+}
+section.cart-shopping article.cart-product-description div.cart-trash i {
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+article.cart-delivery-container {
+  margin-bottom: 1rem;
+}
+article.cart-delivery-container div.cart-delivery-pre {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+article.cart-delivery-container div.cart-delivery-pre h4:last-child {
+  width: 35%;
+}
+article.cart-delivery-container div.cart-delivery-price label {
+  display: block;
+  padding-bottom: 3px;
+}
+article.cart-delivery-container div.cart-delivery-price select {
+  width: 50%;
+  margin-right: 5px;
+  padding: 1px;
+}
+article.cart-delivery-container div.cart-delivery-price button {
+  padding: 2px 10px;
+  background-color: #bbc2c4;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+article.cart-price {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+article.cart-buttons {
+  width: 90%;
+  margin: 2rem auto 0;
+}
+article.cart-buttons button {
+  display: block;
+  width: 100%;
+  max-width: 450px;
+  margin: 5px auto;
+  padding: 5px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+article.cart-buttons button:first-child {
+  background-color: #4abbc7;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ---------------------------------------------- LogIn ------------------------------------------ */
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+.top-section-login {
+  background-image: url("/images/panoramic/login4.jpg");
+  height: 520px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.content-login {
+  padding: 1.5em;
+}
+.content-register {
+  padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.content .logo {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.contact-wrapper > * {
+  padding: 0.3em;
+  margin: 1em 0;
+}
+
+.contact-form {
+  width: 100%;
+  margin: 10px auto;
+  max-width: 500px;
+}
+
+.contact-form form {
+  box-shadow: 1px 1px 7px 1px rgb(0 0 0 / 30%);
+  background-color: #fff;
+  opacity: 0.9;
+}
+
+.contact-form form p {
+  margin: 0;
+  padding: 0.5em;
+}
+
+.contact-form form p.centrado {
+  text-align: center;
+}
+
+.contact-form form button,
+.contact-form form input,
+.contact-form form textarea {
+  width: 100%;
+  padding: 0.5em;
+  border: none;
+  background: none;
+  outline: none;
+  border-bottom: 1px solid #4abbc7;
+  color: #000;
+}
+.img-edit-product-container input {
+  width: 2rem !important;
+}
+
+.contact-form form div.block {
+  padding: 5px 10px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.contact-form form div.block input {
+  width: unset;
+}
+
+.contact-form form button {
+  background: #bbc2c4;
+  color: #000;
+  border: 0;
+  text-transform: uppercase;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.contact-form form button:hover,
+.contact-form form button:focus {
+  background: #afafaf;
+  color: #fff;
+  transition: background-color 0.5s ease-out;
+  cursor: pointer;
+  outline: none;
+  /* line-height: 1; */
+}
+.contact-form .infovalidacion {
+  font-size: 11px;
+}
+
+.contact-form-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.login-form,
+.signup-form {
+  width: 100%;
+}
+.signup-form {
+  margin-top: 2rem;
+}
+
+.signup-form p {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+.signup-form p button {
+  width: 100%;
+}
+
+.signup-form button {
+  background: #bbc2c4;
+  color: #000;
+  border: 0;
+  text-transform: uppercase;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.signup-form button:hover,
+.signup-form button:focus {
+  background: #afafaf;
+  color: #fff;
+  transition: background-color 0.5s ease-out;
+  cursor: pointer;
+  outline: none;
+}
+
+/*----------- EDIT PRODUCT FORM ---------------*/
+
+/* colocamos imágenes en container */
+.img-edit-product-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  padding: 1rem;
+  align-items: center;
+}
+.img-edit-product-box {
+  max-width: 70px;
+  margin-right: 0.5rem;
+}
+.img-edit-product {
+  width: 100%;
+}
+/* añadí un botón borrar en el form edit */
+.delete-form {
+  padding: 1rem;
+  box-shadow: none !important;
+}
+
+button.button-delete {
+  background-color: #ee3939 !important;
+  width: 80% !important;
+  text-align: center !important;
+  margin: 0 auto !important;
+  display: block !important;
+  margin: 0 auto !important;
+}
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------  Detalle de Producto --------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+.small-container {
+  max-width: 1000px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.single-product {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.small-img-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 15%;
+}
+
+.col-2 img {
+  max-width: 100%;
+  padding: 50px 0;
+}
+
+/* que las img pequeñas tengan una altura mínima */
+.small-img-col {
+  flex-basis: 24%;
+  cursor: pointer;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.single-product .col-2 img {
+  padding: 4%;
+}
+
+.single-product .col-2 {
+  padding: 20px;
+}
+
+.col-2 {
+  flex-basis: 50%;
+  min-width: 300px;
+}
+
+/* para manipular la sección de la foto grande en detail */
+.col-2-left {
+  display: flex;
+  /*flex-direction: column;*/
+  flex-direction: row-reverse;
+}
+/* le damos altura mínima y lo centramos con flex */
+.main-picture {
+  width: 100%;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+}
+
+.col-2 h1 {
+  font-size: 28px;
+  line-height: 32px;
+  margin: 25px 0;
+}
+
+.col-2 p.discount,
+.col-2 h4.discount-price {
+  display: inline-block;
+}
+.col-2 h4.discount-price {
+  padding-right: 1rem;
+}
+.col-2 p.discount {
+  color: #25ca25;
+}
+
+.single-product select {
+  display: block;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.single-product h4 {
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.single-product input {
+  width: 50px;
+  height: 40px;
+  padding-left: 10px;
+  font-size: 20px;
+  margin-right: 10px;
+  border: 1px solid #153351;
+}
+
+.single-product a {
+  text-decoration: none;
+  color: #555;
+}
+
+.single-product .fa {
+  color: #4abbc7;
+  margin-left: 10px;
+}
+
+.single-product p {
+  color: #555;
+}
+
+.btn {
+  display: inline-block;
+  background: #fcd89d;
+  color: #fff;
+  padding: 10px 25px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 0.5s;
+}
+
+.btn:hover {
+  background: #4abbc7;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* --------------------------------------------  INFO -------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+main.main-info {
+  padding: 2rem 5%;
+}
+main.main-info section.info-view {
+  margin: 1rem 0;
+}
+.info-view article.info-text {
+  margin-bottom: 3rem;
+}
+.info-view article.info-text:last-child {
+  margin-bottom: 1rem;
+}
+.info-view article.info-text h2 {
+  margin-bottom: 1rem;
+  color: #153351;
+  font-size: 1.8rem;
+}
+.info-view article.info-text p {
+  font-size: 1.2rem;
+  line-height: 1.8rem;
+  letter-spacing: 0.05rem;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 415 ----------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+/* Para tablets */
+
+/* para pantallas mayores que iPhone 8 Plus */
+@media (min-width: 415px) {
+  /* ------------------------- INDEX --------------------*/
+  /* HEADER */
+
+  /* sacamos el icono de buscar */
+  div.header-icons a.search-icon {
+    display: none;
+  }
+  /* ponemos la barra de búsqueda */
+  header form.form-search {
+    display: block;
+  }
+
+  /* MAIN-INDEX */
+  main.main-index {
+    padding: 0;
+  }
+
+  main section.top-promotion article.top-promotion-img div.main-offer {
+    display: flex;
+  }
+  main section.top-promotion article.top-promotion-img div.main-offer a {
+    font-size: 1.05rem;
+  }
+
+  main section.top-promotion article.top-promotion-img a.shop-now {
+    display: block;
+  }
+
+  div.main-section section.home-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  div.main-section section.home-categories article.home-categories-img {
+    width: 48%;
+  }
+  div.main-section section.home-categories article.home-categories-img3 {
+    width: 100%;
+  }
+  /* sales */
+  main section.home-section-sales div.home-sales article.home-sales-img {
+    width: 30%;
+  }
+  /* main section.home-section-sales div.home-sales article.home-sales-img3 {
+    display: block;
+  } */
+
+  /* FOOTER */
+  nav.nav-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav.nav-footer ul.footer-menu {
+    text-align: right;
+  }
+
+  /* ------------------------- SHOP --------------------*/
+
+  section.shop-view article.shop-view-img {
+    width: 33%;
+  }
+  section.shop-category h1 {
+    font-size: 2rem;
+  }
+
+  /* ------------------------- LOGIN --------------------*/
+
+  .content-login {
+    padding: 2.2rem;
+  }
+  .content-register {
+    padding: 1.5rem 2.2rem 2rem;
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 769 ----------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+/* Para tablets y mayores */
+@media (min-width: 769px) {
+  /* ------------------------- INDEX --------------------*/
+  /* HEADER */
+  /* cambiar header margin y ajustar main */
+  main {
+    margin-top: 145px;
+  }
+
+  header div.top-header {
+    padding: 3px 5%;
+    height: 75px;
+  }
+  /* mostramos la parte de arriba de tiendas y cuenta */
+  .header-account {
+    display: block;
+  }
+  div.top-header {
+    background-color: #4abbc7;
+    border-bottom: 0.5px solid #bbc2c4;
+  }
+
+  /* quitamos el icono del menú desplegable */
+  div.top-header div.header-icon-menu {
+    display: none;
+  }
+  /* se muestra el form por encima */
+  header form.form-search div.input-search {
+    z-index: 0;
+  }
+
+  /* enseñamos el menú por abajo */
+  div.header-bottom {
+    display: block;
+  }
+  /* y le damos formato */
+  div.header-bottom nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* movemos la barra de búsqueda a la dcha */
+  header form.form-search div.input-search {
+    width: 250px;
+    float: right;
+  }
+
+  /* MAIN */
+  main section.top-promotion article.top-promotion-img div.main-offer a {
+    font-size: 1.2rem;
+  }
+  div.main-section section.home-categories article.home-categories-img {
+    width: 48%;
+  }
+  div.main-section section.home-categories article.home-categories-img4 {
+    order: -1;
+  }
+  div.main-section section.home-categories article.home-categories-img5 {
+    order: 3;
+  }
+  div.main-section section.home-categories article.home-categories-img1 {
+    order: 1;
+  }
+  div.main-section section.home-categories article.home-categories-img3 {
+    order: 2;
+  }
+
+  div.main-section section.home-categories article.home-categories-img3,
+  div.main-section section.home-categories article.home-categories-img1,
+  div.main-section section.home-categories article.home-categories-img5 {
+    width: 30%;
+  }
+
+  /* sales */
+  main section.home-section-sales div.home-sales article.home-sales-img {
+    width: 23%;
+  }
+  main section.home-section-sales div.home-sales article.home-sales-img h3,
+  main section.home-section-sales div.home-sales article.home-sales-img p {
+    font-size: initial;
+  }
+  /* main section.home-section-sales div.home-sales article.home-sales-img4 {
+    display: block;
+  } */
+
+  /* FOOTER */
+  section.social-footer {
+    display: none;
+  }
+  section.social-footer-desktop {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 40%;
+  }
+  section.social-footer-desktop img {
+    max-width: 30px;
+  }
+
+  /* ------------------------- SHOP --------------------*/
+
+  section.shop-view article.shop-view-img {
+    width: 25%;
+  }
+  section.shop-category h1 {
+    font-size: 2.8rem;
+  }
+  article.shop-view-img div.shop-product-container div.shop-product-info {
+    font-size: 1rem;
+  }
+
+  /* ------------------------- CART --------------------*/
+
+  section.cart-shopping
+    article.cart-product-description
+    div.cart-product-container
+    div.cart-product-top
+    div
+    h4 {
+    font-size: 1.5rem;
+  }
+  section.cart-shopping
+    article.cart-product-description
+    div.cart-product-container
+    div.cart-product-top
+    div
+    p {
+    font-size: 1.3rem;
+  }
+  section.cart-shopping
+    article.cart-product-description
+    div.cart-product-container
+    div.cart-product-bottom
+    input {
+    width: 150px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 20px;
+    margin-right: 10px;
+    border: 1px solid #153351;
+  }
+  article.cart-delivery-container,
+  article.cart-delivery-container div.cart-delivery-price select,
+  article.cart-delivery-container div.cart-delivery-price button,
+  article.cart-price,
+  article.cart-buttons button {
+    font-size: 1.3rem;
+  }
+
+  /* ------------------------- LOGIN --------------------*/
+
+  .content-login {
+    padding: 3rem;
+  }
+  .content-register {
+    padding: 1.5rem 3rem 2rem;
+  }
+
+  .login-form,
+  .signup-form {
+    width: 50%;
+    padding: 0 2rem;
+  }
+  .signup-form {
+    margin-top: 0;
+    align-self: flex-start;
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 1050 ---------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+/* Para desktop */
+@media (min-width: 1050px) {
+  /* ------------------------- HEADER --------------------*/
+  /* cambiar header margin y ajustar main */
+  main {
+    margin-top: 118px;
+  }
+  header div.top-header {
+    padding: 10px 5%;
+    height: 88px;
+  }
+  /* reducimos el tamaño de la barra búsqueda para dejar hueco al nuevo menú */
+  header form.form-search {
+    width: 250px;
+    flex-grow: 0;
+    margin-left: 1.5rem;
+  }
+  /* mostramos menú */
+  /* que crezca todo lo que pueda. Aún no se muestra */
+  nav.nav-desktop {
+    display: block;
+    font-size: 0.95rem;
+    max-width: 645px;
+    flex-grow: 1;
+  }
+
+  /* hacemos ul flex container y damos formato */
+  nav.nav-desktop ul {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Heebo", sans-serif;
+    /* padding: 0 0.3rem; */
+  }
+  nav.nav-desktop a {
+    transition: border-bottom 150ms;
+  }
+  nav.nav-desktop a:hover {
+    border-bottom: 2px solid #153351;
+    padding-bottom: 5px;
+  }
+
+  div.top-header {
+    background-color: #fff;
+  }
+  /* ponemos margen al logo */
+  div.top-header div.logo {
+    margin-right: 1.5rem;
+  }
+
+  /* escondemos el menú anterior */
+  div.header-bottom {
+    display: none;
+  }
+
+  .header-account {
+    background-color: #4abbc7;
+  }
+  .header-account ul {
+    color: #153351;
+  }
+
+  /* ------------------------- LOGIN --------------------*/
+
+  .contact-wrapper > * {
+    padding: 1em;
+  }
+
+  .contact-form {
+    width: 500px;
+    margin: 20px auto;
+    min-width: inherit;
+  }
+
+  .contact-form form p {
+    margin: 0;
+    padding: 1em;
+  }
+
+  .contact-form form div.block {
+    width: 100%;
+  }
+
+  .signup-form {
+    margin-top: 5rem;
+  }
+}

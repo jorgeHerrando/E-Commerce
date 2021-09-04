@@ -1,0 +1,147 @@
+<%- include('../partials/head') %>
+  <body>
+  <%- include('../partials/header') %>
+
+    <main>
+      <div class="top-section">
+        <section class="top-promotion">
+          <article class="top-promotion-img">
+            <img src="/images/panoramic/login4.jpg" alt="Foto para login" />
+          </article>
+        </section>
+      </div>
+      <div class="content">
+        <h1 class="logo">Alta de Producto</h1>
+        <div class="contact-wrapper">
+          <div class="contact-form">
+
+            <!-- seteamos el form para que pueda recibir imágenes y le damos la ruta que tomará al mandarse -->
+            <form action="/products/" method="POST" enctype="multipart/form-data">
+
+              <p>
+                <label for="name">Nombre del Producto*</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  pattern="([^\s][A-z0-9À-ž\s]+)" 
+                  placeholder="Jean Azul Marino"
+                />
+              </p>
+
+              <p>
+                <label for="description">Descripción*</label>
+                <input
+                  type="text"
+                  name="description"
+                  id="description"
+                  required
+                  pattern="([^\s][A-z0-9À-ž\s]+)"
+                  placeholder="Jean azul oscuro con calce Slim elastizado y un lavado localizado con aspecto desgastado"
+                />
+              </p>
+
+              <p>
+                <label for="image">Ingrese una o más imágenes*</label>
+                <input type="file" name="image" id="image" multiple required/>
+              </p>
+
+              <p>
+                <label for="category">Categoría*</label>
+                <select
+                  name="category"
+                  id="category"
+                  required
+                >
+                  <option value="" disabled selected>Seleccionar Categoría</option>
+                  <option value="Snowboarding">Snowboarding</option>
+                  <option value="Skateboarding">Skateboarding</option>
+                  <option value="Surf">Surf</option>
+                  <option value="Wakeboarding">Wakeboarding</option>
+                  <option value="Accessory">Accessory</option>
+                </select>
+              </p>
+
+              <p>
+                <label for="subcategory">Subcategoría</label>
+                <select
+                  name="subcategory"
+                  id="subcategory" 
+                >
+                  <option value="">Ninguna</option>
+                  <option value="Helmet">Cascos</option>
+                  <option value="Gloves">Guantes</option>
+                  <option value="Protection">Protección</option>
+                  <option value="Fin">Quillas</option>
+                  <option value="Wax">Cera</option>
+                  <option value="Glasses">Gafas</option>
+                </select>
+              </p>
+
+              <p>
+                <label for="brand">Marca*</label>
+                <select
+                  name="brand"
+                  id="brand"
+                  required
+                >
+                  <option value="" disabled selected>Seleccionar Marca</option>
+                  <option value="Quicksilver">Quicksilver</option>
+                  <option value="Billabong">Billabong</option>
+                  <option value="Roxy">Roxy</option>
+                  <option value="Patagonia">Patagonia</option>
+                  <option value="Hurley">Hurley</option>
+                  <option value="Burton">Burton</option>
+                </select>
+              </p>
+
+              <p>
+                <label for="price">Ingrese precio*</label>
+                <input type="number" name="price" id="price" required />
+              </p>
+
+              <p>
+                <label for="discount">Ingrese descuento*</label>
+                <input type="number" name="discount" id="discount" required />
+              </p>
+
+              <p>
+                <label for="sale">En rebajas*</label>
+                <select
+                  name="sale"
+                  id="sale"
+                  required
+                >
+                <!-- poner un if discount distinto 0? -->
+                  <option disabled selected>Tiene descuento</option>
+                  <option value=<%=true%>>Sí</option>
+                  <option value=<%=false%>>No</option>
+                </select>
+              </p>
+
+              <p>
+                <label for="size">Talle*</label>
+                <select
+                  name="size"
+                  id="size"
+                >
+                  <option value="" >Talle único</option>
+                  <option value="S">S</option>
+                  <option value="M">M</option>
+                  <option value="L">L</option>
+                </select>
+              </p>
+              
+              <p class="block">
+                <button type="submit">Crear Producto</button>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

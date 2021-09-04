@@ -1,0 +1,188 @@
+<%- include('./partials/head') %>
+  <body>
+    <%- include('./partials/header') %>
+    <main class="main-index">
+      <div class="top-section">
+        <section class="top-promotion">
+          <article class="top-promotion-img">
+            <div class="top-promotion-top">
+              <img src="/images/panoramic/1080x560_snowboarding_trick_jump_2.jpg" alt="man and woman holding snowboards"/>
+            </div>
+            <div class="main-offer promotion-offer">
+              <a href="/products">OFERTA INICIAL</a>
+            </div>
+            <a href="/products" class="shop-now">Shop Now</a>
+          </article>
+        </section>
+      </div>
+
+      <div class="main-section">
+        <section class="top-info">
+          <article class="top-info-article">
+            <p class="top-info-p">Hasta 12 cuotas sin interés</p>
+          </article>
+        </section>
+
+        <section class="home-categories">
+          <article
+            class="home-categories-img home-categories-img1 article-box-shadow"
+          >
+          <div>
+            <a href="/products"
+              ><img
+                src="/images/square/square_2048_wake.jpg"
+                alt="wakeboarding girl jumping"
+              />
+            </div>
+            <div>
+              <p class="home-categories-title">Wakeboards</p>
+              <p class="home-categories-title">Shop Now</p>
+            </a>
+          </div>
+          </article>
+
+          <article
+            class="home-categories-img home-categories-img2 article-box-shadow"
+          >
+            <a href="products"
+              ><img
+                src="/images/square/square_1080_snowboard.jpg"
+                alt="man on a snowboard"
+              />
+              <p class="home-categories-title">Tablas de Snow</p>
+              <p class="home-categories-title">Shop Now</p>
+            </a>
+          </article>
+
+          <article
+            class="home-categories-img home-categories-img3 article-box-shadow"
+          >
+            <a href="/products"
+              ><img
+                src="/images/square/square_2048x2048_surf-board.jpg"
+                alt="surf board on the sand"
+              />
+              <p class="home-categories-title">Tablas de Surf</p>
+              <p class="home-categories-title">Shop Now</p>
+            </a>
+          </article>
+
+          <article
+            class="home-categories-img home-categories-img4 article-box-shadow"
+          >
+            <a href="/products"
+              ><img
+                src="/images/square/square_2018_skate.jpg"
+                alt="girl skateboarding"
+              />
+              <p class="home-categories-title">Tablas de Skate</p>
+              <p class="home-categories-title">Shop Now</p>
+            </a>
+          </article>
+
+          <article
+            class="home-categories-img home-categories-img5 article-box-shadow"
+          >
+            <a href="/products"
+              ><img
+                src="/images/square/square_900_accessories.jpg"
+                alt="man with accessories"
+              />
+              <p class="home-categories-title">Accesorios</p>
+              <p class="home-categories-title">Shop Now</p>
+            </a>
+          </article>
+        </section>
+
+        <section class="home-section-sales">
+          <h2 class="home-sales-title">Productos en oferta</h2>
+
+          <div class="home-sales">
+            <% for (i=0;i<4;i++) { %>
+              <article class="home-sales-img article-box-shadow">
+                <a href="/products/detail/<%=sales[i].id%>">
+                  <div class="sales-product-container">
+                    <div class="sales-img-container">
+                      <img src="/images/tall/<%=sales[i].image[0]%>" alt="en oferta" />
+                    </div>
+                    <div class="sales-info-container">
+                      <h3><%=sales[i].name%></h3>
+                      <p>$<%=sales[i].price%></p>
+                    </div>
+                  </div>
+                </a>
+              </article>
+            <% } %>
+
+            <!-- <article class="home-sales-img home-sales-img2 article-box-shadow">
+              <a href="/products/productDetail">
+                <div class="sales-product-container">
+                  <div class="sales-img-container">
+                    <img src="/images/tall/975x1461_SkateFlamingo.jpg"
+                    alt="Skateboard"/>
+                  </div>
+                  <div class="sales-info-container">
+                    <h3>Tabla de skate</h3>
+                    <p>$300</p>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <article class="home-sales-img home-sales-img3 article-box-shadow">
+              <a href="/products/productDetail">
+                <div class="sales-product-container">
+                  <div class="sales-img-container">
+                    <img src="/images/tall/1200x1601_snow_berzerker.jpg"
+                      alt="Snowboard"/>
+                  </div>
+                  <div class="sales-info-container">
+                    <h3>Tabla de snow</h3>
+                    <p>$400</p>
+                  </div>
+                </div>
+              </a>
+            </article>
+
+            <article class="home-sales-img home-sales-img4 article-box-shadow">
+              <a href="/products/productDetail">
+                <div class="sales-product-container">
+                  <div class="sales-img-container">
+                    <img src="/images/tall/768x1024_wakeboard.png" alt="wakeboard"/>
+                  </div>
+                  <div class="sales-info-container">
+                    <h3>Wakeboard</h3>
+                    <p>$600</p>
+                  </div>
+                </div>
+              </a>
+            </article> -->
+
+          </div>
+
+          <div class="sales-button">
+            <button type="#">VER MÁS</button>
+          </div>
+        </section>
+
+        <section class="bottom-info">
+          <article class="bottom-info-article">
+            <p class="bottom-info-p">Lorem ipsum dolor sit amet.</p>
+            <p>
+              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sapiente
+              voluptatem, cum eaque animi sint necessitatibus ut dolorem maxime
+              explicabo nemo exercitationem autem sit! Quae quidem natus
+              cupiditate officiis atque laboriosam provident, non nesciunt
+              laudantium ab incidunt unde dicta perspiciatis itaque ipsa sit,
+              magni recusandae, explicabo praesentium quas repellendus! Cumque
+              modi id, rem eos nisi laboriosam animi laudantium nihil tenetur
+              suscipit!
+            </p>
+          </article>
+        </section>
+      </div>
+    </main>
+
+    <%- include('./partials/footer') %>
+  </body>
+</html>

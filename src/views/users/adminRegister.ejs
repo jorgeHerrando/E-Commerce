@@ -1,0 +1,193 @@
+<%- include('../partials/head') %>
+  <body>
+  <%- include('../partials/header') %>
+
+    <main>
+      <div class="top-section">
+        <section class="top-promotion">
+          <article class="top-promotion-img">
+            <img src="/images/panoramic/login4.jpg" alt="Foto para login" />
+          </article>
+        </section>
+      </div>
+      <div class="content content-register">
+        <h1 class="logo">Crear Cuenta</h1>
+        <div class="contact-wrapper">
+          <div class="contact-form">
+
+            <form action="/users" method="POST" enctype="multipart/form-data">
+              <p>
+                <label for="firstName">Nombre*</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  minlength="2"
+                  maxlength="14"
+                  required
+                  pattern="([^\s][A-zÀ-ž\s]+)"
+                  placeholder="Introduzca su nombre"
+                />
+                <label class="infovalidacion"
+                  >El nombre tiene que tener entre 2 a 14 dígitos y sólo puede contener letras.</label
+                >
+              </p>
+
+              <p>
+                <label for="lastName">Apellido*</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="firstName"
+                  minlength="2"
+                  maxlength="14"
+                  required
+                  pattern="([^\s][A-zÀ-ž\s]+)"
+                  placeholder="Introduzca su apellido"
+                />
+                <label class="infovalidacion"
+                  >El apellido tiene que tener entre 2 a 14 dígitos y sólo puede
+                  contener letras.</label
+                >
+              </p>
+
+              <p>
+                <label for="email">E-mail*</label>
+                <input
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="haven@havenboards.com.ar"
+                  required
+                  title="El campo debe tener un dato del tipo E-mail, por lo que debe contener el simbolo @"
+                />
+                <label class="infovalidacion"
+                  >El campo debe tener formato de email</label>
+              </p>
+
+              <p>
+                <label>Contraseña*</label>
+                <input type="password" name="password" required />
+                <!-- <label class="infovalidacion">Las Contraseñas deben coincidir</label> -->
+              </p>
+
+              <!-- <p>
+                <label>Repetir Contraseña*</label>
+                <input type="password" name="rePassword" required />
+                <label class="infovalidacion"
+                  >Las Contraseñas deben coincidir</label>
+              </p> -->
+
+              
+
+              <p>
+                <label for="category">Categoría*</label>
+                <select
+                  name="category"
+                  id="category"
+                  required
+                />
+                  <option disabled selected>Seleccionar Categoria</option>
+                  <option value="user">Usuario</option>
+                  <option value="admin">Administrador</option>
+                </select>
+              </p>
+
+              <p>
+                <label for="image">Ingrese imagen de perfil*</label>
+                <input type="file"
+                  name="image"
+                  id="image"
+                  required
+                />
+              </p>
+
+              <!-- <p>
+                <label for="nombreCompleto">Nombre Completo*</label>
+                <input
+                  type="text"
+                  name="nombreCompleto"
+                  id="nombreCompleto"
+                  placeholder="Introduzca su nombre"
+                  required
+                  title="Aqui va el nombre completo."
+                />
+              </p> -->
+
+              <!-- <p>
+                <label for="telefono">Teléfono*</label>
+                <input
+                  type="tel"
+                  name="tel"
+                  id="tel"
+                  required
+                  title="Un número telefonico válido consiste en 3 digitos para el código de area, un espacio, 4 dígitos para el número, luego un espacio o un guion y otros 4 digitos más"
+                  pattern="[0-9]{3} [0-9]{4}[ -][0-9]{4}"
+                />
+                <label class="infovalidacion">Ej. 011 4981-2539</label>
+              </p> -->
+
+              <!-- <p>
+                <label for="direccion">Dirección*</label>
+                <input
+                  type="text"
+                  name="direccion"
+                  id="direccion"
+                  placeholder="Calle Falsa 1234"
+                  required
+                  title="Aqui va la dirección y puede tener letras y numeros en el mismo campo"
+                />
+              </p> -->
+
+              <!-- <p>
+                <label for="codigo_postal">Código Postal*</label>
+                <input
+                  type="text"
+                  name="codigo_postal"
+                  id="codigo_postal"
+                  placeholder="1714"
+                  required
+                  title="Este campo solo acepta números"
+                />
+              </p> -->
+
+              <!-- <p>
+                <label for="pais">País*</label>
+                <select
+                  name="pais"
+                  id="pais"
+                  placeholder="Argentina"
+                  required
+                >
+                  <option>Seleccionar Opción</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Bolivia">Bolivia</option>
+                  <option value="Brasil">Brasil</option>
+                  <option value="Chile">Chile</option>
+                  <option value="Colombia">Colombia</option>
+                  <option value="Ecuador">Ecuador</option>
+                  <option value="Peru">Peru</option>
+                  <option value="Venezuela">Venezuela</option>
+                </select>
+              </p> -->
+
+              <!-- <p>
+                <label for="ciudad">Ciudad*</label>
+                <input type="text" name="ciudad" id="ciudad" required="" />
+              </p> -->
+
+              <p class="block">
+                <button type="submit">Crear Cuenta</button>
+              </p>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>
+
+

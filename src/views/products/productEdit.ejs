@@ -1,0 +1,175 @@
+<%- include('../partials/head') %>
+  <body>
+  <%- include('../partials/header') %>
+
+    <main>
+      <div class="top-section">
+        <section class="top-promotion">
+          <article class="top-promotion-img">
+            <img src="/images/panoramic/login4.jpg" alt="Foto para login" />
+          </article>
+        </section>
+      </div>
+      <div class="content">
+        <h1 class="logo">Edición de Producto</h1>
+        <div class="contact-wrapper">
+          <div class="contact-form">
+
+            <!-- seteamos el form para que pueda recibir imágenes y le damos la ruta que tomará al mandarse -->
+            <form action="/products/<%= editProduct.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+
+              <p>
+                <label for="name">Nombre del Producto*</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  pattern="([^\s][A-z0-9À-ž\s]+)"
+                  value="<%= editProduct.name %>"
+                />
+              </p>
+
+              <p>
+                <label for="id">ID del Producto*</label>
+                <input
+                  type="number"
+                  name="id"
+                  id="id"
+                  required
+                  value="<%= editProduct.id %>"
+                />
+              </p>
+
+              <p>
+                <label for="description">Descripción</label>
+                <textarea
+                  type="text" name="description"
+                  id="description" pattern="([^\s][A-z0-9À-ž\s]+)"
+                  >
+                  <%= editProduct.description %>
+                </textarea>
+              </p>
+
+              <p>
+                <label for="imagen">Ingrese una o más imágenes</label>
+                <input type="file" name="image" multiple />
+
+                <div class="img-edit-product-container">
+                  <% for (let i = 0; i < editProduct.image.length; i++) { %>
+                    <!-- <input type="checkbox" name="image<%=i+1%>" id="image<%=i+1%>" class="checkbox-input" checked/> -->
+                    <div class="img-edit-product-box">
+                      <!-- <label for="image<%=i+1%>"> -->
+                        <img class="img-edit-product" src="/images/tall/<%= editProduct.image[i]%>" alt="foto producto <%= editProduct.name %>"/>
+                      <!-- </label> -->
+                    </div>
+                  <% } %>
+                </div>
+                
+              </p>
+
+              <p>
+                <label for="category">Categoría*</label>
+                <select
+                  name="category"
+                  id="category"
+                >
+                <!-- comprobamos en cada uno de los option si el valor de la categoría es la que se va a mostrar. Si es así, preseleccionarla para que aparezca directamente -->
+                  <option value="Snowboarding" <%= editProduct.subcategory === "Snowboarding"? 'selected':"" %>>Snowboarding</option>
+                  <option value="Skateboarding" <%= editProduct.subcategory === "Skateboarding"? 'selected':"" %>>Skateboarding</option>
+                  <option value="Surf" <%= editProduct.subcategory === "Surf"? 'selected':"" %>>Surf</option>
+                  <option value="Wakeboarding" <%= editProduct.subcategory === "Wakeboarding"? 'selected':"" %>>Wakeboarding</option>
+                  <option value="Accessory" <%= editProduct.subcategory === "Accessory"? 'selected':"" %>>Accessory</option>
+                </select>
+              </p>
+
+              <p>
+                <label for="subcategory">Subcategoría</label>
+                <select
+                  name="subcategory"
+                  id="subcategory" 
+                >
+                  <option value="" <%= editProduct.subcategory === null ? 'selected':"" %>>Ninguna</option>
+                  <option value="Helmet" <%= editProduct.subcategory === "Helmet"? 'selected':"" %>>Cascos</option>
+                  <option value="Gloves" <%= editProduct.subcategory === "Gloves"? 'selected':"" %>>Guantes</option>
+                  <option value="Protection" <%= editProduct.subcategory === "Protection"? 'selected':"" %>>Protección</option>
+                  <option value="Fin" <%= editProduct.subcategory === "Fin"? 'selected':"" %>>Quillas</option>
+                  <option value="Wax" <%= editProduct.subcategory === "Wax"? 'selected':"" %>>Cera</option>
+                  <option value="Glasses" <%= editProduct.subcategory === "Glasses"? 'selected':"" %>>Gafas</option>
+                </select>
+              </p>
+
+              <p>
+                <label for="brand">Marca*</label>
+                <select
+                  name="brand"
+                  id="brand"
+                  required
+                >
+                <!-- comprobamos en cada uno de los option si el valor de la marca es la que se va a mostrar. Si es así, preseleccionarla para que aparezca directamente -->
+                  <option value="Billabong" <%= editProduct.brand === "Billabong"? 'selected':"" %>>Billabong</option>
+                  <option value="Quicksilver" <%= editProduct.brand === "Quicksilver"? 'selected':"" %>>Quicksilver</option>
+                  <option value="Roxy" <%= editProduct.brand === "Roxy"? 'selected':"" %>>Roxy</option>
+                  <option value="Patagonia" <%= editProduct.brand === "Patagonia"? 'selected':"" %>>Patagonia</option>
+                  <option value="Hurley" <%= editProduct.brand === "Hurley"? 'selected':"" %>>Hurley</option>
+                  <option value="Burton" <%= editProduct.brand === "Burton"? 'selected':"" %>>Burton</option>
+                </select>
+              </p>
+
+              <p>
+                <label for="price">Precio*</label>
+                <input type="number" name="price" id="price" value=<%= editProduct.price %> required />
+              </p>
+
+              <p>
+                <label for="discount">Ingrese descuento*</label>
+                <input type="number" name="discount"  value=<%= editProduct.discount %> id="discount" required />
+              </p>
+
+              <p>
+                <label for="size">Talle*</label>
+                <select
+                  name="size"
+                  id="size"
+                >
+                  <option value="" <%= editProduct.size === null? 'selected':"" %>>Talle único</option>
+                  <option value="S" <%= editProduct.size === "S"? 'selected':"" %>>S</option>
+                  <option value="M" <%= editProduct.size === "M"? 'selected':"" %>>M</option>
+                  <option value="L" <%= editProduct.size === "L"? 'selected':"" %>>L</option>
+                </select>
+              </p>
+
+              <p>
+                <label for="sale">En rebajas*</label>
+                <select
+                  name="sale"
+                  id="sale"
+                  required
+                >
+                <!-- poner un if discount distinto 0? -->
+                  <option value=<%=true%> <%= editProduct.sale == true? 'selected':"" %>>Sí</option>
+                  <option value=<%=false%>>  <%= editProduct.sale == false? 'selected':"" %>>No</option>
+                </select>
+              </p>
+
+              <p class="block">
+                <button type="submit">Editar Producto</button>
+              </p>
+            </form>
+
+            <!-- hacemos otro form para poder dar ruta al botón que nos llevará a eliminar este producto -->
+            <form class="delete-form"
+                action="/products/<%= editProduct.id %>?_method=DELETE"
+                method="POST">
+                <button type="submit" class="button-delete">
+                  ELIMINAR
+                </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

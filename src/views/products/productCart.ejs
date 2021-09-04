@@ -1,0 +1,80 @@
+<%- include('../partials/head') %>
+  <body>
+  <%- include('../partials/header') %>
+    <main class="main-cart">
+      <h1>Su pedido</h1>
+      <section class="cart-shopping">
+        <!-- descripcion del carrito -->
+        <article class="cart-product-description">
+          <div class="cart-product-img-container">
+            <a href="/products/productDetail"
+              ><img
+                src="/images/tall/1200x1601_snow_berzerker.jpg"
+                alt="producto en carrito"
+            /></a>
+          </div>
+          <div class="cart-product-container">
+            <div class="cart-product-top">
+              <div class="cart-product">
+                <a href="/products/productDetail"
+                  ><h4 class="cart-product-item">Nombre del producto</h4></a
+                >
+                <p class="cart-product-price">Precio</p>
+              </div>
+            </div>
+            <div class="cart-product-bottom">
+              <form action="#" method="POST">
+                <input
+                  type="number"
+                  name="product-quantity"
+                  id="product-quantity"
+                  placeholder="Cantidad"
+                />
+              </form>
+            </div>
+          </div>
+          <div class="cart-trash">
+            <i class="fas fa-trash"></i>
+          </div>
+        </article>
+        <!-- delivery -->
+        <article class="cart-delivery-container">
+          <div class="cart-delivery-pre">
+            <h4><strong>Subtotal (sin envío): </strong></h4>
+            <h4><strong>Precio: </strong></h4>
+          </div>
+          <div class="cart-delivery-price">
+            <form action="#" method="POST">
+              <label for="delivery">¿A dónde lo enviamos?</label>
+              <select name="delivery" id="delivery">
+                <option value="CABA">Ciudad Autónoma de Buenos Aires</option>
+                <option value="Norte">GBA Norte</option>
+                <option value="Sur">GBA Sur</option>
+                <option value="Este">GBA Este</option>
+                <option value="Oeste">GBA Oeste</option>
+              </select>
+              <button type="submit">Aplicar</button>
+            </form>
+          </div>
+        </article>
+        <!-- precio total -->
+        <article class="cart-price">
+          <h4>Total:</h4>
+          <p>£100</p>
+        </article>
+      </section>
+      <section class="cart-action-buttons">
+        <!-- cart buttons -->
+        <article class="cart-buttons">
+          <button class="go-to payment">Iniciar compra</button>
+          
+          <button class="keep-buying"><a href="/products">Seguir comprando</a>
+          </button>
+          
+        </article>
+      </section>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

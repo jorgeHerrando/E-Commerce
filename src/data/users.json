@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "firstName": "Jorge",
+    "lastName": "Herrando",
+    "password": "jorgepassword",
+    "email": "jorge@gmail.com",
+    "category": "admin",
+    "image": "IMG_7143.JPG"
+  },
+  {
+    "id": 2,
+    "firstName": "Pablo",
+    "lastName": "Sarrion",
+    "password": "pablopassword",
+    "email": "pablo@gmail.com",
+    "category": "admin",
+    "image": "IMG_7143.JPG"
+  },
+  {
+    "id": 3,
+    "firstName": "Florencia",
+    "lastName": "Ocampo",
+    "password": "florpassword",
+    "email": "flor@gmail.com",
+    "category": "admin",
+    "image": "IMG_7143.JPG"
+  },
+  {
+    "id": 4,
+    "firstName": "Name uno",
+    "lastName": "Surname uno",
+    "password": "contrasena1",
+    "email": "usuario1@gmail.com",
+    "category": "user",
+    "image": "IMG_7143.JPG"
+  },
+  {
+    "id": 5,
+    "firstName": "Nuevo Usuario",
+    "lastName": "Garijo",
+    "password": "aaaa",
+    "email": "jorge@gmail.com",
+    "category": "user",
+    "image": "3.jpg"
+  }
+]

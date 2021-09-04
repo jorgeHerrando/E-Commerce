@@ -1,0 +1,118 @@
+<%- include('../partials/head') %>
+  <body>
+  <%- include('../partials/header') %>
+
+    <main>
+      <div class="top-section">
+        <section class="top-promotion">
+          <article class="top-promotion-img">
+            <img src="/images/panoramic/login4.jpg" alt="Foto para login" />
+          </article>
+        </section>
+      </div>
+
+      <div class="small-container single-product">
+        <div class="row">
+          <div class="col-2 col-2-left">
+            <div class="main-picture">
+              <!-- mostramos la primera imagen que nos llega desde el controlador -->
+              <img src="/images/tall/<%= detailProduct.image[0] %>" width="100%" alt="imagen de producto" id="ProductImg" />
+            </div>
+            <div class="small-img-row">
+              <div class="small-img-col">
+                <!-- mostramos la primera imagen que nos llega desde el controlador -->
+                <img
+                  src="/images/tall/<%= detailProduct.image[0] %>"
+                  alt=""
+                  width="100%"
+                  class="small-img"
+                />
+              </div>
+              <div class="small-img-col">
+                <!-- mostramos la segunda imagen que nos llega desde el controlador -->
+                <img
+                  src="/images/tall/<%= detailProduct.image[1] %>"
+                  alt=""
+                  width="100%"
+                  class="small-img"
+                />
+              </div>
+              <div class="small-img-col">
+                <!-- mostramos la tercera imagen que nos llega desde el controlador -->
+                <img
+                  src="/images/tall/<%= detailProduct.image[2] %>"
+                  alt=""
+                  width="100%"
+                  class="small-img"
+                />
+              </div>
+              <div class="small-img-col">
+                <!-- mostramos la cuarta imagen que nos llega desde el controlador -->
+                <img
+                  src="/images/tall/<%= detailProduct.image[3] %>"
+                  alt=""
+                  width="100%"
+                  class="small-img"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="col-2">
+            <!-- mostramos la marca y el nombre en mayúsculas -->
+            <p><%= (detailProduct.brand).toUpperCase() %></p> 
+            <h1><%= (detailProduct.name).toUpperCase() %></h1>
+            <% if(detailProduct.sale === false) { %>
+              <h4>$<%= detailProduct.price %></h4>
+              <% } else { %>
+              <h3 class="previous-price"><strike>$<%= detailProduct.price %></strike></h3>
+              <h4 class="discount-price">$<%= (Math.round((detailProduct.price - (detailProduct.price*detailProduct.discount)/100)*100)/100).toFixed(2) %></h4>
+              <p class="discount"><%=detailProduct.discount%>% OFF</p>
+            <% } %> 
+
+
+            <!-- esto se muestra si el producto dispone de tallas. Si no es null -->
+            <% if(detailProduct.size !== null) { %>
+              <select name="Sizes" id="">
+                <option>Select Size</option>
+                <option value="L">Large</option>
+                <option value="M">Medium</option>
+                <option value="S">Small</option>
+              </select>
+            <% } %>
+            <p>
+              <input type="number" value="1" />
+              <a href="#" class="btn">Add to Cart</a>
+              <h3>Product Details<i class="fa fa-indent"></i></h3>
+              <br />
+            </p>
+            <p>
+              <!-- mostramos descripción -->
+              <%= detailProduct.description %>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- pequeño script para la muestra de las imágenes -->
+      <script>
+        let ProductImg = document.getElementById("ProductImg");
+        let SmallImg = document.getElementsByClassName("small-img");
+
+        SmallImg[0].onclick = function () {
+          ProductImg.src = SmallImg[0].src;
+        };
+        SmallImg[1].onclick = function () {
+          ProductImg.src = SmallImg[1].src;
+        };
+        SmallImg[2].onclick = function () {
+          ProductImg.src = SmallImg[2].src;
+        };
+        SmallImg[3].onclick = function () {
+          ProductImg.src = SmallImg[3].src;
+        };
+      </script>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>
