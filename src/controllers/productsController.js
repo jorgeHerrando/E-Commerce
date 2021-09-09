@@ -1,23 +1,19 @@
 const fs = require("fs");
 const path = require("path");
 
+const { validationResult } = require("express-validator");
+
 const productsFilePath = path.join(__dirname, "../data/products.json"); //ruta a nuestra DB JSON
 let products = JSON.parse(fs.readFileSync(productsFilePath, "utf-8")); // pasamos de formato JSON a JS
-
-// esto era de prueba
-const categoria = ["Snowboard"];
 
 const productsController = {
   shop: (req, res) => {
     res.render("products/shop", {
-      title: "Havenboards - Tienda",
       products: products, //le pasamos todos los productos con todas sus key:value
     });
   },
   productCart: (req, res) => {
-    res.render("products/productCart", {
-      title: "Havenboards - Shopping Cart",
-    });
+    res.render("products/productCart");
   },
   detail: (req, res) => {
     let id = req.params.id; //recuperamos el param del url
@@ -25,20 +21,26 @@ const productsController = {
     let detailProduct = products.find((elem) => elem.id == id); //encontramos el elem con el mismo id en nuestra DB ya transformada
 
     res.render("products/productDetail", {
-      title: "Havenboards - Product Detail",
       detailProduct: detailProduct, //mandamos el producto que deseamos
     });
   },
   create: (req, res) => {
-    res.render("products/createProduct", {
-      title: "Havenboards - Loading Product",
-    });
+    res.render("products/createProduct");
   },
   store: (req, res) => {
+    const resultValidation = validationResult(req);
+
+    if (resultValidation.errors.length > 0) {
+      return res.render("products/createProduct", {
+        errors: resultValidation.mapped(), //convierto el array errors en obj.literal
+        oldData: req.body,
+      });
+    }
+
     // con req.files accedemos a todos los file mandados y guardados en array. Solo queremos el nombre así que creamos nuevo array donde los pushearemos
     let images = [];
     for (i = 0; i < req.files.length; i++) {
-      images.push(req.files[i].originalname);
+      images.push(req.files[i].filename);
     }
 
     // crear nuevo id para producto creado
@@ -57,7 +59,7 @@ const productsController = {
       price: Number(req.body.price),
       size: req.body.size ? req.body.size : null, // si el valor que llega es vacío, ponle null
       discount: Number(req.body.discount),
-      sale: Boolean(req.body.sale),
+      sale: Number(req.body.sale),
     };
 
     // agregamos nuevo producto
@@ -66,7 +68,7 @@ const productsController = {
     // reescribimos la BD en formato JSON
     fs.writeFileSync(productsFilePath, JSON.stringify(products));
 
-    res.redirect("/products/detail/" + newId);
+    res.redirect("products/productDetail/" + newId);
   },
 
   productEditView: (req, res) => {
@@ -75,7 +77,6 @@ const productsController = {
     let editProduct = products.find((elem) => elem.id == id);
 
     res.render("products/productEdit", {
-      title: "Havenboards - Editing Product",
       editProduct: editProduct,
     });
   },
@@ -83,6 +84,17 @@ const productsController = {
     let id = req.params.id;
 
     let editedProduct = products.find((elem) => elem.id == id);
+
+    const resultValidation = validationResult(req);
+
+    if (resultValidation.errors.length > 0) {
+      return res.redirect("products/productEdit", {
+        editProduct: editedProduct,
+        errors: resultValidation.mapped(), //convierto el array errors en obj.literal
+        oldData: req.body,
+      });
+    }
+
     // con req.files accedemos a todos los file mandados y guardados en array. Solo queremos el nombre así que creamos array con lo anterior donde los pushearemos
     let images = editedProduct.image;
     for (i = 0; i < req.files.length; i++) {
@@ -102,7 +114,6 @@ const productsController = {
     editedProduct.size = req.body.size ? req.body.size : null; // si el valor que llega es vacío, ponle null
     editedProduct.discount = Number(req.body.discount);
     editedProduct.sale = Boolean(req.body.sale);
-    console.log(products);
 
     fs.writeFileSync(productsFilePath, JSON.stringify(products));
 

@@ -143,7 +143,7 @@ header form.form-search div.input-search {
   position: relative;
   max-width: 320px;
   margin: 0 auto;
-  z-index: -1;
+  z-index: 0;
 }
 /* posicionamos i */
 header form.form-search div.input-search i {
@@ -246,11 +246,11 @@ div.header-bottom nav ul li a span i {
 div.header-bottom nav ul li a b {
   display: inline-block;
   height: 8px;
-  width: 110%;
+  width: calc(100% + 15px);
   background-color: #fcd89d;
   position: absolute;
   border-radius: 8px;
-  left: -7%;
+  left: -6.5px;
   bottom: -2px;
   transition-duration: 0.32s;
   transition-timing-function: ease;
@@ -954,7 +954,10 @@ article.cart-buttons button:first-child {
   /* line-height: 1; */
 }
 .contact-form .infovalidacion {
-  font-size: 11px;
+  font-size: 13px;
+  color: #bf1725;
+  padding-left: 3px;
+  display: inline-block;
 }
 
 .contact-form-container {
@@ -1001,6 +1004,15 @@ article.cart-buttons button:first-child {
   outline: none;
 }
 
+/* VALIDACION */
+.contact-form form button.is-invalid,
+.contact-form form input.is-invalid,
+.contact-form form textarea.is-invalid {
+  border-bottom: none;
+  border: 1px solid #bf1725;
+  border-radius: 4px;
+}
+
 /*----------- EDIT PRODUCT FORM ---------------*/
 
 /* colocamos imágenes en container */
@@ -1010,7 +1022,9 @@ article.cart-buttons button:first-child {
   justify-content: flex-start;
   padding: 1rem;
   align-items: center;
+  padding-bottom: 0;
 }
+
 .img-edit-product-box {
   max-width: 70px;
   margin-right: 0.5rem;
@@ -1022,6 +1036,7 @@ article.cart-buttons button:first-child {
 .delete-form {
   padding: 1rem;
   box-shadow: none !important;
+  margin-top: 1rem;
 }
 
 button.button-delete {

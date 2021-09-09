@@ -43,5 +43,14 @@
     "email": "jorge@gmail.com",
     "category": "user",
     "image": "3.jpg"
+  },
+  {
+    "id": 6,
+    "firstName": "Jorge",
+    "lastName": "Herrando",
+    "password": "$2a$10$QMx/Ty8A7a/3BO8YizTZ4OWPgznhJNWfL1eivsQGOoTRQK7O053qq",
+    "email": "jorge@gmail.com",
+    "category": "user",
+    "image": "defaultAvatar.png"
   }
 ]

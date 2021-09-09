@@ -1,4 +1,4 @@
-<%- include('../partials/head') %>
+<%- include('../partials/head', { title: "Havenboards - Log In" }) %>
   <body>
     <%- include('../partials/header') %>
 
@@ -10,7 +10,7 @@
               <h2 class="logo">Iniciar Sesión</h2>
               <div class="contact-wrapper">
                 <div class="contact-form">
-                  <form action="">
+                  <form action="/profile/#" method="GET">
                     <p>
                       <label for="nombreCompleto">Nombre de Usuario</label>
                       <input

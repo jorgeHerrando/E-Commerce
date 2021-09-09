@@ -10,7 +10,7 @@ const app = express();
 // ************ Middlewares ************
 
 app.use(express.static("public")); // Necesario para los archivos estáticos en el folder /public
-app.use(express.urlencoded({ extended: false })); // to recognize the incoming Request Object as strings or arrays
+app.use(express.urlencoded({ extended: false })); // to recognize the incoming Request Object as strings or arrays. Nos permite capturar la info del formulario en req.body
 app.use(express.json()); // to recognize the incoming Request Object as a JSON Object
 app.use(methodOverride("_method")); // Pasar poder pisar el method="POST" en el formulario por PUT y DELETE
 
@@ -21,9 +21,9 @@ app.set("views", path.join(__dirname, "src/views")); // express accede directame
 
 // ************ Route System require and use() ************
 
-const mainRouter = require("./src/routes/main");
-const usersRouter = require("./src/routes/users");
-const productsRouter = require("./src/routes/products");
+const mainRouter = require("./src/routes/mainRouter");
+const usersRouter = require("./src/routes/usersRoutes");
+const productsRouter = require("./src/routes/productsRoutes");
 
 app.use("/", mainRouter);
 app.use("/users", usersRouter);

@@ -1,4 +1,6 @@
-<%- include('../partials/head') %>
+<%- include('../partials/head', {
+  title: "Havenboards - Loading Product",
+}) %>
   <body>
   <%- include('../partials/header') %>
 
@@ -16,7 +18,7 @@
           <div class="contact-form">
 
             <!-- seteamos el form para que pueda recibir imágenes y le damos la ruta que tomará al mandarse -->
-            <form action="/products/" method="POST" enctype="multipart/form-data">
+            <form action="/products" method="POST" enctype="multipart/form-data">
 
               <p>
                 <label for="name">Nombre del Producto*</label>
@@ -27,7 +29,13 @@
                   required
                   pattern="([^\s][A-z0-9À-ž\s]+)" 
                   placeholder="Jean Azul Marino"
-                />
+                  class="<%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                  value="<%= locals.oldData && oldData.name ? oldData.name : null%>"/>
+                <% if (locals.errors && errors.name) { %>
+                  <label class="infovalidacion">
+                    <%= errors.name.msg %>
+                  </label>
+                <% } %>
               </p>
 
               <p>
@@ -39,12 +47,23 @@
                   required
                   pattern="([^\s][A-z0-9À-ž\s]+)"
                   placeholder="Jean azul oscuro con calce Slim elastizado y un lavado localizado con aspecto desgastado"
-                />
+                  class="<%= locals.errors && errors.description ? 'is-invalid' : null %>" 
+                  value="<%= locals.oldData && oldData.description ? oldData.description : null%>"/>
+                  <% if (locals.errors && errors.description) { %>
+                    <label class="infovalidacion">
+                      <%= errors.description.msg %>
+                    </label>
+                  <% } %>
               </p>
 
               <p>
                 <label for="image">Ingrese una o más imágenes*</label>
-                <input type="file" name="image" id="image" multiple required/>
+                <input type="file" name="image" id="image" multiple class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" required/>
+                <% if (locals.errors && errors.image) { %>
+                  <label class="infovalidacion">
+                    <%= errors.image.msg %>
+                  </label>
+                <% } %>
               </p>
 
               <p>
@@ -54,13 +73,21 @@
                   id="category"
                   required
                 >
+                <% const categories = ["Snowboarding", "Skateboarding", "Surf", "Wakeboarding", "Accessory"] %> 
+
                   <option value="" disabled selected>Seleccionar Categoría</option>
-                  <option value="Snowboarding">Snowboarding</option>
-                  <option value="Skateboarding">Skateboarding</option>
-                  <option value="Surf">Surf</option>
-                  <option value="Wakeboarding">Wakeboarding</option>
-                  <option value="Accessory">Accessory</option>
+
+                  <% for (const oneCategory of categories) { %>
+                    <option value="<%= oneCategory %>" 
+                    <%= locals.oldData && (oldData.category === oneCategory) ? 'selected':"" %>><%= oneCategory %></option>
+                  <% } %>
+                  
                 </select>
+                <% if (locals.errors && errors.category) { %>
+                  <label class="infovalidacion">
+                    <%= errors.category.msg %>
+                  </label>
+                <% } %>
               </p>
 
               <p>
@@ -69,14 +96,23 @@
                   name="subcategory"
                   id="subcategory" 
                 >
-                  <option value="">Ninguna</option>
-                  <option value="Helmet">Cascos</option>
-                  <option value="Gloves">Guantes</option>
-                  <option value="Protection">Protección</option>
-                  <option value="Fin">Quillas</option>
-                  <option value="Wax">Cera</option>
-                  <option value="Glasses">Gafas</option>
+
+                <% const subcategories = ["Helmet", "Gloves", "Protection", "Fin", "Wax", "Glasses"] %>
+
+                  <option value=""
+                  <%= locals.oldData  && (oldData.subcategory === "") ? 'selected':"" %>>Ninguna</option>
+
+                  <% for (const oneSubcategory of subcategories) { %>
+                    <option value="<%= oneSubcategory %>" 
+                    <%= locals.oldData && (oldData.subcategory === oneSubcategory) ? 'selected':"" %>><%= oneSubcategory %></option>
+                  <% } %>
+
                 </select>
+                <% if (locals.errors && errors.subcategory) { %>
+                  <label class="infovalidacion">
+                    <%= errors.subcategory.msg %>
+                  </label>
+                <% } %>
               </p>
 
               <p>
@@ -86,24 +122,45 @@
                   id="brand"
                   required
                 >
+                <% const brands = ["Quicksilver", "Billabong", "Roxy", "Patagonia", "Hurley", "Burton"] %> 
+
                   <option value="" disabled selected>Seleccionar Marca</option>
-                  <option value="Quicksilver">Quicksilver</option>
-                  <option value="Billabong">Billabong</option>
-                  <option value="Roxy">Roxy</option>
-                  <option value="Patagonia">Patagonia</option>
-                  <option value="Hurley">Hurley</option>
-                  <option value="Burton">Burton</option>
+
+                  <% for (const oneBrand of brands) { %>
+                    <option value="<%= oneBrand %>" 
+                    <%= locals.oldData && (oldData.brand === oneBrand) ? 'selected':"" %>><%= oneBrand %></option>
+                  <% } %>
+
                 </select>
+                <% if (locals.errors && errors.brand) { %>
+                  <label class="infovalidacion">
+                    <%= errors.brand.msg %>
+                  </label>
+                <% } %>
               </p>
 
               <p>
                 <label for="price">Ingrese precio*</label>
-                <input type="number" name="price" id="price" required />
+                <input type="number" name="price" id="price" required 
+                class="<%= locals.errors && errors.price ? 'is-invalid' : null %>"
+                value="<%= locals.oldData && oldData.price ? oldData.price : null%>" 
+                />
+                <% if (locals.errors && errors.price) { %>
+                  <label class="infovalidacion">
+                    <%= errors.price.msg %>
+                  </label>
+                <% } %>
               </p>
 
               <p>
                 <label for="discount">Ingrese descuento*</label>
-                <input type="number" name="discount" id="discount" required />
+                <input type="number" name="discount" id="discount" required class="<%= locals.errors && errors.discount ? 'is-invalid' : null %>" 
+                value="<%= locals.oldData && oldData.discount ? oldData.discount : null%>"/>
+                <% if (locals.errors && errors.discount) { %>
+                  <label class="infovalidacion">
+                    <%= errors.discount.msg %>
+                  </label>
+                <% } %>
               </p>
 
               <p>
@@ -115,9 +172,16 @@
                 >
                 <!-- poner un if discount distinto 0? -->
                   <option disabled selected>Tiene descuento</option>
-                  <option value=<%=true%>>Sí</option>
-                  <option value=<%=false%>>No</option>
+                  <option value="1" 
+                  <%= locals.oldData  && (oldData.sale === "1") ? 'selected':"" %>>Sí</option>
+                  <option value="0" 
+                  <%= locals.oldData  && (oldData.sale === "0") ? 'selected':"" %>>No</option>
                 </select>
+                <% if (locals.errors && errors.sale) { %>
+                  <label class="infovalidacion">
+                    <%= errors.sale.msg %>
+                  </label>
+                <% } %>
               </p>
 
               <p>
@@ -126,11 +190,20 @@
                   name="size"
                   id="size"
                 >
-                  <option value="" >Talle único</option>
-                  <option value="S">S</option>
-                  <option value="M">M</option>
-                  <option value="L">L</option>
+                  <option value=""
+                  <%= locals.oldData  && (oldData.size === "") ? 'selected':"" %> >Talle único</option>
+                  <option value="S"
+                  <%= locals.oldData  && (oldData.size === "S") ? 'selected':"" %>>S</option>
+                  <option value="M"
+                  <%= locals.oldData  && (oldData.size === "M") ? 'selected':"" %>>M</option>
+                  <option value="L"
+                  <%= locals.oldData  && (oldData.size === "L") ? 'selected':"" %>>L</option>
                 </select>
+                <% if (locals.errors && errors.size) { %>
+                  <label class="infovalidacion">
+                    <%= errors.size.msg %>
+                  </label>
+                <% } %>
               </p>
               
               <p class="block">
