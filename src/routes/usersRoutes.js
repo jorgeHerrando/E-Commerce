@@ -13,7 +13,7 @@ const authMiddleware = require("../middlewares/authMiddleware");
 const usersController = require("../controllers/usersController");
 
 // Formulario de registro
-router.get("/register", guestMiddleware, usersController.register);
+router.get("/register", guestMiddleware, usersController.register); //con guestMiddleware no puede entrar a register o login (+abajo)
 
 // Procesar registro
 router.post(
@@ -30,7 +30,7 @@ router.get("/login", guestMiddleware, usersController.login);
 router.post("/login", loginValidation, usersController.processLogin);
 
 // Perfil de usuario
-router.get("/profile", authMiddleware, usersController.profile);
+router.get("/profile", authMiddleware, usersController.profile); //no deja entrar si no esta logueado
 
 // Logout
 router.get("/logout", usersController.logout);

@@ -2,7 +2,7 @@
 const express = require("express");
 
 const session = require("express-session");
-const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
+const cookies = require("cookie-parser");
 
 const path = require("path");
 const methodOverride = require("method-override");
@@ -10,6 +10,8 @@ const methodOverride = require("method-override");
 
 // ************ express() ************
 const app = express();
+
+const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
 
 // ************ Middlewares ************
 
@@ -21,6 +23,8 @@ app.use(
     saveUninitialized: false,
   })
 );
+
+app.use(cookies()); //para trabajar con cookies
 
 // comprobar si esta logueado en todas las rutas
 app.use(userLoggedMiddleware);

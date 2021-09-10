@@ -254,6 +254,9 @@ nav.nav-list li:last-child ul li {
 nav.nav-list li:last-child ul li:first-child {
   flex: 1 1 50%;
 }
+nav.nav-list li:last-child ul li a:hover {
+  color: #000;
+}
 
 /* no se muestra de momento */
 nav.nav-desktop {

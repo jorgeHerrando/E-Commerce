@@ -36,6 +36,12 @@ const usersController = {
         delete userToLogin.password;
         // se crea obj.literal session con prop userLogged y valor userToLogin
         req.session.userLogged = userToLogin;
+
+        if (req.body.remember) {
+          res.cookie("userEmail", req.body.email, {
+            maxAge: 1000 * 60 * 60 * 5,
+          });
+        }
         return res.redirect("/users/profile");
       }
       // si contraseña inválida
@@ -107,7 +113,8 @@ const usersController = {
   },
 
   logout: (req, res) => {
-    req.session.destroy(); //destruye lo que hay en session
+    req.session.destroy();
+    res.clearCookie("userEmail"); //destruye lo que hay en session y cookies
     return res.redirect("/");
   },
 
