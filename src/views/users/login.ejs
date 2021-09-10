@@ -10,23 +10,41 @@
               <h2 class="logo">Iniciar Sesión</h2>
               <div class="contact-wrapper">
                 <div class="contact-form">
-                  <form action="/profile/#" method="GET">
+                  <form action="/users/login" method="POST">
                     <p>
-                      <label for="nombreCompleto">Nombre de Usuario</label>
+                      <label for="userName">Email</label>
                       <input
-                        type="text"
-                        name="nombreCompleto"
-                        id="nombreCompleto"
+                        type="email"
+                        name="email"
+                        id="email"
+                        required
+                        title="El campo debe tener formato email"
+                        placeholder="Introduzca su email"
+                        class="<%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                        value="<%= locals.oldData && oldData.email ? oldData.email : null%>"
                       />
+                      <% if (locals.errors && errors.email) { %> 
+                        <label class="infovalidacion">
+                          <%= errors.email.msg %>
+                        </label>
+                      <% } %>
                     </p>
                     <p>
                       <label>Contraseña</label>
-                      <input type="password" name="password" />
+                      <input type="password" name="password" required placeholder="Introduzca su contraseña" class="<%= locals.errors && errors.password ? 'is-invalid' : null %>"/>
+                      <% if (locals.errors && errors.password) { %> 
+                        <label class="infovalidacion">
+                          <%= errors.password.msg %>
+                        </label>
+                      <% } %>
                     </p>
                     <div class="block">
-                      <input type="checkbox" name="recordar" id="recordar" />
-                      <label>Recordar Mi Usuario</label>
+                      <input type="checkbox" name="remember" id="remember" />
+                      <label for="remember">Recordar Mi Usuario</label>
                     </div>
+                      
+                      <!-- register -->
+                    
                     <p class="block">
                       <button type="submit">Iniciar Sesión</button>
                     </p>

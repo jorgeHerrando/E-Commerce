@@ -1,0 +1,31 @@
+/*  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+/*  */
+
+div.profile-container section.profile-main-data div.profile-img {
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+div.profile-container section.profile-main-data div.profile-img img {
+  width: 80%;
+  position: relative;
+  z-index: -1;
+}

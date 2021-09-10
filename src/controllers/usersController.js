@@ -11,9 +11,59 @@ const usersController = {
   login: (req, res) => {
     res.render("users/login");
   },
+
+  processLogin: (req, res) => {
+    const resultValidation = validationResult(req);
+
+    // validaciones express
+    if (resultValidation.errors.length > 0) {
+      return res.render("users/login", {
+        errors: resultValidation.mapped(), //convierto el array errors en obj.literal
+        oldData: req.body,
+      });
+    }
+
+    // existe el user?
+    let userToLogin = User.findByField("email", req.body.email);
+
+    if (userToLogin) {
+      // el password coincide?
+      let validPassword = bcrypt.compareSync(
+        req.body.password,
+        userToLogin.password
+      );
+      if (validPassword) {
+        delete userToLogin.password;
+        // se crea obj.literal session con prop userLogged y valor userToLogin
+        req.session.userLogged = userToLogin;
+        return res.redirect("/users/profile");
+      }
+      // si contraseña inválida
+      return res.render("users/login", {
+        errors: {
+          email: {
+            msg: "Las credenciales no son inválidas",
+          },
+        },
+        oldData: req.body,
+      });
+    }
+
+    // si no se encuentra el email
+    return res.render("users/login", {
+      errors: {
+        email: {
+          msg: "Usuario no registrado",
+        },
+      },
+      oldData: req.body,
+    });
+  },
+
   register: (req, res) => {
     res.render("users/register");
   },
+
   createUser: (req, res) => {
     const resultValidation = validationResult(req);
 
@@ -40,6 +90,7 @@ const usersController = {
 
     let userToCreate = {
       ...req.body,
+      category: "user",
       image: req.file ? req.file.filename : "defaultAvatar.png",
       password: bcrypt.hashSync(req.body.password, 10),
     };
@@ -48,20 +99,18 @@ const usersController = {
 
     return res.redirect("/users/login");
   },
-  processLogin: (req, res) => {
-    // if(!users) {
-    //   users = [];
-    // }
-    for (let i = 0; i < users.length; i++) {
-      if (
-        users[i].email == req.body.email &&
-        bcrypt.compareSync(req.body.password, users[i].password)
-      ) {
-        res.render("adminIndex");
-      }
-    }
-    res.render("users/login", { title: "Havenboards - Log In" });
+
+  profile: (req, res) => {
+    res.render("users/profile", {
+      user: req.session.userLogged,
+    });
   },
+
+  logout: (req, res) => {
+    req.session.destroy(); //destruye lo que hay en session
+    return res.redirect("/");
+  },
+
   // admin: (req, res) => {
   //   res.render("users/userAdmin", { title: "Admin - Sign Up" });
   // },

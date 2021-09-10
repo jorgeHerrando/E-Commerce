@@ -4,7 +4,7 @@
     "firstName": "Jorge",
     "lastName": "Herrando",
     "password": "jorgepassword",
-    "email": "jorge@gmail.com",
+    "email": "jorgito@gmail.com",
     "category": "admin",
     "image": "IMG_7143.JPG"
   },
@@ -37,19 +37,19 @@
   },
   {
     "id": 5,
-    "firstName": "Nuevo Usuario",
-    "lastName": "Garijo",
-    "password": "aaaa",
-    "email": "jorge@gmail.com",
+    "firstName": "Jorge",
+    "lastName": "Herrando",
+    "password": "$2a$10$QMx/Ty8A7a/3BO8YizTZ4OWPgznhJNWfL1eivsQGOoTRQK7O053qq",
+    "email": "jorge2@gmail.com",
     "category": "user",
-    "image": "3.jpg"
+    "image": "defaultAvatar.png"
   },
   {
     "id": 6,
     "firstName": "Jorge",
     "lastName": "Herrando",
-    "password": "$2a$10$QMx/Ty8A7a/3BO8YizTZ4OWPgznhJNWfL1eivsQGOoTRQK7O053qq",
     "email": "jorge@gmail.com",
+    "password": "$2a$10$DItiMjVL4yGbV4bcko/J5.rwolNb0Sd4QRZ9/hzL4iBpt.tT/6NNK",
     "category": "user",
     "image": "defaultAvatar.png"
   }
