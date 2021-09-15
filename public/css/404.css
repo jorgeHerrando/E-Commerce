@@ -1,0 +1,54 @@
+/*  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p.hello-user {
+  color: #000;
+}
+/*  */
+
+main.info-404 {
+  padding: 20px 5%;
+}
+section.not-found-container,
+section.next-step {
+  padding-bottom: 1rem;
+}
+
+section.not-found-container h2,
+section h3 {
+  padding-bottom: 1rem;
+}
+section.not-found-container ul {
+  list-style: none;
+  padding-bottom: 1rem;
+}
+section ul li {
+  padding-bottom: 0.6rem;
+}
+section.next-step p {
+  padding-bottom: 1rem;
+}
+section.next-step ul {
+  padding-left: 1rem;
+}
+section.next-step a {
+  font-size: 1.2rem;
+  background-color: #4abbc7;
+  padding: 5px 10px;
+  border-radius: 10px;
+  display: block;
+  text-align: center;
+}

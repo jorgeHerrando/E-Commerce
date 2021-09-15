@@ -21,8 +21,8 @@ a {
   color: inherit;
 }
 
-.hello-user {
-  color: black;
+p.hello-user {
+  color: #000;
 }
 
 /* box-shadow para articles con clase .box-shadow */
@@ -283,7 +283,7 @@ div.header-bottom nav ul li a b {
   background-color: #fcd89d;
   position: absolute;
   border-radius: 8px;
-  left: -6.5px;
+  left: -9.5px;
   bottom: -2px;
   transition-duration: 0.32s;
   transition-timing-function: ease;
@@ -321,6 +321,10 @@ div.header-bottom nav a:hover b {
 /* ----------------------------------------------------------------------------------------------- */
 /* ----------------------------------------------------------------------------------------------- */
 
+/* le damos padding a la seccion principal */
+main div.main-section {
+  padding: 0 3%;
+}
 /* que todas las secciones ocupen todo el ancho */
 main.main-index section {
   width: 100%;
@@ -398,11 +402,6 @@ main section.top-promotion article.top-promotion-img a.shop-now {
 main section.top-promotion article.top-promotion-img a.shop-now:hover {
   background-color: #153351;
   color: #fff;
-}
-
-/* le damos padding a la seccion principal */
-main div.main-section {
-  padding: 0 3%;
 }
 
 section.top-info {

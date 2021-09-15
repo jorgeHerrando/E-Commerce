@@ -13,19 +13,111 @@ a {
   text-decoration: none;
   color: inherit;
 }
+
+p.hello-user {
+  color: #000;
+}
 /*  */
 
-div.profile-container section.profile-main-data div.profile-img {
-  border: 1px solid black;
+main.main-profile {
+  padding: 5px 3%;
+}
+
+div.profile-container section.profile-main-data {
+  padding-bottom: 1rem;
+}
+
+div.profile-container section.profile-main-data h1 {
+  text-align: center;
+  font-size: 1.6rem;
+}
+
+div.profile-container section.profile-main-data figure.profile-img {
   height: 100px;
   width: 100px;
-  border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 0 auto;
 }
-div.profile-container section.profile-main-data div.profile-img img {
-  width: 80%;
-  position: relative;
-  z-index: -1;
+div.profile-container section.profile-main-data figure.profile-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+div.profile-container section.profile-main-data div.profile-email {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+section.profile-additional-data ul.profile-ul {
+  list-style: none;
+  text-align: center;
+  padding-bottom: 1rem;
+}
+section.profile-additional-data ul.profile-ul li {
+  padding-bottom: 0.5rem;
+}
+section.profile-additional-data ul.profile-ul li a {
+  border-bottom: 1px solid #fcd89d;
+  transition: 500ms;
+}
+section.profile-additional-data ul.profile-ul li a:hover {
+  border-bottom: 1px solid #153351;
+  /* font-size: 1.2rem; */
+}
+section.profile-additional-data ul.profile-ul li:last-of-type {
+  padding-bottom: 1rem;
+}
+section.profile-additional-data ul.profile-ul button {
+  background-color: #bbc2c4;
+  color: #000;
+  border: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.4s ease-out;
+}
+section.profile-additional-data ul.profile-ul button:hover {
+  background-color: #db5151;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 769 ----------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+/* Para tablets */
+
+/* para pantallas mayores que iPhone 8 Plus */
+@media (min-width: 769px) {
+  div.profile-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+    align-items: center;
+  }
+
+  div.profile-container section.profile-main-data {
+    justify-content: flex-start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  div.profile-container section.profile-main-data h1 {
+    text-align: left;
+  }
+
+  div.profile-container section.profile-main-data figure.profile-img {
+    margin: 0;
+  }
+
+  section.profile-additional-data ul.profile-ul {
+    text-align: right;
+  }
 }

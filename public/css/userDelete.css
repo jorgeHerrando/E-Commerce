@@ -1,0 +1,44 @@
+/*  */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p.hello-user {
+  color: #000;
+}
+/*  */
+
+section.delete-user-container {
+  text-align: center;
+  padding: 5%;
+}
+
+p.delete-user-text {
+  padding-bottom: 1rem;
+}
+
+section.delete-user-container button {
+  background-color: #bbc2c4;
+  color: #000;
+  border: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  transition: all 0.4s ease-out;
+}
+section.delete-user-container button:hover {
+  background-color: #db5151;
+  color: #fff;
+  cursor: pointer;
+  outline: none;
+}

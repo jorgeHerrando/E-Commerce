@@ -32,13 +32,25 @@
     <!-- vienen desde public si ponemos / al ppo -->
     <link rel="stylesheet" href="/css/normalize.css" />
     <link rel="stylesheet" href="/css/styles.css" />
+
+    <!-- si es la página profile... -->
+    <% if(title == "Profile") { %>
+    <link rel="stylesheet" href="/css/profile.css" />
+    <% } %>
+    <!-- si es la página delete user... -->
+    <% if(title == "Delete user") { %>
+    <link rel="stylesheet" href="/css/userDelete.css" />
+    <% } %>
+    <!-- si es la página 404... -->
+    <% if(title == "Havenboards - Not found") { %>
+    <link rel="stylesheet" href="/css/404.css" />
+    <% } %>
+
     <script
       src="https://kit.fontawesome.com/a20967f511.js"
       crossorigin="anonymous"
     ></script>
-    <% if(title == "Profile") { %>
-    <link rel="stylesheet" href="/css/profile.css" />
-    <% } %>
+
     <title><%= title %></title>
   </head>
 </html>

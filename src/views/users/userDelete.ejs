@@ -1,0 +1,15 @@
+<%- include('../partials/head', { title: "Delete user" }) %>
+  <body>
+    <%- include('../partials/header') %>
+
+    <main>
+      <section class="delete-user-container">
+        <form method="POST" action="/users/destroy?_method=DELETE" >
+          <p class="delete-user-text"><%=user.firstName%>, ¿estás seguro de que quieres eliminar tu cuenta?</p>
+          <button type="submit">Eliminar cuenta</button>
+        </form>
+      </section>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

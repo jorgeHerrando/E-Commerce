@@ -8,6 +8,7 @@ const registerValidation = require("../middlewares/registerValidation");
 const loginValidation = require("../middlewares/loginValidation");
 const guestMiddleware = require("../middlewares/guestMiddleware");
 const authMiddleware = require("../middlewares/authMiddleware");
+const passwordValidation = require("../middlewares/passwordMiddleware");
 
 // ************ Controller Require ************
 const usersController = require("../controllers/usersController");
@@ -20,6 +21,7 @@ router.post(
   "/register",
   upload.single("avatar"),
   registerValidation,
+  passwordValidation,
   usersController.createUser
 );
 
@@ -34,6 +36,13 @@ router.get("/profile", authMiddleware, usersController.profile); //no deja entra
 
 // Logout
 router.get("/logout", usersController.logout);
+
+// Borrar usuario form
+router.post("/delete", authMiddleware, usersController.delete);
+
+// Borrar usuario
+router.delete("/destroy", authMiddleware, usersController.destroy);
+
 // router.get("/adminRegister", usersController.admin);
 
 module.exports = router;

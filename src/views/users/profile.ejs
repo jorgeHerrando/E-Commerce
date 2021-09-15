@@ -2,18 +2,37 @@
   <body>
   <%- include('../partials/header') %>
 
-    <main>
+    <main class="main-profile">
       <div class="profile-container">
         <section class="profile-main-data">
           <h1>Hola, <%=user.firstName %> <%= user.lastName %></h1>
-          <div class="profile-img">
+          <figure class="profile-img">
             <img src="/images/users/<%=user.image %>" alt="foto perfil"/>
-          </div>
-          <div><%= user.email %></div>
+          </figure>
+          <div class="profile-email"><%= user.email %></div>
         </section>
 
         <section class="profile-additional-data">
-            
+            <ul class="profile-ul">
+              <li class="profile-li">
+                <a href="#">Wishlist</a>
+              </li>
+              <li class="profile-li">
+                <a href="#">Mis compras</a>
+              </li>
+              <li class="profile-li">
+                <a href="#">Mi carrito</a>
+              </li>
+              <li class="profile-li">
+                <a href="#">Agregar datos de compra</a>
+              </li>
+              <li class="profile-li">
+                <a href="#">Editar perfil</a>
+              </li>
+              <form action="/users/delete" method="POST">
+                <button type="submit">Borrar cuenta</button>
+              </form>
+            </ul>
         </section>
       </div>
     </main>

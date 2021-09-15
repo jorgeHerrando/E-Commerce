@@ -92,6 +92,19 @@
                 <% } %>
               </p>
 
+              <p>
+                <label>Repetir contraseña*</label>
+                <input type="password" name="password2"
+                required
+                class="<%= locals.errors && errors.password2 ? 'is-invalid' : null %>"/>
+
+                <% if (locals.errors && errors.password2) { %> 
+                  <label class="infovalidacion">
+                    <%= errors.password2.msg %>
+                  </label>
+                <% } %>
+              </p>
+
               <!-- <p>
                 <label>Repetir Contraseña*</label>
                 <input type="password" name="rePassword" required />
