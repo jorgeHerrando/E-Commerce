@@ -58,7 +58,7 @@
 
               <p>
                 <label for="image">Ingrese una o más imágenes*</label>
-                <input type="file" name="image" id="image" multiple class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" required/>
+                <input type="file" name="image" id="image" multiple accept="image/*" class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" required/>
                 <% if (locals.errors && errors.image) { %>
                   <label class="infovalidacion">
                     <%= errors.image.msg %>

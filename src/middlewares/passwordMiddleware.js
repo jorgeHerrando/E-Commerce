@@ -30,3 +30,8 @@ const passwordValidation = [
 ];
 
 module.exports = passwordValidation;
+
+// try
+// catch(err) {
+
+// }

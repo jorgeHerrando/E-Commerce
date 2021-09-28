@@ -108,7 +108,7 @@
   {
     "id": 8,
     "name": "Skate Tomboy Full",
-    "description": "Tabla cóncava con doble kick, compuesto por laminas de madera y resina epoxi. Truck reforzados de aluminio. Bujes 95 A – Rulemanes Abec 9 – Ruedas de Uretano 52 a 54 mm. Podes elegir entre estos dos tipos de madera",
+    "description": "Tabla cóncava con doble kick, compuesto por laminas de madera y resina epoxi. Truck reforzados de aluminio. Bujes 95 A – Rulemanes Abec 9 – Ruedas de Uretano 52 a 54 mm. Podes elegir entre estos dos tipos de madera.",
     "image": ["skate-tomboy-full.jpg"],
     "category": "Skateboard",
     "subcategory": null,
@@ -136,7 +136,7 @@
     "name": "Skate rosas",
     "description": "Tabla cóncava con doble kick, compuesto por laminas de madera y resina epoxi. Truck reforzados de aluminio. Bujes 95 A – Rulemanes Abec 9 – Ruedas de Uretano 52 a 54 mm.",
     "image": ["floral-rosas-truck-1.jpg"],
-    "category": "Snowboard",
+    "category": "Skateboard",
     "subcategory": null,
     "brand": "Patagonia",
     "price": 13.12,
@@ -152,7 +152,7 @@
     "category": "Accessory",
     "subcategory": "Fin",
     "brand": "Roxy",
-    "price": 3200,
+    "price": 32,
     "discount": 10,
     "size": null,
     "sale": true
@@ -165,7 +165,7 @@
     "category": "Accessory",
     "subcategory": "Fin",
     "brand": "Billabong",
-    "price": 2250,
+    "price": 22.5,
     "discount": 0,
     "size": null,
     "sale": false
@@ -178,7 +178,7 @@
     "category": "Accessory",
     "subcategory": "Helmet",
     "brand": "Hurley",
-    "price": 3500,
+    "price": 35.0,
     "discount": 0,
     "size": null,
     "sale": false
@@ -196,7 +196,7 @@
     "category": "Accessory",
     "subcategory": "Helmet",
     "brand": "Quicksilver",
-    "price": 6300,
+    "price": 63,
     "discount": 20,
     "size": "M",
     "sale": true
@@ -209,8 +209,8 @@
     "category": "Accessory",
     "subcategory": "Helmet",
     "brand": "Patagonia",
-    "price": 30200,
-    "discount": 25,
+    "price": 55,
+    "discount": 15,
     "size": "M",
     "sale": true
   },
@@ -226,7 +226,7 @@
     "category": "Accessory",
     "subcategory": "Glasses",
     "brand": "Roxy",
-    "price": 7500,
+    "price": 75,
     "discount": 30,
     "size": "M",
     "sale": true
@@ -239,7 +239,7 @@
     "category": "Accessory",
     "subcategory": "Gloves",
     "brand": "Billabong",
-    "price": 6200,
+    "price": 62,
     "discount": 0,
     "size": "L",
     "sale": false
@@ -252,7 +252,7 @@
     "category": "Accessory",
     "subcategory": "Protection",
     "brand": "Roxy",
-    "price": 1000,
+    "price": 15,
     "discount": 10,
     "size": "M",
     "sale": true
@@ -265,7 +265,7 @@
     "category": "Accessory",
     "subcategory": "Wax",
     "brand": "Hurley",
-    "price": 500,
+    "price": 5,
     "discount": 0,
     "size": null,
     "sale": false
@@ -278,15 +278,15 @@
     "category": "Accessory",
     "subcategory": "Glasses",
     "brand": "Quicksilver",
-    "price": 20000,
+    "price": 200,
     "discount": 30,
-    "size": "S",
+    "size": "M",
     "sale": true
   },
   {
     "id": 21,
     "name": "Tabla Wakeboard 1",
-    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando",
+    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando.",
     "image": [
       "tabla-wake-azul-north-1-1.jpg",
       "tabla-wake-azul-north-2-1.jpg",
@@ -305,7 +305,7 @@
   {
     "id": 22,
     "name": "Tabla Wakeboard 2",
-    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando",
+    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando.",
     "image": [
       "tabla-wake-celeste-north-1-1.jpg",
       "tabla-wake-celeste-north-2-1.jpg",
@@ -317,14 +317,14 @@
     "subcategory": null,
     "brand": "North",
     "price": 120,
-    "discount": 20,
+    "discount": 10,
     "size": null,
     "sale": true
   },
   {
     "id": 23,
     "name": "Tabla Wakeboard 3",
-    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando",
+    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando.",
     "image": [
       "tabla-wake-rojo-north-1-1.jpg",
       "tabla-wake-rojo-north-2-1.jpg",
@@ -343,7 +343,7 @@
   {
     "id": 24,
     "name": "Tabla Wakeboard 4",
-    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando",
+    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando.",
     "image": [
       "tabla-wake-negro-north-1-1.jpg",
       "tabla-wake-negro-north-2-1.jpg",
@@ -362,7 +362,7 @@
   {
     "id": 25,
     "name": "Tabla Wakeboard 5",
-    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando",
+    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando.",
     "image": [
       "tabla-wake-verde-north-1-1.jpg",
       "tabla-wake-verde-north-2-1.jpg",
@@ -373,7 +373,7 @@
     "category": "Wakeboard",
     "subcategory": null,
     "brand": "North",
-    "price": 120000,
+    "price": 120,
     "discount": 20,
     "size": null,
     "sale": true
@@ -393,7 +393,7 @@
     "category": "Surf",
     "subcategory": null,
     "brand": "Olaian",
-    "price": 120000,
+    "price": 120,
     "discount": 20,
     "size": null,
     "sale": false
@@ -414,7 +414,7 @@
     "category": "Surf",
     "subcategory": null,
     "brand": "Olaian",
-    "price": 120000,
+    "price": 120,
     "discount": 20,
     "size": null,
     "sale": true
@@ -454,176 +454,6 @@
     "subcategory": null,
     "brand": "Olaian",
     "price": 120,
-    "discount": 20,
-    "size": null,
-    "sale": false
-  },
-  {
-    "id": 30,
-    "name": "Tabla de surf 5",
-    "description": "Combinan perfectamente las características de lo retro y lo moderno. El ancho se mantiene hasta la cola por lo que puede soportar más peso. Esta tabla ofrece una entrada fácil a las olas más pequeñas y una rápida aceleración, hasta en las secciones más tranquilas. Es lo suficientemente estable como primera tabla para gente sin experiencia y es a la vez ideal para cualquier surfista experimentado.",
-    "image": [
-      "tabla-surf-verde-olaian-1-1.jpg",
-      "tabla-surf-verde-olaian-2-1.jpg",
-      "tabla-surf-verde-olaian-3-1.jpg",
-      "tabla-surf-verde-olaian-4-1.jpg",
-      "tabla-surf-verde-olaian-5-1.jpg",
-      "tabla-surf-verde-olaian-6-1.jpg"
-    ],
-    "category": "Surf",
-    "subcategory": null,
-    "brand": "Olaian",
-    "price": 120.0,
-    "discount": 20,
-    "size": null,
-    "sale": false
-  },
-  {
-    "name": "asd",
-    "id": 31,
-    "description": "sdaf",
-    "image": ["2.jpg", "1.jpg"],
-    "category": "Snowboarding",
-    "subcategory": "Gloves",
-    "brand": "Roxy",
-    "price": 20,
-    "size": null,
-    "discount": 2,
-    "sale": true
-  },
-  {
-    "id": 23,
-    "name": "Tabla Wakeboard 3",
-    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando",
-    "image": [
-      "tabla-wake-rojo-north-1-1.jpg",
-      "tabla-wake-rojo-north-2-1.jpg",
-      "tabla-wake-rojo-north-3-1.jpg",
-      "tabla-wake-rojo-north-4-1.jpg",
-      "tabla-wake-rojo-north-5-1.jpg"
-    ],
-    "category": "Wakeboard",
-    "subcategory": null,
-    "brand": "North",
-    "price": 120.0,
-    "discount": 20,
-    "size": null,
-    "sale": false
-  },
-  {
-    "id": 24,
-    "name": "Tabla Wakeboard 4",
-    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando",
-    "image": [
-      "tabla-wake-negro-north-1-1.jpg",
-      "tabla-wake-negro-north-2-1.jpg",
-      "tabla-wake-negro-north-3-1.jpg",
-      "tabla-wake-negro-north-4-1.jpg",
-      "tabla-wake-negro-north-5-1.jpg"
-    ],
-    "category": "Wakeboard",
-    "subcategory": null,
-    "brand": "North",
-    "price": 120.0,
-    "discount": 20,
-    "size": null,
-    "sale": true
-  },
-  {
-    "id": 25,
-    "name": "Tabla Wakeboard 5",
-    "description": "Las tablas North están fabricadas con la tecnología Protech epoxy. Llevan un alma de espuma poliestireno, fibras de vidrio laminadas con resina epoxi, refuerzos de carbono en la cola, y un acabado con pintura mate. El resultado: una tabla de surf de epoxy ligera, resistente, con un precio increíble. Una muy buena opción como primera tabla de fibra, para continuar progresando",
-    "image": [
-      "tabla-wake-verde-north-1-1.jpg",
-      "tabla-wake-verde-north-2-1.jpg",
-      "tabla-wake-verde-north-3-1.jpg",
-      "tabla-wake-verde-north-4-1.jpg",
-      "tabla-wake-verde-north-5-1.jpg"
-    ],
-    "category": "Wakeboard",
-    "subcategory": null,
-    "brand": "North",
-    "price": 120000,
-    "discount": 20,
-    "size": null,
-    "sale": true
-  },
-  {
-    "id": 26,
-    "name": "Tabla de surf 1",
-    "description": "Combinan perfectamente las características de lo retro y lo moderno. El ancho se mantiene hasta la cola por lo que puede soportar más peso. Esta tabla ofrece una entrada fácil a las olas más pequeñas y una rápida aceleración, hasta en las secciones más tranquilas. Es lo suficientemente estable como primera tabla para gente sin experiencia y es a la vez ideal para cualquier surfista experimentado.",
-    "image": [
-      "tabla-surf-amarillo-olaian-1-1.jpg",
-      "tabla-surf-amarillo-olaian-2-1.jpg",
-      "tabla-surf-amarillo-olaian-3-1.jpg",
-      "tabla-surf-amarillo-olaian-4-1.jpg",
-      "tabla-surf-amarillo-olaian-5-1.jpg",
-      "tabla-surf-amarillo-olaian-6-1.jpg"
-    ],
-    "category": "Surf",
-    "subcategory": null,
-    "brand": "Olaian",
-    "price": 120000,
-    "discount": 20,
-    "size": null,
-    "sale": false
-  },
-  {
-    "id": 27,
-    "name": "Tabla de surf 2",
-    "description": "Combinan perfectamente las características de lo retro y lo moderno. El ancho se mantiene hasta la cola por lo que puede soportar más peso. Esta tabla ofrece una entrada fácil a las olas más pequeñas y una rápida aceleración, hasta en las secciones más tranquilas. Es lo suficientemente estable como primera tabla para gente sin experiencia y es a la vez ideal para cualquier surfista experimentado.",
-    "image": [
-      "tabla-surf-azul-olaian-1-1.jpg",
-      "tabla-surf-azul-olaian-2-1.jpg",
-      "tabla-surf-azul-olaian-3-1.jpg",
-      "tabla-surf-azul-olaian-4-1.jpg",
-      "tabla-surf-azul-olaian-5-1.jpg",
-      "tabla-surf-azul-olaian-6-1.jpg",
-      "tabla-surf-azul-olaian-7-1.jpg"
-    ],
-    "category": "Surf",
-    "subcategory": null,
-    "brand": "Olaian",
-    "price": 120000,
-    "discount": 20,
-    "size": null,
-    "sale": true
-  },
-  {
-    "id": 28,
-    "name": "Tabla de surf 3",
-    "description": "Combinan perfectamente las características de lo retro y lo moderno. El ancho se mantiene hasta la cola por lo que puede soportar más peso. Esta tabla ofrece una entrada fácil a las olas más pequeñas y una rápida aceleración, hasta en las secciones más tranquilas. Es lo suficientemente estable como primera tabla para gente sin experiencia y es a la vez ideal para cualquier surfista experimentado.",
-    "image": [
-      "tabla-surf-blanco-olaian-1-1.jpg",
-      "tabla-surf-blanco-olaian-2-1.jpg",
-      "tabla-surf-blanco-olaian-3-1.jpg",
-      "tabla-surf-blanco-olaian-4-1.jpg",
-      "tabla-surf-blanco-olaian-5-1.jpg"
-    ],
-    "category": "Surf",
-    "subcategory": null,
-    "brand": "Olaian",
-    "price": 120.0,
-    "discount": 20,
-    "size": null,
-    "sale": true
-  },
-  {
-    "id": 29,
-    "name": "Tabla de surf 4",
-    "description": "Combinan perfectamente las características de lo retro y lo moderno. El ancho se mantiene hasta la cola por lo que puede soportar más peso. Esta tabla ofrece una entrada fácil a las olas más pequeñas y una rápida aceleración, hasta en las secciones más tranquilas. Es lo suficientemente estable como primera tabla para gente sin experiencia y es a la vez ideal para cualquier surfista experimentado.",
-    "image": [
-      "tabla-surf-celeste-olaian-1-1.jpg",
-      "tabla-surf-celeste-olaian-2-1.jpg",
-      "tabla-surf-celeste-olaian-3-1.jpg",
-      "tabla-surf-celeste-olaian-4-1.jpg",
-      "tabla-surf-celeste-olaian-5-1.jpg",
-      "tabla-surf-celeste-olaian-6-1.jpg"
-    ],
-    "category": "Surf",
-    "subcategory": null,
-    "brand": "Olaian",
-    "price": 120.0,
     "discount": 20,
     "size": null,
     "sale": false

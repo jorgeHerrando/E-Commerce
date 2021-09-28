@@ -1,75 +1,56 @@
 [
- {
-  "id": 1,
-  "firstName": "Jorge",
-  "lastName": "Herrando",
-  "password": "jorgepassword",
-  "email": "jorgito@gmail.com",
-  "category": "admin",
-  "image": "IMG_7143.JPG"
- },
- {
-  "id": 2,
-  "firstName": "Pablo",
-  "lastName": "Sarrion",
-  "password": "pablopassword",
-  "email": "pablo@gmail.com",
-  "category": "admin",
-  "image": "IMG_7143.JPG"
- },
- {
-  "id": 3,
-  "firstName": "Florencia",
-  "lastName": "Ocampo",
-  "password": "florpassword",
-  "email": "flor@gmail.com",
-  "category": "admin",
-  "image": "IMG_7143.JPG"
- },
- {
-  "id": 4,
-  "firstName": "Name uno",
-  "lastName": "Surname uno",
-  "password": "contrasena1",
-  "email": "usuario1@gmail.com",
-  "category": "user",
-  "image": "IMG_7143.JPG"
- },
- {
-  "id": 5,
-  "firstName": "Jorge",
-  "lastName": "Herrando",
-  "password": "$2a$10$QMx/Ty8A7a/3BO8YizTZ4OWPgznhJNWfL1eivsQGOoTRQK7O053qq",
-  "email": "jorge2@gmail.com",
-  "category": "user",
-  "image": "defaultAvatar.png"
- },
- {
-  "id": 6,
-  "firstName": "Jorge",
-  "lastName": "Herrando",
-  "email": "jorge@gmail.com",
-  "password": "$2a$10$DItiMjVL4yGbV4bcko/J5.rwolNb0Sd4QRZ9/hzL4iBpt.tT/6NNK",
-  "category": "admin",
-  "image": "defaultAvatar.jpg"
- },
- {
-  "id": 7,
-  "firstName": "Florencia",
-  "lastName": "Rodríguez",
-  "email": "florflor2@gmail.com",
-  "password": "$2a$10$gAwMz2bsT21WfeZy2SmgmOE5eA3cbDfGPd8vF77OXe1J1GEy52Kbu",
-  "category": "user",
-  "image": "defaultAvatar.png"
- },
- {
-  "id": 8,
-  "firstName": "Prueba",
-  "lastName": "Dos",
-  "email": "prueba2@gmail.com",
-  "password": "$2a$10$N8if1qVUzPQQR6uVVm6GZ.0NqUfNq3/XfQ9O2jbuxX3C508jPCPOe",
-  "password2": "Prueba2",
-  "category": "user",
-  "image": "defaultAvatar.png"
- }
+  {
+    "id": 1,
+    "firstName": "Jorge",
+    "lastName": "Herrando",
+    "email": "jorge@gmail.com",
+    "password": "$2a$10$D2JdFNhqwGlVcnqeWYl35efmzKAJJybE6H4aQri3w2Uk2uV.BtyCS",
+    "category": "admin",
+    "image": "1632150769631_img.png"
+  },
+  {
+    "id": 2,
+    "firstName": "Pablo",
+    "lastName": "Sarrion",
+    "email": "pablo@gmail.com",
+    "password": "$2a$10$Xo16hBNmPZmYZ4OhSaoJGe.ZhF.p3I67vyNJxQf0sLgAWXU.cnBky",
+    "category": "admin",
+    "image": "defaultAvatar.png"
+  },
+  {
+    "id": 3,
+    "firstName": "Florencia",
+    "lastName": "Ocampo",
+    "email": "florencia@gmail.com",
+    "password": "$2a$10$TtEbLL3wJuF.8HdCg3yOD.2WHdQ4jprfLrvhSwLf/zU3ZQvhEEs/y",
+    "category": "admin",
+    "image": "defaultAvatar.png"
+  },
+  {
+    "id": 4,
+    "firstName": "JorgeDos",
+    "lastName": "Herrando",
+    "email": "jorge2@gmail.com",
+    "password": "$2a$10$Mcpj7r91J9VRntDj3PCXHu0xj6O8vgm0mxVenIeHtEYi2JZOoQWpG",
+    "category": "admin",
+    "image": "1632150769631_img.png"
+  },
+  {
+    "id": 5,
+    "firstName": "PabloDos",
+    "lastName": "Sarrion",
+    "email": "pablo2@gmail.com",
+    "password": "$2a$10$pW3NeR8sSeVtKxe6yd96N.2I2vHJ7Frwq64Fgrg2ZKFj6.PB/OUKm",
+    "category": "user",
+    "image": "defaultAvatar.png"
+  },
+  {
+    "id": 6,
+    "firstName": "FlorenciaDos",
+    "lastName": "Ocampo",
+    "email": "florencia2@gmail.com",
+    "password": "$2a$10$e3xOpy7SCyCBryq.8fVjjuQKBqsQXvOVT3IcYvhQzLz/1/j1WT4Bi",
+    "category": "user",
+    "image": "defaultAvatar.png"
+  }
 ]

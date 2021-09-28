@@ -278,12 +278,12 @@ div.header-bottom nav ul li a span i {
 }
 div.header-bottom nav ul li a b {
   display: inline-block;
-  height: 8px;
+  height: 0;
   width: calc(100% + 15px);
   background-color: #fcd89d;
   position: absolute;
   border-radius: 8px;
-  left: -9.5px;
+  left: -8px;
   bottom: -2px;
   transition-duration: 0.32s;
   transition-timing-function: ease;
@@ -419,6 +419,9 @@ div.main-section section.home-categories article {
 }
 div.main-section section.home-categories article a p {
   margin-left: 5%;
+}
+div.main-section section.home-categories article a p:first-of-type {
+  padding-top: 0.5rem;
 }
 div.main-section section.home-categories article a p:last-child {
   padding-bottom: 1rem;

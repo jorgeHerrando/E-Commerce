@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const { validationResult } = require("express-validator");
+const { validationResult, body } = require("express-validator");
 const bcrypt = require("bcryptjs");
 
 // traemos modelo con métodos
@@ -96,10 +96,12 @@ const usersController = {
     }
 
     let userToCreate = {
-      ...req.body,
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      password: bcrypt.hashSync(req.body.password, 10),
       category: "user",
       image: req.file ? req.file.filename : "defaultAvatar.png",
-      password: bcrypt.hashSync(req.body.password, 10),
     };
     // crear nuevo usuario con la info recopilada
     let userCreated = User.create(userToCreate);
