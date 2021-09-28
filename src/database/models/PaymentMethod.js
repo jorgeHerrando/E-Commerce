@@ -14,7 +14,7 @@ module.exports = (sequelize, dataTypes) => {
     };
   
     let config = {
-      tableName: "paymentMethods",
+      tableName: "payment_methods",
       timestamps: true,
       deletedAt: false,
     };
