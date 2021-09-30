@@ -6,7 +6,7 @@
         <section class="top-promotion">
           <article class="top-promotion-img">
             <div class="top-promotion-top">
-              <img src="/images/panoramic/1080x560_snowboarding_trick_jump_2.jpg" alt="man and woman holding snowboards"/>
+              <img src="/images/panoramic/Snowboard.jpg" alt="man and woman holding snowboards"/>
             </div>
             <div class="main-offer promotion-offer">
               <a href="/products">OFERTA INICIAL</a>
@@ -28,7 +28,7 @@
             class="home-categories-img home-categories-img1 article-box-shadow"
           >
           <div>
-            <a href="/products"
+            <a href="/products/wakeboard"
               ><img
                 src="/images/square/square_2048_wake.jpg"
                 alt="wakeboarding girl jumping"
@@ -44,7 +44,7 @@
           <article
             class="home-categories-img home-categories-img2 article-box-shadow"
           >
-            <a href="products"
+            <a href="products/snowboard"
               ><img
                 src="/images/square/square_1080_snowboard.jpg"
                 alt="man on a snowboard"
@@ -57,7 +57,7 @@
           <article
             class="home-categories-img home-categories-img3 article-box-shadow"
           >
-            <a href="/products"
+            <a href="/products/surf"
               ><img
                 src="/images/square/square_2048x2048_surf-board.jpg"
                 alt="surf board on the sand"
@@ -70,7 +70,7 @@
           <article
             class="home-categories-img home-categories-img4 article-box-shadow"
           >
-            <a href="/products"
+            <a href="/products/skateboard"
               ><img
                 src="/images/square/square_2018_skate.jpg"
                 alt="girl skateboarding"
@@ -83,7 +83,7 @@
           <article
             class="home-categories-img home-categories-img5 article-box-shadow"
           >
-            <a href="/products"
+            <a href="/products/accessory"
               ><img
                 src="/images/square/square_900_accessories.jpg"
                 alt="man with accessories"
@@ -98,66 +98,21 @@
           <h2 class="home-sales-title">Productos en oferta</h2>
 
           <div class="home-sales">
-            <% for (i=0;i<4;i++) { %>
+            <% for (let product of sales) { %>
               <article class="home-sales-img article-box-shadow">
-                <a href="/products/detail/<%=sales[i].id%>">
+                <a href="/products/detail/<%=product.id%>">
                   <div class="sales-product-container">
                     <div class="sales-img-container">
-                      <img src="/images/products/<%=sales[i].image[0]%>" alt="en oferta" />
+                      <img src="/images/products/<%= product.images[0].name %>" alt="en oferta" />
                     </div>
                     <div class="sales-info-container">
-                      <h3><%=sales[i].name%></h3>
-                      <p>$<%=sales[i].price%></p>
+                      <h3><%=product.name%></h3>
+                      <p>$<%=product.price%></p>
                     </div>
                   </div>
                 </a>
               </article>
             <% } %>
-
-            <!-- <article class="home-sales-img home-sales-img2 article-box-shadow">
-              <a href="/products/productDetail">
-                <div class="sales-product-container">
-                  <div class="sales-img-container">
-                    <img src="/images/tall/975x1461_SkateFlamingo.jpg"
-                    alt="Skateboard"/>
-                  </div>
-                  <div class="sales-info-container">
-                    <h3>Tabla de skate</h3>
-                    <p>$300</p>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            <article class="home-sales-img home-sales-img3 article-box-shadow">
-              <a href="/products/productDetail">
-                <div class="sales-product-container">
-                  <div class="sales-img-container">
-                    <img src="/images/tall/1200x1601_snow_berzerker.jpg"
-                      alt="Snowboard"/>
-                  </div>
-                  <div class="sales-info-container">
-                    <h3>Tabla de snow</h3>
-                    <p>$400</p>
-                  </div>
-                </div>
-              </a>
-            </article>
-
-            <article class="home-sales-img home-sales-img4 article-box-shadow">
-              <a href="/products/productDetail">
-                <div class="sales-product-container">
-                  <div class="sales-img-container">
-                    <img src="/images/tall/768x1024_wakeboard.png" alt="wakeboard"/>
-                  </div>
-                  <div class="sales-info-container">
-                    <h3>Wakeboard</h3>
-                    <p>$600</p>
-                  </div>
-                </div>
-              </a>
-            </article> -->
-
           </div>
 
           <div class="sales-button">

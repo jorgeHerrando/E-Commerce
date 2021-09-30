@@ -16,52 +16,40 @@
           <div class="col-2 col-2-left">
             <div class="main-picture">
               <!-- mostramos la primera imagen que nos llega desde el controlador -->
-              <img src="/images/products/<%= detailProduct.image[0] %>" width="100%" alt="imagen de producto" id="ProductImg" />
+              <img src="/images/products/<%= detailProduct.images[0].name %>" width="100%" alt="imagen de producto" id="ProductImg" />
             </div>
             <div class="small-img-row">
+
+              <% if(detailProduct.images.length >=4) { %>
+              <% for(i=0; i<4; i++) { %>
               <div class="small-img-col">
-                <!-- mostramos la primera imagen que nos llega desde el controlador -->
                 <img
-                  src="/images/products/<%= detailProduct.image[0] %>"
+                  src="/images/products/<%= detailProduct.images[i].name %>"
                   alt=""
                   width="100%"
                   class="small-img"
                 />
               </div>
-              <div class="small-img-col">
-                <!-- mostramos la segunda imagen que nos llega desde el controlador -->
-                <img
-                  src="/images/products/<%= detailProduct.image[1] %>"
-                  alt=""
-                  width="100%"
-                  class="small-img"
-                />
-              </div>
-              <div class="small-img-col">
-                <!-- mostramos la tercera imagen que nos llega desde el controlador -->
-                <img
-                  src="/images/products/<%= detailProduct.image[2] %>"
-                  alt=""
-                  width="100%"
-                  class="small-img"
-                />
-              </div>
-              <div class="small-img-col">
-                <!-- mostramos la cuarta imagen que nos llega desde el controlador -->
-                <img
-                  src="/images/products/<%= detailProduct.image[3] %>"
-                  alt=""
-                  width="100%"
-                  class="small-img"
-                />
-              </div>
+              <% } %>
+              <% } else { %>
+                <% for(image of detailProduct.images) { %>
+                  <div class="small-img-col">
+                    <img
+                      src="/images/products/<%= image.name %>"
+                      alt=""
+                      width="100%"
+                      class="small-img"
+                    />
+                  </div>
+                  <% } %>
+              <% } %>
             </div>
           </div>
           <div class="col-2">
             <!-- mostramos la marca y el nombre en mayúsculas -->
-            <p><%= (detailProduct.brand).toUpperCase() %></p> 
-            <h1><%= (detailProduct.name).toUpperCase() %></h1>
-            <% if(detailProduct.sale === false) { %>
+            <p><%= (detailProduct.brand.name).toUpperCase() %></p> 
+            <h1><%= detailProduct.name.toUpperCase() %></h1>
+            <% if(!detailProduct.sale) { %>
               <h4>$<%= detailProduct.price %></h4>
               <% } else { %>
               <h3 class="previous-price"><strike>$<%= detailProduct.price %></strike></h3>
@@ -70,13 +58,15 @@
             <% } %> 
 
 
-            <!-- esto se muestra si el producto dispone de tallas. Si no es null -->
-            <% if(detailProduct.size !== null) { %>
-              <select name="Sizes" id="">
-                <option>Select Size</option>
-                <option value="L">Large</option>
-                <option value="M">Medium</option>
-                <option value="S">Small</option>
+            <!-- esto se muestra si el producto dispone de tallas. Si no está vacío -->
+            <% if(detailProduct.sizes != "") { %>
+              <select name="Sizes" id="sizes">
+                <option value="" disabled selected>Select Size</option>
+
+                <% for (const size of detailProduct.sizes) { %>
+                  <option value="<%= size.id %>"><%= size.name %></option>
+                <% } %>
+                
               </select>
             <% } %>
             <p>

@@ -4,13 +4,28 @@
 
     <main class="main-shop">
       <section class="shop-category">
-        <h1>Todos los productos</h1>
+        <% if (category) { %>
+          <% if (category.name == "Accessory") { %>
+            <h1>Accessorios</h1>
+          <% } else { %>
+          <h1><%= category.name %></h1>
+        <% } 
+        } else { %>
+          <h1>Todos los productos</h1>
+        <% } %>
         <article class="shop-category-picture">
           <div class="top-promotion-top">
+            <% if (category) { %>
             <img
-              src="/images/panoramic/1080x560_snowboarding_trick_jump_2.jpg"
+              src="/images/panoramic/<%= category.image %>"
               alt="man jumping on snowboard"
             />
+            <% } else { %>
+              <img
+              src="/images/panoramic/Snowboard.jpg"
+              alt="man jumping on snowboard"
+            />
+            <% } %>
           </div>
         </article>
 
@@ -33,7 +48,7 @@
             <a href="/products/detail/<%= products[i].id %>">
               <div class="shop-product-container">
                 <div class="shop-img-container">
-                  <img src="/images/products/<%= products[i].image[0] %>" alt="foto producto"/>
+                  <img src="/images/products/<%= products[i].images[0].name %>" alt="foto producto"/>
                 </div>
                 <div class="shop-product-info">
                   <div class="shop-article-title">

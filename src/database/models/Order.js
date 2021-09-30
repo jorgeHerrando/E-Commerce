@@ -6,6 +6,7 @@ module.exports = (sequelize, dataTypes) => {
         type: dataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
+        allowNull: false,
       },
       totalPrice: {
         type: dataTypes.DECIMAL(10,2),

@@ -18,7 +18,7 @@
           <div class="contact-form">
 
             <!-- seteamos el form para que pueda recibir imágenes y le damos la ruta que tomará al mandarse -->
-            <form action="/products" method="POST" enctype="multipart/form-data">
+            <form action="/products/create" method="POST" enctype="multipart/form-data">
 
               <p>
                 <label for="name">Nombre del Producto*</label>
@@ -27,7 +27,7 @@
                   name="name"
                   id="name"
                   required
-                  pattern="([^\s][A-z0-9À-ž\s]+)" 
+                  
                   placeholder="Jean Azul Marino"
                   class="<%= locals.errors && errors.name ? 'is-invalid' : null %>"
                   value="<%= locals.oldData && oldData.name ? oldData.name : null%>"/>
@@ -45,7 +45,7 @@
                   name="description"
                   id="description"
                   required
-                  pattern="([^\s][A-z0-9À-ž\s]+)"
+                  
                   placeholder="Jean azul oscuro con calce Slim elastizado y un lavado localizado con aspecto desgastado"
                   class="<%= locals.errors && errors.description ? 'is-invalid' : null %>" 
                   value="<%= locals.oldData && oldData.description ? oldData.description : null%>"/>
@@ -73,13 +73,13 @@
                   id="category"
                   required
                 >
-                <% const categories = ["Snowboarding", "Skateboarding", "Surf", "Wakeboarding", "Accessory"] %> 
 
                   <option value="" disabled selected>Seleccionar Categoría</option>
 
-                  <% for (const oneCategory of categories) { %>
-                    <option value="<%= oneCategory %>" 
-                    <%= locals.oldData && (oldData.category === oneCategory) ? 'selected':"" %>><%= oneCategory %></option>
+                  <!-- traemos data de la DB y accedemos al nombre -->
+                  <% for (let oneCategory of categories) { %>
+                    <option value="<%= oneCategory.id %>" 
+                    <%= locals.oldData && (oldData.category === oneCategory.name) ? 'selected':"" %>><%= oneCategory.name %></option>
                   <% } %>
                   
                 </select>
@@ -96,15 +96,12 @@
                   name="subcategory"
                   id="subcategory" 
                 >
-
-                <% const subcategories = ["Helmet", "Gloves", "Protection", "Fin", "Wax", "Glasses"] %>
-
                   <option value=""
                   <%= locals.oldData  && (oldData.subcategory === "") ? 'selected':"" %>>Ninguna</option>
 
                   <% for (const oneSubcategory of subcategories) { %>
-                    <option value="<%= oneSubcategory %>" 
-                    <%= locals.oldData && (oldData.subcategory === oneSubcategory) ? 'selected':"" %>><%= oneSubcategory %></option>
+                    <option value="<%= oneSubcategory.id %>" 
+                    <%= locals.oldData && (oldData.subcategory === oneSubcategory.name) ? 'selected':"" %>><%= oneSubcategory.name %></option>
                   <% } %>
 
                 </select>
@@ -121,14 +118,12 @@
                   name="brand"
                   id="brand"
                   required
-                >
-                <% const brands = ["Quicksilver", "Billabong", "Roxy", "Patagonia", "Hurley", "Burton"] %> 
-
+                > 
                   <option value="" disabled selected>Seleccionar Marca</option>
 
                   <% for (const oneBrand of brands) { %>
-                    <option value="<%= oneBrand %>" 
-                    <%= locals.oldData && (oldData.brand === oneBrand) ? 'selected':"" %>><%= oneBrand %></option>
+                    <option value="<%= oneBrand.id %>" 
+                    <%= locals.oldData && (oldData.brand === oneBrand.name) ? 'selected':"" %>><%= oneBrand.name %></option>
                   <% } %>
 
                 </select>
@@ -141,7 +136,7 @@
 
               <p>
                 <label for="price">Ingrese precio*</label>
-                <input type="number" name="price" id="price" required 
+                <input type="number" step="0.01" name="price" id="price"  required 
                 class="<%= locals.errors && errors.price ? 'is-invalid' : null %>"
                 value="<%= locals.oldData && oldData.price ? oldData.price : null%>" 
                 />
@@ -154,7 +149,7 @@
 
               <p>
                 <label for="discount">Ingrese descuento*</label>
-                <input type="number" name="discount" id="discount" required class="<%= locals.errors && errors.discount ? 'is-invalid' : null %>" 
+                <input type="number" step="0.01" name="discount" id="discount" required class="<%= locals.errors && errors.discount ? 'is-invalid' : null %>" 
                 value="<%= locals.oldData && oldData.discount ? oldData.discount : null%>"/>
                 <% if (locals.errors && errors.discount) { %>
                   <label class="infovalidacion">
@@ -192,12 +187,12 @@
                 >
                   <option value=""
                   <%= locals.oldData  && (oldData.size === "") ? 'selected':"" %> >Talle único</option>
-                  <option value="S"
-                  <%= locals.oldData  && (oldData.size === "S") ? 'selected':"" %>>S</option>
-                  <option value="M"
-                  <%= locals.oldData  && (oldData.size === "M") ? 'selected':"" %>>M</option>
-                  <option value="L"
-                  <%= locals.oldData  && (oldData.size === "L") ? 'selected':"" %>>L</option>
+
+                  <% for (const oneSize of sizes) { %>
+                    <option value="<%= oneSize.id %>" 
+                    <%= locals.oldData && (oldData.size === oneSize.name) ? 'selected':"" %>><%= oneSize.name %></option>
+                  <% } %>
+                  
                 </select>
                 <% if (locals.errors && errors.size) { %>
                   <label class="infovalidacion">
