@@ -10,11 +10,11 @@
           <% } else { %>
             <h1><%= category.name %></h1>
         <% } %>
-      <% } else if (locals.onsale) { %>
+        <% } else if (locals.onsale) { %>
           <h1><%=onsale%></h1>
-      <% } else { %>
+        <% } else { %>
           <h1>Todos los productos</h1>
-      <% } %>
+        <% } %>
         <article class="shop-category-picture">
           <div class="top-promotion-top">
             <% if (locals.category) { %>

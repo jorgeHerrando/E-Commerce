@@ -136,6 +136,7 @@ const productsController = {
   store: async (req, res) => {
     const resultValidation = validationResult(req);
 
+    // si hay errores
     if (resultValidation.errors.length > 0) {
       let categoriesDB = db.Category.findAll();
       let subcategoriesDB = db.Subcategory.findAll();
@@ -154,6 +155,7 @@ const productsController = {
           });
         })
         .catch((e) => res.send(e));
+      // si no
     } else {
       // con req.files accedemos a todos los file mandados y guardados en array. Solo queremos el nombre así que creamos nuevo array donde los pushearemos
       let images = [];
@@ -183,9 +185,8 @@ const productsController = {
           data.addSizes(size);
           // console.log(data.name);
           // data.setSize({where:{name:req.body.size}});
-          return res.redirect(`/products/detail/${data.id}`, {
-            detailProduct: data,
-          });
+          let newProductId = data.id;
+          return res.redirect("/products/detail/" + newProductId);
         }
         // ,
         // {
