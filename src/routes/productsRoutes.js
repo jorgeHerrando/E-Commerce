@@ -15,6 +15,12 @@ const productsController = require("../controllers/productsController");
 /*** GET ALL PRODUCTS ***/
 router.get("/", productsController.shop);
 
+/*** GET ONSALE PRODUCTS ***/
+router.get("/onsale", productsController.onsale);
+
+/*** SEARCH PRODUCTS ***/
+router.get("/search", productsController.search);
+
 /*** CREATE ONE PRODUCT ***/
 router.get("/create", adminMiddleware, productsController.create); //manda vista del form a través del método create del controlador
 router.post(

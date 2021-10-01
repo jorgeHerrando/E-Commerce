@@ -189,7 +189,7 @@
                   <%= locals.oldData  && (oldData.size === "") ? 'selected':"" %> >Talle único</option>
 
                   <% for (const oneSize of sizes) { %>
-                    <option value="<%= oneSize.id %>" 
+                    <option value="<%= oneSize.name %>" 
                     <%= locals.oldData && (oldData.size === oneSize.name) ? 'selected':"" %>><%= oneSize.name %></option>
                   <% } %>
                   

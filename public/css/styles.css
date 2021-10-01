@@ -453,6 +453,11 @@ main section.home-section-sales div.home-sales article.home-sales-img p {
 main section.home-section-sales div.home-sales article.home-sales-img p {
   padding-top: 0.5rem;
 }
+main section.home-section-sales div.home-sales article.home-sales-img p span {
+  float: right;
+  margin-right: 0.5rem;
+  color: #25ca25;
+}
 /* dos en una línea */
 main section.home-section-sales div.home-sales article.home-sales-img {
   width: 48%;
@@ -683,6 +688,7 @@ section.shop-category article.shop-filter button {
 section.shop-category article.shop-filter div.shop-filter-select {
   display: flex;
   justify-content: flex-end;
+  width: 100%;
 }
 section.shop-category article.shop-category-picture img {
   max-height: 480px;
@@ -729,7 +735,11 @@ section.shop-view article.shop-view-img img {
   min-height: 180px;
 }
 section.shop-view article.shop-view-img div.shop-product-info div {
-  padding: 0 5% 5px;
+  padding: 5px 5%;
+}
+section.shop-view article.shop-view-img div.shop-product-info div span {
+  color: #25ca25;
+  float: left;
 }
 section.shop-view
   article.shop-view-img

@@ -4,21 +4,23 @@
 
     <main class="main-shop">
       <section class="shop-category">
-        <% if (category) { %>
+        <% if (locals.category) { %>
           <% if (category.name == "Accessory") { %>
-            <h1>Accessorios</h1>
+            <h1>Accesories</h1>
           <% } else { %>
-          <h1><%= category.name %></h1>
-        <% } 
-        } else { %>
-          <h1>Todos los productos</h1>
+            <h1><%= category.name %></h1>
         <% } %>
+      <% } else if (locals.onsale) { %>
+          <h1><%=onsale%></h1>
+      <% } else { %>
+          <h1>Todos los productos</h1>
+      <% } %>
         <article class="shop-category-picture">
           <div class="top-promotion-top">
-            <% if (category) { %>
+            <% if (locals.category) { %>
             <img
               src="/images/panoramic/<%= category.image %>"
-              alt="man jumping on snowboard"
+              alt="<%= category.name %> picture"
             />
             <% } else { %>
               <img
@@ -30,9 +32,9 @@
         </article>
 
         <article class="shop-filter">
-          <button>Filtrar por</button>
           <div class="shop-filter-select">
             <select name="shop-filter" id="filter">
+              <option value="" selected disabled >Filtrar por:</option>
               <option value="name">Nombre del producto</option>
               <option value="price">Precio</option>
               <option value="size">Talle</option>
@@ -55,7 +57,12 @@
                     <p><%= products[i].name %></p>
                   </div>
                   <div class="shop-article-price">
-                    <p>$<%= products[i].price %></p>
+                    <p><% if (products[i].sale == 1) { %>
+                      <span><%=products[i].discount%>%Off</span>
+                    <% } %>
+                    $<%= products[i].price %>
+                      
+                    </p>
                   </div>
                 </div>
               </div>

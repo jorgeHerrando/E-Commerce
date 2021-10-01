@@ -1,7 +1,10 @@
 const fs = require("fs");
 const path = require("path");
 
+const removeDuplicates = require("../helpers/removeDuplicates");
+
 const db = require("../database/models");
+const Op = db.Sequelize.Op;
 
 const { validationResult } = require("express-validator");
 
@@ -26,23 +29,79 @@ const productsController = {
       productsToShow = products.filter(
         (product) => product.category.name.toLowerCase() == category
       );
-      // mandamos la vista con lo que queremos
-      return res.render("products/shop", {
-        products: productsToShow,
-        category: productsToShow[0].category,
-      });
+
+      // si hay coincidencias con category
+      if (productsToShow != "") {
+        // mandamos la vista con lo que queremos
+        return res.render("products/shop", {
+          products: productsToShow,
+          category: productsToShow[0].category,
+        });
+        // si no 404
+      } else {
+        return res.render("./main/404");
+      }
       // si no todos
     } else {
       productsToShow = products;
       return res.render("products/shop", {
         products: productsToShow,
-        category,
       });
     }
   },
+
+  onsale: async (req, res) => {
+    let onsale = "En descuento";
+    let products = await db.Product.findAll({
+      include: ["images"],
+      where: {
+        sale: 1,
+      },
+    });
+    return res.render("products/shop", {
+      products,
+      onsale,
+    });
+  },
+
+  search: async (req, res) => {
+    let tagUser = req.query.search;
+    let productsToShow = [];
+    let tags = await db.Tag.findAll({
+      where: {
+        name: {
+          [Op.like]: `%${tagUser}%`,
+        },
+      },
+    });
+
+    let products = await db.Product.findAll({
+      include: ["images", "tags"],
+    });
+
+    // me manda todos repetidos por cada tag que contiene el objeto y coincide
+    for (let product of products) {
+      for (let productTag of product.tags) {
+        for (let tag of tags) {
+          if (tag.name == productTag.name) {
+            productsToShow.push(product);
+          }
+        }
+      }
+    }
+
+    // quitamos duplicados
+    productsToShow = removeDuplicates(productsToShow);
+
+    return res.render("products/shop", {
+      products: productsToShow,
+    });
+  },
+
   productCart: (req, res) => {
     res.render("products/productCart");
   },
+
   detail: async (req, res) => {
     const id = req.params.id; //recuperamos el param del url
 
@@ -55,6 +114,7 @@ const productsController = {
       detailProduct: product, //mandamos el producto que deseamos
     });
   },
+
   create: (req, res) => {
     let categoriesDB = db.Category.findAll();
     let subcategoriesDB = db.Subcategory.findAll();
@@ -72,6 +132,7 @@ const productsController = {
       }
     );
   },
+
   store: async (req, res) => {
     const resultValidation = validationResult(req);
 
@@ -113,16 +174,16 @@ const productsController = {
         subcategory_id: req.body.subcategory ? req.body.subcategory : null, // si el valor que llega es vacío, ponle null
         brand_id: req.body.brand,
         price: Number(req.body.price),
-        sizes: req.body.size ? { name: req.body.size } : { name: null }, // si el valor que llega es vacío, ponle null
+        // sizes: req.body.size ? { name: req.body.size } : { name: null }, // si el valor que llega es vacío, ponle null
         discount: Number(req.body.discount),
         sale: Number(req.body.sale),
       }).then(
         function (data) {
           const size = req.body.size;
-          data.addSize(size);
+          data.addSizes(size);
           // console.log(data.name);
           // data.setSize({where:{name:req.body.size}});
-          return res.render(`/products/detail/${data.id}`, {
+          return res.redirect(`/products/detail/${data.id}`, {
             detailProduct: data,
           });
         }
