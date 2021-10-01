@@ -1,56 +1,62 @@
 [
   {
     "id": 1,
-    "firstName": "Jorge",
-    "lastName": "Herrando",
-    "email": "jorge@gmail.com",
-    "password": "$2a$10$D2JdFNhqwGlVcnqeWYl35efmzKAJJybE6H4aQri3w2Uk2uV.BtyCS",
+    "firstName": "Flor",
+    "lastName": "Ocampo",
+    "email": "florenciaocampo@icloud.com",
+    "password": "$2a$10$FpHBuf3yZejIkUC6.KhPnOZNlwFHOLe6Zs1rVWSAEXD061jIZqQ66",
+    "_comment": "Racing2001",
     "category": "admin",
-    "image": "1632150769631_img.png"
+    "image": "1632104135676_img.jpg"
   },
   {
     "id": 2,
     "firstName": "Pablo",
-    "lastName": "Sarrion",
+    "lastName": "Sarrión",
     "email": "pablo@gmail.com",
-    "password": "$2a$10$Xo16hBNmPZmYZ4OhSaoJGe.ZhF.p3I67vyNJxQf0sLgAWXU.cnBky",
+    "password": "$2a$10$ViKdDhKfpZPIFfPuJlELSeF3za8PChiRJjw91giRlNBM5tSkdY1IK",
+    "_comment": "Juli2020",
     "category": "admin",
-    "image": "defaultAvatar.png"
+    "image": "1632105049423_img.jpg"
   },
   {
     "id": 3,
-    "firstName": "Florencia",
-    "lastName": "Ocampo",
-    "email": "florencia@gmail.com",
-    "password": "$2a$10$TtEbLL3wJuF.8HdCg3yOD.2WHdQ4jprfLrvhSwLf/zU3ZQvhEEs/y",
+    "firstName": "Jorge",
+    "lastName": "Herrando",
+    "email": "jorge@gmail.com",
+    "password": "$2a$10$7UQhoKmWxxgQL2NKgW9eDeovUQjp7ywz21.pdbI2SEEdrIvwy4YVq",
+    "_comment": "Barcelona2020",
     "category": "admin",
-    "image": "defaultAvatar.png"
+    "image": "1632105227254_img.jpg"
   },
   {
     "id": 4,
-    "firstName": "JorgeDos",
-    "lastName": "Herrando",
-    "email": "jorge2@gmail.com",
-    "password": "$2a$10$Mcpj7r91J9VRntDj3PCXHu0xj6O8vgm0mxVenIeHtEYi2JZOoQWpG",
-    "category": "admin",
-    "image": "1632150769631_img.png"
+    "firstName": "Diego",
+    "lastName": "Horovitz",
+    "email": "diego@gmail.com",
+    "password": "$2a$10$43Qc9YsMTIO3HpoZaad0geT9y/HQKp0gd1VTE67FaesyS65oppMvO",
+    "_comment": "Messi2001",
+    "category": "user",
+    "image": "1632105619041_img.jpg"
   },
   {
     "id": 5,
-    "firstName": "PabloDos",
-    "lastName": "Sarrion",
-    "email": "pablo2@gmail.com",
-    "password": "$2a$10$pW3NeR8sSeVtKxe6yd96N.2I2vHJ7Frwq64Fgrg2ZKFj6.PB/OUKm",
+    "firstName": "Darío",
+    "lastName": "García",
+    "email": "dario@gmail.com",
+    "password": "$2a$10$sBhvDzgszNWPVKxmNnuaR.ymDDBvbeGBMhYYDVScxZ.7CZWpz29UC",
+    "_comment": "Facilverdad2020",
     "category": "user",
-    "image": "defaultAvatar.png"
+    "image": "1632105770850_img.jpg"
   },
   {
     "id": 6,
-    "firstName": "FlorenciaDos",
-    "lastName": "Ocampo",
-    "email": "florencia2@gmail.com",
-    "password": "$2a$10$e3xOpy7SCyCBryq.8fVjjuQKBqsQXvOVT3IcYvhQzLz/1/j1WT4Bi",
+    "firstName": "Javier",
+    "lastName": "Álvarez",
+    "email": "javier@gmail.com",
+    "password": "$2a$10$DedcV.OZmigx3QAogo0OPOUG/cfJ7qhLYsipnG58kwYRAPfvktUQu",
+    "_comment": "Colombia2020",
     "category": "user",
-    "image": "defaultAvatar.png"
+    "image": "1632105862819_img.jpg"
   }
 ]

@@ -51,7 +51,7 @@ app.use("/products", productsRouter);
 
 // ************ catch 404 and forward to error handler ************
 app.use((req, res, next) => {
-  res.status(404).render("./main/404");
+  res.status(404).render("./main/404", { title: "Havenboards - Not found" });
   next();
 });
 

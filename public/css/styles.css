@@ -145,12 +145,16 @@ header form.form-search div.input-search {
   margin: 0 auto;
   z-index: 0;
 }
-/* posicionamos i */
-header form.form-search div.input-search i {
+/* posicionamos button */
+header form.form-search div.input-search button {
   position: absolute;
   color: #666666;
-  right: 3px;
-  top: 6px;
+  right: 5px;
+  bottom: 2px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 /* damos formato al toggle bottom */
