@@ -307,7 +307,7 @@ div.header-bottom nav ul {
 }
 div.header-bottom nav a {
   transition: color 200ms;
-  color: chocolate;
+  color: #153351;
 }
 /* animación al hacer hover */
 div.header-bottom nav a:hover {

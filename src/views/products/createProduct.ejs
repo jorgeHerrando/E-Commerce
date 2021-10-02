@@ -79,7 +79,7 @@
                   <!-- traemos data de la DB y accedemos al nombre -->
                   <% for (let oneCategory of categories) { %>
                     <option value="<%= oneCategory.id %>" 
-                    <%= locals.oldData && (oldData.category === oneCategory.name) ? 'selected':"" %>><%= oneCategory.name %></option>
+                    <%= locals.oldData && (oldData.category == oneCategory.id) ? 'selected':"" %>><%= oneCategory.name %></option>
                   <% } %>
                   
                 </select>
@@ -101,7 +101,7 @@
 
                   <% for (const oneSubcategory of subcategories) { %>
                     <option value="<%= oneSubcategory.id %>" 
-                    <%= locals.oldData && (oldData.subcategory === oneSubcategory.name) ? 'selected':"" %>><%= oneSubcategory.name %></option>
+                    <%= locals.oldData && (oldData.subcategory == oneSubcategory.id) ? 'selected':"" %>><%= oneSubcategory.name %></option>
                   <% } %>
 
                 </select>
@@ -123,7 +123,7 @@
 
                   <% for (const oneBrand of brands) { %>
                     <option value="<%= oneBrand.id %>" 
-                    <%= locals.oldData && (oldData.brand === oneBrand.name) ? 'selected':"" %>><%= oneBrand.name %></option>
+                    <%= locals.oldData && (oldData.brand == oneBrand.id) ? 'selected':"" %>><%= oneBrand.name %></option>
                   <% } %>
 
                 </select>
@@ -190,7 +190,7 @@
 
                   <% for (const oneSize of sizes) { %>
                     <option value="<%= oneSize.id %>" 
-                    <%= locals.oldData && (oldData.size === oneSize.name) ? 'selected':"" %>><%= oneSize.name %></option>
+                    <%= locals.oldData && (oldData.size == oneSize.id) ? 'selected':"" %>><%= oneSize.name %></option>
                   <% } %>
                   
                 </select>

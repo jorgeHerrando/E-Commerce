@@ -1,5 +1,7 @@
 const path = require("path");
 const multer = require("multer");
+// para que multer no cree dos filenames iguales con Date.now(). a veces los crea muy rapido y son iguales. luego da error en el controlador
+const { v4: uuidv4 } = require('uuid');
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -7,7 +9,8 @@ const storage = multer.diskStorage({
   },
   // esto lo hace por cada file. Para acceder a un array se hace desde req.fileS
   filename: (req, file, cb) => {
-    let fileName = `${Date.now()}_img${path.extname(file.originalname)}`;
+    let uniqueName = uuidv4();
+    let fileName = `${uniqueName}${path.extname(file.originalname)}`;
     cb(null, fileName);
   },
 });
