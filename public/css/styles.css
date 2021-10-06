@@ -969,8 +969,24 @@ article.cart-buttons button:first-child {
   border-bottom: 1px solid #4abbc7;
   color: #000;
 }
+.contact-form form textarea {
+  min-width: 100%;
+  max-width: 100%;
+}
 .img-edit-product-container input {
   width: 2rem !important;
+}
+
+div.checkbox-container {
+  padding: 0 1.5rem;
+}
+div.checkbox-row {
+  width: 45%;
+  display: inline-block;
+  padding: 0.2rem 0 0.2rem 2rem;
+}
+div.checkbox-row input {
+  width: auto;
 }
 
 .contact-form form div.block {

@@ -58,17 +58,17 @@
             <% } %> 
 
 
-            <!-- esto se muestra si el producto dispone de tallas. Si no está vacío -->
-            <% if(detailProduct.sizes != "") { %>
-              <select name="Sizes" id="sizes">
+            <!-- esto se muestra si el producto dispone de tallas. -->
+            <% if (detailProduct.sizes[0].name != null) { %>
+              <select name="size" id="sizes">
                 <option value="" disabled selected>Select Size</option>
-
                 <% for (const size of detailProduct.sizes) { %>
                   <option value="<%= size.id %>"><%= size.name %></option>
                 <% } %>
-                
               </select>
             <% } %>
+            
+
             <p>
               <input type="number" value="1" />
               <a href="#" class="btn">Add to Cart</a>

@@ -1,0 +1,210 @@
+<%- include('../partials/head', {title:"Edit Profile"}) %>
+  <body>
+  <%- include('../partials/header') %>
+
+    <main>
+      <div class="top-section">
+        <section class="top-promotion">
+          <article class="top-promotion-img">
+            <img src="/images/panoramic/login4.jpg" alt="Foto para login" />
+          </article>
+        </section>
+      </div>
+      <div class="content content-register">
+        <h1 class="logo">Editar Perfil</h1>
+        <div class="contact-wrapper">
+          <div class="contact-form">
+
+            <form action="/users/profile/edit" method="POST" enctype="multipart/form-data">
+              <p>
+                <label for="firstName">Nombre</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                  minlength="1"
+                  maxlength="20"
+                  required
+                  pattern="([^\s][A-zÀ-ž\s]+)"
+                  placeholder="Introduzca su nombre"
+                  class="<%= locals.errors && errors.firstName ? 'is-invalid' : null %>"
+                  value="<%= locals.oldData && oldData.firstName ? oldData.firstName : user.firstName %>"
+                  />
+                <% if (locals.errors && errors.firstName) { %> 
+                  <label class="infovalidacion">
+                    <%= errors.firstName.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="lastName">Apellido</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                  minlength="1"
+                  maxlength="20"
+                  required
+                  pattern="([^\s][A-zÀ-ž\s]+)"
+                  placeholder="Introduzca su apellido"
+                  class="<%= locals.errors && errors.lastName ? 'is-invalid' : null %>"
+                  value="<%= locals.oldData && oldData.lastName ? oldData.lastName : user.lastName %>"
+                  />
+                <% if (locals.errors && errors.lastName) { %> 
+                  <label class="infovalidacion">
+                    <%= errors.lastName.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="image">Cambiar imagen de perfil</label>
+                <input type="file"
+                  name="avatar"
+                  id="image"
+                  class="<%= locals.errors && errors.avatar ? 'is-invalid' : null %>"/>
+                  <% if (locals.errors && errors.avatar) { %> 
+                    <label class="infovalidacion">
+                      <%= errors.avatar.msg %>
+                    </label>
+                  <% } %>
+              </p>
+
+              <p>
+                <label for="streetName">Calle/Avenida</label>
+                <input
+                  type="text"
+                  name="streetName"
+                  id="streetName"
+                  minlength="1"
+                  maxlength="20"
+                  placeholder="Avenida de los Pirineos"
+                  class="<%= locals.errors && errors.streetName ? 'is-invalid' : null %>"
+                  value="<%= (user.address && user.address.streetName) ? user.address.streetName : "" %>"
+                />
+                <% if (locals.errors && errors.streetName) { %> 
+                  <label class="infovalidacion">
+                    <%= errors.streetName.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="number">Número</label>
+                <input
+                  type="number"
+                  name="number"
+                  id="number"
+                  placeholder="Introduzca su número de calle"
+                  class="<%= locals.errors && errors.number ? 'is-invalid' : null %>"
+                  value="<%= (user.address && user.address.number) ? user.address.number : "" %>"
+                />
+                <% if (locals.errors && errors.number) { %> 
+                  <label class="infovalidacion">
+                    <%= errors.number.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="apartment">Apartamento</label>
+                <input
+                  type="text"
+                  name="apartment"
+                  id="apartment"
+                  placeholder="Introduzca su número de apartamento"
+                  class="<%= locals.errors && errors.apartment ? 'is-invalid' : null %>"
+                  value="<%= (user.address && user.address.apartment) ? user.address.apartment : "" %>"
+                />
+                <% if (locals.errors && errors.apartment) { %> 
+                  <label class="infovalidacion">
+                    <%= errors.apartment.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="province">Provincia</label>
+                <input
+                  type="text"
+                  name="province"
+                  id="province"
+                  placeholder="Provincia"
+                  class="<%= locals.errors && errors.province ? 'is-invalid' : null %>"
+                  value="<%= (user.address && user.address.province) ? user.address.province : "" %>"
+                />
+                <% if (locals.errors && errors.province) { %> 
+                  <label class="infovalidacion">
+                    <%= errors.province.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="city">Ciudad</label>
+                <input
+                  type="text"
+                  name="city"
+                  id="city"
+                  placeholder="Ciudad"
+                  class="<%= locals.errors && errors.city ? 'is-invalid' : null %>"
+                  value="<%= (user.address && user.address.city) ? user.address.city : "" %>"
+                />
+                <% if (locals.errors && errors.city) { %> 
+                  <label class="infovalidacion">
+                    <%= errors.city.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="postalCode">Código Postal</label>
+                <input
+                  type="text"
+                  name="postalCode"
+                  id="postalCode"
+                  placeholder="Código Postal"
+                  class="<%= locals.errors && errors.postalCode ? 'is-invalid' : null %>"
+                  value="<%= (user.address && user.address.postalCode) ? user.address.postalCode : "" %>"
+                />
+                <% if (locals.errors && errors.postalCode) { %> 
+                  <label class="infovalidacion">
+                    <%= errors.postalCode.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="country">País</label>
+                <input
+                  type="text"
+                  name="country"
+                  id="country"
+                  placeholder="País"
+                  class="<%= locals.errors && errors.country ? 'is-invalid' : null %>"
+                  value="<%= (user.address && user.address.country) ? user.address.country : "" %>"
+                />
+                <% if (locals.errors && errors.country) { %> 
+                  <label class="infovalidacion">
+                    <%= errors.country.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+
+              <p class="block">
+                <button type="submit">Editar Cuenta</button>
+              </p>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>
+
+

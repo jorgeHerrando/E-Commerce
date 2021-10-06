@@ -58,8 +58,14 @@ const validations = [
     .isNumeric()
     .withMessage("Tienes que escribir un valor numérico"),
   body("sale").notEmpty().withMessage("Tienes que marcar si está en promoción"),
-  body("size").optional(),
+  body("size").notEmpty().withMessage("Tienes que marcar un talle."),
   // .isIn(sizes).withMessage("Valor no aceptado"), //por si cambian el valor en el browser
+  body("stock")
+    .notEmpty()
+    .withMessage("Tienes que poner un stock para el producto creado"),
+  body("tag")
+    .notEmpty()
+    .withMessage("Tienes que poner al menos un tag para el producto creado"),
   body("image").custom((value, { req }) => {
     let file = req.files;
     let acceptedExtensions = [".jpg", ".png", ".gif"];
