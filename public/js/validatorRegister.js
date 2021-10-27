@@ -49,7 +49,7 @@ window.onload = function () {
     if (!hasLength(firstName, 2, 20)) {
       return;
     }
-    document.querySelector(".firstName-validation").innerText = "";
+    setValid(firstName);
     lastName.focus();
     return true;
   }
@@ -65,7 +65,7 @@ window.onload = function () {
     if (!hasLength(lastName, 2, 20)) {
       return;
     }
-    document.querySelector(".lastName-validation").innerText = "";
+    setValid(lastName);
     email.focus();
     return true;
   }
@@ -82,8 +82,7 @@ window.onload = function () {
       setInvalid(email, `El campo debe tener formato de email`);
       return;
     }
-    // setValid(email);
-    document.querySelector(".email-validation").innerText = "";
+    setValid(email);
     password.focus();
     return true;
   }
@@ -112,8 +111,7 @@ window.onload = function () {
         return;
       }
     }
-    // setValid(password);
-    document.querySelector(".password-validation").innerText = "";
+    setValid(password);
     password2.focus();
     return true;
   }
@@ -132,7 +130,6 @@ window.onload = function () {
       return;
     }
     setValid(password2);
-    document.querySelector(".password2-validation").innerText = "";
     return true;
   }
 
@@ -149,7 +146,9 @@ window.onload = function () {
       // miramos si esta en nuestro array de extensiones permitidas
       if (validExtensions.includes(extension)) {
         document.querySelector(".image-validation").innerText = "";
-        setValid(image);
+        image.classList.remove("is-invalid");
+        image.classList.add("is-valid");
+        // setValid(image);
         return true;
       } else {
         image.classList.remove("is-valid");
@@ -193,6 +192,7 @@ window.onload = function () {
   }
 
   function setValid(field) {
+    document.querySelector(`.${field.name}-validation`).innerText = "";
     field.classList.remove("is-invalid");
     field.classList.add("is-valid");
   }
