@@ -1,0 +1,102 @@
+.top-section-login {
+  background-image: url("/images/panoramic/login4.jpg");
+  height: 520px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.content-login {
+  padding: 1.5em;
+}
+.content-register {
+  padding: 0.5rem 1.5rem 1.5rem;
+}
+
+.contact-form-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.login-form,
+.signup-form {
+  width: 100%;
+}
+.signup-form {
+  margin-top: 2rem;
+}
+
+.signup-form p {
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 1rem;
+  text-align: center;
+}
+.signup-form p button {
+  width: 100%;
+}
+
+.signup-form button {
+  background: #bbc2c4;
+  color: #000;
+  border: 0;
+  text-transform: uppercase;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.signup-form button:hover,
+.signup-form button:focus {
+  background: #afafaf;
+  color: #fff;
+  transition: background-color 0.5s ease-out;
+  cursor: pointer;
+  outline: none;
+}
+
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 415 ----------------------------------------------- */
+
+@media (min-width: 415px) {
+  .content-login {
+    padding: 2.2rem;
+  }
+  .content-register {
+    padding: 1.5rem 2.2rem 2rem;
+  }
+}
+
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 769 ----------------------------------------------- */
+@media (min-width: 769px) {
+  .content-login {
+    padding: 3rem;
+  }
+  .content-register {
+    padding: 1.5rem 3rem 2rem;
+  }
+
+  .login-form,
+  .signup-form {
+    width: 50%;
+    padding: 0 2rem;
+  }
+  .signup-form {
+    margin-top: 0;
+    align-self: flex-start;
+  }
+}
+
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 1050 ----------------------------------------------- */
+
+@media (min-width: 1050px) {
+  /* ------------------------- LOGIN --------------------*/
+
+  .signup-form {
+    margin-top: 5rem;
+  }
+}

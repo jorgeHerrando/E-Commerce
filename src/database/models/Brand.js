@@ -13,6 +13,10 @@ module.exports = (sequelize, dataTypes) => {
       unique: true,
       allowNull: false,
     },
+    image: {
+      type: dataTypes.STRING,
+      allowNull: false,
+    },
   };
   let config = {
     tableName: "brands",

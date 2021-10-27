@@ -1,0 +1,174 @@
+.content {
+  max-width: 1170px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.content .logo {
+  text-align: center;
+  font-size: 1.5em;
+}
+
+.contact-wrapper > * {
+  padding: 0.3em;
+  margin: 1em 0;
+}
+
+.contact-form {
+  width: 100%;
+  margin: 10px auto;
+  max-width: 500px;
+}
+
+.contact-form form {
+  box-shadow: 1px 1px 7px 1px rgb(0 0 0 / 30%);
+  background-color: #fff;
+  opacity: 0.9;
+}
+
+.contact-form form p {
+  margin: 0;
+  padding: 0.5em;
+}
+
+.contact-form form p.centrado {
+  text-align: center;
+}
+
+.contact-form form button,
+.contact-form form input,
+.contact-form form textarea {
+  width: 100%;
+  padding: 0.5em;
+  border: none;
+  background: none;
+  outline: none;
+  border-bottom: 1px solid #4abbc7;
+  color: #000;
+}
+.contact-form form textarea {
+  min-width: 100%;
+  max-width: 100%;
+}
+.img-edit-product-container input {
+  width: 2rem !important;
+}
+
+div.checkbox-container {
+  padding: 0 1.5rem;
+}
+div.checkbox-row {
+  width: 45%;
+  display: inline-block;
+  padding: 0.2rem 0 0.2rem 2rem;
+}
+div.checkbox-row input {
+  width: auto;
+}
+
+.contact-form form div.block {
+  padding: 5px 10px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+}
+
+.contact-form form div.block input {
+  width: unset;
+}
+
+.contact-form form button {
+  background: #bbc2c4;
+  color: #000;
+  border: 0;
+  text-transform: uppercase;
+  padding: 1em;
+  border-radius: 5px;
+}
+
+.contact-form form button:hover,
+.contact-form form button:focus {
+  background: #afafaf;
+  color: #fff;
+  transition: background-color 0.5s ease-out;
+  cursor: pointer;
+  outline: none;
+  /* line-height: 1; */
+}
+.contact-form .infovalidacion {
+  font-size: 13px;
+  color: #bf1725;
+  padding-left: 3px;
+  display: inline-block;
+}
+
+/* VALIDACION */
+.contact-form form button.is-invalid,
+.contact-form form input.is-invalid,
+.contact-form form textarea.is-invalid {
+  border-bottom: none;
+  border: 1px solid #bf1725;
+  border-radius: 4px;
+}
+
+.contact-form form button.on-focus,
+.contact-form form input.on-focus,
+.contact-form form textarea.on-focus {
+  border-bottom: none;
+  border: 1px solid #4abbc7;
+  border-radius: 4px;
+}
+
+.contact-form form button.is-valid,
+.contact-form form input.is-valid,
+.contact-form form textarea.is-valid {
+  /* border-bottom: none; */
+  border-bottom: 1px solid #39c93e;
+  /* border-radius: 4px; */
+}
+
+p.password-input {
+  position: relative;
+}
+span.showBtn,
+span.showBtn2 {
+  position: absolute;
+  right: 25px;
+  top: 38px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+}
+p.password2-input {
+  position: relative;
+}
+
+img.show-icon {
+  width: 20px;
+}
+
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 1050 ----------------------------------------------- */
+
+@media (min-width: 1050px) {
+  /* ------------------------- LOGIN --------------------*/
+
+  .contact-wrapper > * {
+    padding: 1em;
+  }
+
+  .contact-form {
+    width: 500px;
+    margin: 20px auto;
+    min-width: inherit;
+  }
+
+  .contact-form form p {
+    margin: 0;
+    padding: 0.6em 1em;
+  }
+
+  .contact-form form div.block {
+    width: 100%;
+  }
+}

@@ -1,0 +1,39 @@
+<%- include('../partials/head', { title: "Havenboards - Brands" }) %>
+  <body>
+    <%- include('../partials/header') %>
+    <main class="main-brands">
+      <section class="brands-category">
+        <h1>Nuestras Marcas</h1>
+
+        <article>
+          <div class="brands-top-image">
+            <img
+            src="/images/panoramic/brands.jpg"
+            alt="man jumping on snowboard"
+            />
+          </div>
+        </article>
+      </section>
+
+      <div class="brands-main-section">
+
+        <section class="brands-info">
+          <% for(let brand of brands) { %>
+            <article
+            class="brands-picture brands-article-box-shadow"
+            >
+            <a href="/products/brands/<%=brand.name%>"
+              ><img
+                src="/images/square/brands/<%= brand.image %>"
+                alt="imagen marca"
+              />
+            </a>
+          </article>
+          <% } %>
+        </section>
+      </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+  </body>
+</html>

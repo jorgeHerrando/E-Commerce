@@ -16,6 +16,7 @@ const mainController = {
         sale: 1,
       },
     });
+
     // sales = products.filter((elem) => elem.sale == true);
     return res.render("index", {
       sales: products,

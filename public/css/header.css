@@ -1,0 +1,441 @@
+/* header fixed y ajustar margin main */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+  background-color: #fff;
+}
+header div.top-header {
+  height: 88px;
+  border-bottom: 0.5px solid lightgray;
+}
+main {
+  margin-top: 88px;
+}
+/* este header solo se verá en tablets y desktop */
+.header-account {
+  padding: 7px 5%;
+  border-bottom: 0.5px solid lightgray;
+  display: none;
+  height: 30px;
+  /* background-color: #fff; */
+}
+/* hacemos la lista flex para situar li horizontalmente */
+.header-account ul {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+  font-size: 15px;
+  color: #888;
+}
+/* añadimos margen entre li */
+.header-account ul li {
+  margin-left: 1rem;
+}
+
+p.hello-user {
+  color: #000;
+}
+/* hacemos flex en el top header */
+/* con justify ponemos los items separados */
+/* con align los centramos verticalmente */
+header div.top-header {
+  padding: 10px 5%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+/* tamaño del logo */
+div.top-header div.logo {
+  width: 60px;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 1rem;
+}
+/* que la img ocupe el 100% */
+div.top-header div.logo img {
+  width: 100%;
+}
+
+/* hacemos flex en los iconos y los ponemos a la dcha con flex-end */
+div.top-header div.header-icons {
+  max-width: 45%;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: 1rem;
+}
+/* hacemos flex la subcontainer para dejar espacio entr estos y barra menú */
+div.top-header div.header-icons div.header-icons-action {
+  display: flex;
+  justify-content: flex-end;
+}
+div.top-header div.header-icons div.header-icons-action a:hover {
+  color: #fcd89d;
+}
+/* aquí va el icon menú */
+div.top-header div.header-icons div.header-icon-menu {
+  min-width: 50px;
+  text-align: right;
+}
+/* tamaño y formato de iconos */
+div.top-header div.header-icons i {
+  font-size: 1.5rem;
+}
+
+div.top-header div.header-icons div.header-icons-action i {
+  padding: 0 3px;
+}
+div.top-header div.header-icons div.header-icons-action a:last-child i {
+  padding-right: 0;
+}
+/* damos formato a la barra de búsqueda */
+header form.form-search {
+  width: 50%;
+  margin: auto 0;
+  display: none;
+  flex-grow: 1;
+}
+header form.form-search input {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+/* damos un tamaño max a la barra y hacemos obj relative para posicionar lupa. la ponemos detrás del menú desplegable */
+header form.form-search div.input-search {
+  position: relative;
+  max-width: 320px;
+  margin: 0 auto;
+  z-index: 0;
+}
+/* posicionamos button */
+header form.form-search div.input-search button {
+  position: absolute;
+  color: #666666;
+  right: 5px;
+  bottom: 2px;
+  height: 100%;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* damos formato al toggle bottom */
+div.toggle-btn {
+  cursor: pointer;
+  transition: all 0.5s ease-out;
+  float: right;
+  padding-top: 4px;
+  position: relative;
+}
+/* Styling the hamburger lines */
+div.toggle-btn .btn-line {
+  width: 28px;
+  height: 3px;
+  margin: 0 0 5px 0;
+  background: black;
+  transition: all 0.5s ease-out;
+}
+/* Adding transform to the X */
+
+/* Styling the three lines
+          to make it an X */
+.toggle-btn.close .btn-line:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.toggle-btn.close .btn-line:nth-child(2) {
+  opacity: 0;
+}
+
+.toggle-btn.close .btn-line:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -7px);
+}
+
+/* damos estilo al navbar de mobile */
+nav.nav-list {
+  /* display: none; */
+  width: 100%;
+  height: 100%;
+  background-color: #000000de;
+  position: fixed;
+  top: 88px;
+  left: -100%;
+  transition: 350ms;
+}
+nav.nav-list.is-open {
+  left: 0;
+}
+
+nav.nav-list > ul > li {
+  display: flex;
+  font-size: 1.35rem;
+  justify-content: center;
+  height: 40px;
+  border-bottom: 1px solid #fff;
+  align-items: center;
+  font-family: "Heebo", sans-serif;
+}
+nav.nav-list > ul > li.no-border {
+  border-bottom: none;
+}
+nav.nav-list > ul > li:last-child {
+  height: 80px;
+  background-color: #4abbc7;
+  padding: 0 8%;
+}
+
+nav.nav-list a {
+  color: #fff;
+  padding: 0 5%;
+}
+nav.nav-list a:hover {
+  color: #4abbc7;
+}
+/* tamaño logo nav-list */
+/* tamaño del logo */
+div.logo-list {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-shrink: 1;
+  flex-basis: 20%;
+}
+div.logo-list a img {
+  width: 60px;
+}
+nav.nav-list li:last-child ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  flex: 1;
+  list-style: none;
+}
+nav.nav-list li:last-child ul li {
+  font-size: 0.8rem;
+  flex: 1 1 35%;
+  text-align: end;
+}
+nav.nav-list li:last-child ul li:first-child {
+  flex: 1 1 50%;
+}
+nav.nav-list li:last-child ul li a:hover {
+  color: #000;
+}
+
+/* no se muestra de momento */
+nav.nav-desktop {
+  display: none;
+}
+
+/* style de los li de header-bottom */
+div.header-bottom nav ul li a {
+  position: relative;
+}
+div.header-bottom nav ul li a span {
+  position: relative;
+  z-index: 1;
+}
+div.header-bottom nav ul li a span i {
+  color: #4abbc7;
+  font-family: "Big Shoulders Display", cursive;
+  font-weight: bold;
+}
+div.header-bottom nav ul li a b {
+  display: inline-block;
+  height: 0;
+  width: calc(100% + 15px);
+  background-color: #fcd89d;
+  position: absolute;
+  border-radius: 8px;
+  left: -8px;
+  bottom: -2px;
+  transition-duration: 0.32s;
+  transition-timing-function: ease;
+}
+
+/* de momento no lo mostramos */
+div.header-bottom {
+  padding: 11px 5%;
+  display: none;
+  width: 100%;
+  height: 40px;
+  border-bottom: 0.5px solid lightgray;
+}
+/* quitamos diseño de lista predeterminado */
+div.header-bottom nav ul {
+  list-style: none;
+}
+div.header-bottom nav a {
+  transition: color 200ms;
+  color: #153351;
+}
+/* animación al hacer hover */
+div.header-bottom nav a:hover {
+  /* padding-bottom: 3px; */
+  color: #fff;
+}
+div.header-bottom nav a:hover b {
+  height: 110%;
+  background-color: #153351;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 415 ----------------------------------------------- */
+
+/* Para tablets */
+
+/* para pantallas mayores que iPhone 8 Plus */
+@media (min-width: 415px) {
+  /* ------------------------- INDEX --------------------*/
+  /* HEADER */
+
+  /* sacamos el icono de buscar */
+  div.header-icons a.search-icon {
+    display: none;
+  }
+  /* ponemos la barra de búsqueda */
+  header form.form-search {
+    display: block;
+  }
+
+  /* que el div del logo en navbar-mobile ocupe más espacio */
+  div.logo-list {
+    flex-basis: 50%;
+  }
+  nav.nav-list li:last-child ul li {
+    text-align: center;
+  }
+  nav.nav-list li:last-child ul li.nav-list-login {
+    text-align: right;
+  }
+}
+
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 769 ----------------------------------------------- */
+
+/* Para tablets y mayores */
+@media (min-width: 769px) {
+  /* ------------------------- INDEX --------------------*/
+  /* HEADER */
+  /* cambiar header margin y ajustar main */
+  main {
+    margin-top: 145px;
+  }
+  /* hacemos desaparecer el nav-mobile */
+  nav.nav-list {
+    display: none;
+  }
+
+  header div.top-header {
+    padding: 3px 5%;
+    height: 75px;
+  }
+  /* mostramos la parte de arriba de tiendas y cuenta */
+  .header-account {
+    display: block;
+  }
+  div.top-header {
+    background-color: #4abbc7;
+    border-bottom: 0.5px solid #bbc2c4;
+  }
+
+  /* quitamos el icono del menú desplegable */
+  div.top-header div.header-icon-menu {
+    display: none;
+  }
+  /* se muestra el form por encima */
+  header form.form-search div.input-search {
+    z-index: 0;
+  }
+
+  /* enseñamos el menú por abajo */
+  div.header-bottom {
+    display: block;
+  }
+  /* y le damos formato */
+  div.header-bottom nav ul {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* movemos la barra de búsqueda a la dcha */
+  header form.form-search div.input-search {
+    width: 250px;
+    float: right;
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 1050 ---------------------------------------------- */
+
+/* Para desktop */
+@media (min-width: 1050px) {
+  /* ------------------------- HEADER --------------------*/
+  /* cambiar header margin y ajustar main */
+  main {
+    margin-top: 118px;
+  }
+  header div.top-header {
+    padding: 10px 5%;
+    height: 88px;
+  }
+  /* reducimos el tamaño de la barra búsqueda para dejar hueco al nuevo menú */
+  header form.form-search {
+    width: 250px;
+    flex-grow: 0;
+    margin-left: 1.5rem;
+  }
+  /* mostramos menú */
+  /* que crezca todo lo que pueda. Aún no se muestra */
+  nav.nav-desktop {
+    display: block;
+    font-size: 0.95rem;
+    max-width: 645px;
+    flex-grow: 1;
+  }
+
+  /* hacemos ul flex container y damos formato */
+  nav.nav-desktop ul {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Heebo", sans-serif;
+    /* padding: 0 0.3rem; */
+  }
+  nav.nav-desktop a {
+    transition: border-bottom 150ms;
+  }
+  nav.nav-desktop a:hover {
+    border-bottom: 2px solid #153351;
+    padding-bottom: 5px;
+  }
+
+  div.top-header {
+    background-color: #fff;
+  }
+  /* ponemos margen al logo */
+  div.top-header div.logo {
+    margin-right: 1.5rem;
+  }
+
+  /* escondemos el menú anterior */
+  div.header-bottom {
+    display: none;
+  }
+
+  .header-account {
+    background-color: #4abbc7;
+  }
+  .header-account ul {
+    color: #153351;
+  }
+}

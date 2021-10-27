@@ -6,40 +6,50 @@ const validations = [
     .notEmpty()
     .withMessage("Tienes que escribir un nombre")
     .bail()
-    .isLength({ min: 1, max: 20 })
+    .isLength({ min: 2, max: 20 })
     .withMessage("El nombre tiene que tener entre 1 y 20 caracteres"),
   body("lastName")
     .notEmpty()
     .withMessage("Tienes que escribir un apellido")
     .bail()
-    .isLength({ min: 1, max: 20 })
+    .isLength({ min: 2, max: 20 })
     .withMessage("El apellido tiene que tener entre 1 y 20 caracteres"),
   body("email")
     .notEmpty()
     .withMessage("Tienes que escribir un email")
     .bail()
     .isEmail()
-    .normalizeEmail()
+    // pone el email en minúsculas
+    // .normalizeEmail({ gmail_remove_dots: false })
     .withMessage("Tiene que tener formato de email"),
   body("password")
+    // que no esté vacía
     .notEmpty()
     .withMessage("Tienes que escribir un password")
     .bail()
-    .isLength({ min: 6, max: 20 })
+    // que tenga la longitud deseada
+    .isLength({ min: 8, max: 20 })
     .withMessage(
-      "La contraseña debe tener al menos 6 dígitos, incluir una mayúscula, una minúscula, y un número"
+      "La contraseña debe tener al menos 8 dígitos, incluir una mayúscula, una minúscula, un número y un carácter especial('#?!@$%^&*-')"
     )
+    // que contenga un número
     .matches("[0-9]")
     .withMessage(
-      "La contraseña debe tener al menos 6 dígitos, incluir una mayúscula, una minúscula, y un número"
+      "La contraseña debe tener al menos 8 dígitos, incluir una mayúscula, una minúscula, un número y un carácter especial('#?!@$%^&*-')"
     )
+    // que contenga una mayúscula
     .matches("[A-Z]")
     .withMessage(
-      "La contraseña debe tener al menos 6 dígitos, incluir una mayúscula, una minúscula, y un número"
+      "La contraseña debe tener al menos 8 dígitos, incluir una mayúscula, una minúscula, un número y un carácter especial('#?!@$%^&*-')"
+    )
+    // que contenga un carácter especial
+    .matches("[#?!@$%^&*-]")
+    .withMessage(
+      "La contraseña debe tener al menos 8 dígitos, incluir una mayúscula, una minúscula, un número y un carácter especial('#?!@$%^&*-')"
     ),
   body("avatar").custom((value, { req }) => {
     let file = req.file;
-    let acceptedExtensions = [".jpg", ".png", ".gif"];
+    let acceptedExtensions = [".jpg", ".jpeg", ".png", ".gif"];
 
     if (file) {
       // throw new Error("Tienes que subir una imagen");

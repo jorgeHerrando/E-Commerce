@@ -3,13 +3,13 @@
   <%- include('../partials/header') %>
 
     <main>
-      <div class="top-section">
+      <!-- <div class="top-section">
         <section class="top-promotion">
           <article class="top-promotion-img">
             <img src="/images/panoramic/login4.jpg" alt="Foto para login" />
           </article>
         </section>
-      </div>
+      </div> -->
 
       <div class="small-container single-product">
         <div class="row">
@@ -59,7 +59,7 @@
 
 
             <!-- esto se muestra si el producto dispone de tallas. -->
-            <% if (detailProduct.sizes[0].name != null) { %>
+            <% if (detailProduct.sizes[0].name != "Talle único") { %>
               <select name="size" id="sizes">
                 <option value="" disabled selected>Select Size</option>
                 <% for (const size of detailProduct.sizes) { %>

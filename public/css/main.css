@@ -1,0 +1,308 @@
+/* le damos padding a la seccion principal */
+main div.main-section {
+  padding: 0 3%;
+}
+/* que todas las secciones ocupen todo el ancho */
+main.main-index section {
+  width: 100%;
+}
+/* hacemos el contenedror de la img relative para colocar componentes encima, y le damos altura máxima */
+main section.top-promotion article.top-promotion-img {
+  width: 100%;
+  position: relative;
+}
+/* con esto se soluciona el mini gap que aparecía */
+main section.top-promotion article.top-promotion-img div.top-promotion-top {
+  display: flex;
+}
+/* centramos las imagenes */
+main section.top-promotion article.top-promotion-img img,
+main section.home-categories article.home-categories-img img {
+  width: 100%;
+  object-fit: cover;
+}
+main section.top-promotion article.top-promotion-img img {
+  object-position: 50% 0%;
+}
+/* altura maxmin de la imagen de arriba */
+main section.top-promotion article.top-promotion-img img {
+  max-height: 480px;
+  min-height: 200px;
+}
+/* será un elem flex cuando se vea para centrar a dentro. Se posiciona con absolute */
+main section.top-promotion article.top-promotion-img div.main-offer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  letter-spacing: 0.1rem;
+  font-weight: bold;
+  top: 20%;
+  left: 50%;
+  width: 50%;
+  min-width: 160px;
+  max-width: 380px;
+  transform: translateX(-50%);
+  background-color: #bbc2c454;
+  color: #fff;
+  border-radius: 8px;
+  box-shadow: 0px 0px 2px #fcd89d;
+  transition: all 0.3s;
+}
+main section.top-promotion article.top-promotion-img div.main-offer:hover {
+  background-color: #fcd89d;
+  color: #000;
+}
+/* se le da padding a dicho a */
+main section.top-promotion article.top-promotion-img div.main-offer a {
+  padding: 12px 15px 10px;
+  font-size: 0.9rem;
+  width: 100%;
+  text-align: center;
+  /* MIRARRRRRRRRRRRRR */
+}
+
+/* se posiciona el botón shop now en la foto principal */
+main section.top-promotion article.top-promotion-img a.shop-now {
+  position: absolute;
+  bottom: 20%;
+  left: 50%;
+  max-width: 200px;
+  transform: translateX(-50%);
+  background-color: #4abbc7;
+  transition: all 0.3s;
+  text-align: center;
+  box-shadow: 0px 0px 2px #fcd89d;
+  padding: 15px 30px;
+  border-radius: 30px;
+}
+main section.top-promotion article.top-promotion-img a.shop-now:hover {
+  background-color: #153351;
+  color: #fff;
+}
+
+section.top-info {
+  padding: 1rem 0;
+}
+/* centramos texto debajo de la foto princ */
+section.top-info p.top-info-p {
+  text-align: center;
+  padding: 10px 0;
+}
+/* box-shadow para articles con clase .box-shadow */
+.article-box-shadow {
+  transition: box-shadow 0.3s;
+}
+.article-box-shadow:hover {
+  box-shadow: 0 0 8px #153351;
+}
+/* margen entre articles */
+div.main-section section.home-categories article {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+main section.home-categories article.home-categories-img img {
+  width: 100%;
+  object-fit: cover;
+}
+div.main-section section.home-categories article a p {
+  margin-left: 5%;
+}
+div.main-section section.home-categories article a p:first-of-type {
+  padding-top: 0.5rem;
+}
+div.main-section section.home-categories article a p:last-child {
+  padding-bottom: 1rem;
+}
+/* margen tras sales */
+main section.home-section-sales {
+  padding-bottom: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid #bbc2c454;
+  border-bottom: 1px solid #bbc2c454;
+}
+/* título del sales */
+main section.home-section-sales h2.home-sales-title {
+  text-align: center;
+  padding-bottom: 1rem;
+}
+/* contenedor flex */
+main section.home-section-sales div.home-sales {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+main section.home-section-sales div.home-sales article.home-sales-img h3,
+main section.home-section-sales div.home-sales article.home-sales-img p {
+  margin-left: 5%;
+  font-size: 0.9rem;
+}
+main section.home-section-sales div.home-sales article.home-sales-img p {
+  padding-top: 0.5rem;
+}
+main section.home-section-sales div.home-sales article.home-sales-img p span {
+  float: right;
+  margin-right: 0.5rem;
+  color: #25ca25;
+}
+/* dos en una línea */
+main section.home-section-sales div.home-sales article.home-sales-img {
+  width: 48%;
+  transition: all 0.5s;
+  max-height: 450px;
+  min-height: 280px;
+  margin-bottom: 1rem;
+}
+
+article.home-sales-img .sales-product-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+}
+article.home-sales-img .sales-product-container .sales-img-container {
+  height: 72%;
+}
+article.home-sales-img .sales-product-container .sales-img-container img {
+  height: 100%;
+}
+article.home-sales-img .sales-product-container .sales-info-container {
+  height: 28%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+main section.home-section-sales div.home-sales article.home-sales-img:hover {
+  box-shadow: 0 0 11px #4abbc7;
+}
+/* main section.home-section-sales div.home-sales article.home-sales-img3,
+  main section.home-section-sales div.home-sales article.home-sales-img4 {
+    display: none;
+  } */
+/* para que las img no achiquen demasiado */
+main section.home-section-sales article.home-sales-img img {
+  width: 100%;
+  min-height: 180px;
+  object-fit: contain;
+}
+
+/* botón sales */
+section.home-section-sales div.sales-button {
+  text-align: center;
+  padding-top: 1.5rem;
+}
+
+section.home-section-sales div.sales-button button {
+  color: #fff;
+  padding: 0.8rem 4rem;
+  cursor: pointer;
+  background-color: #6db8ff;
+  border-radius: 1px;
+  border: 1px solid #fff;
+  font-size: 16px;
+  transition: background-color 450ms, color 450ms;
+}
+section.home-section-sales div.sales-button button:hover {
+  color: #000;
+  background-color: #75e2dc;
+}
+
+/*section.home-section-sales div.sales-button button {
+    padding: 0.3rem 5rem;
+    cursor: pointer;
+    background-color: #fcd89d;
+    border-radius: 5px;
+  }*/
+
+/*  */
+/* bottom info */
+section.bottom-info {
+  padding: 2rem 0;
+}
+section.bottom-info p.bottom-info-p {
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 415 ----------------------------------------------- */
+
+@media (min-width: 415px) {
+  /* MAIN-INDEX */
+  main.main-index {
+    padding: 0;
+  }
+
+  main section.top-promotion article.top-promotion-img div.main-offer {
+    display: flex;
+  }
+  main section.top-promotion article.top-promotion-img div.main-offer a {
+    font-size: 1.05rem;
+  }
+
+  main section.top-promotion article.top-promotion-img a.shop-now {
+    display: block;
+  }
+
+  div.main-section section.home-categories {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  div.main-section section.home-categories article.home-categories-img {
+    width: 48%;
+  }
+  div.main-section section.home-categories article.home-categories-img3 {
+    width: 100%;
+  }
+  /* sales */
+  main section.home-section-sales div.home-sales article.home-sales-img {
+    width: 30%;
+  }
+}
+
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 769 ----------------------------------------------- */
+
+@media (min-width: 769px) {
+  /* MAIN */
+  section.top-info {
+    padding: 2rem 0;
+  }
+  main section.top-promotion article.top-promotion-img div.main-offer a {
+    font-size: 1.2rem;
+  }
+  div.main-section section.home-categories article.home-categories-img {
+    width: 48%;
+  }
+  div.main-section section.home-categories article.home-categories-img4 {
+    order: -1;
+  }
+  div.main-section section.home-categories article.home-categories-img5 {
+    order: 3;
+  }
+  div.main-section section.home-categories article.home-categories-img1 {
+    order: 1;
+  }
+  div.main-section section.home-categories article.home-categories-img3 {
+    order: 2;
+  }
+
+  div.main-section section.home-categories article.home-categories-img3,
+  div.main-section section.home-categories article.home-categories-img1,
+  div.main-section section.home-categories article.home-categories-img5 {
+    width: 30%;
+  }
+
+  /* sales */
+  main section.home-section-sales div.home-sales article.home-sales-img {
+    width: 23%;
+  }
+  main section.home-section-sales div.home-sales article.home-sales-img h3,
+  main section.home-section-sales div.home-sales article.home-sales-img p {
+    font-size: initial;
+  }
+}

@@ -12,6 +12,8 @@
         <% } %>
         <% } else if (locals.onsale) { %>
           <h1><%=onsale%></h1>
+        <% } else if (locals.brand) { %>
+          <h1><%=brand.name%></h1>
         <% } else { %>
           <h1>Todos los productos</h1>
         <% } %>
@@ -21,6 +23,11 @@
             <img
               src="/images/panoramic/<%= category.image %>"
               alt="<%= category.name %> picture"
+            />
+            <% } else if (locals.brand) { %>
+              <img
+              src="/images/panoramic/brands.jpg"
+              alt="brands image"
             />
             <% } else { %>
               <img
@@ -46,7 +53,7 @@
       <section class="shop-view">
         <!-- por cada uno de los productos enviados desde el controlador, dame su... -->
         <% for(i=0; i<products.length; i++) { %>
-          <article class="shop-view-img article-box-shadow">
+          <article class="shop-view-img shop-article-box-shadow">
             <a href="/products/detail/<%= products[i].id %>">
               <div class="shop-product-container">
                 <div class="shop-img-container">
@@ -71,9 +78,29 @@
         <% } %> 
       </section>
 
-      <section class="shop-more">
+      <% if(locals.totalPages && totalPages > 1) { %>
+        <section class="shop-pagination">
+          <% for (let i=0; i < totalPages; i++){ %>
+            <% if(locals.category) { %>
+              <form action="/products/<%=category.name.toLowerCase()%>" method="GET">
+            <% } else if (locals.onsale) { %>
+              <form action="/products/onsale" method="GET">
+            <% } else if (locals.brand) { %>
+              <form action="/products/brands/<%= brand.name %>" method="GET">
+            <% } else { %>
+              <form action="/products" method="GET">
+            <% } %>
+              <input type="hidden" name="page" value="<%=i%>"/>
+              <input type="hidden" name="size" value="<%=size%>"/>
+              <button type="submit"><%=i+1%></button>
+            </form>
+          <% } %>
+        </section>
+      <% } %>
+
+      <!-- <section class="shop-more">
         <a href="#" class="shop-more-button">Mostrar más productos</a>
-      </section>
+      </section> -->
     </main>
     <%- include('../partials/footer') %>
   </body>

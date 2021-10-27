@@ -15,7 +15,7 @@ const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
 
 // ************ Middlewares ************
 
-// declarar sessin antes que el middleware de logueo
+// declarar session antes que el middleware de logueo
 app.use(
   session({
     secret: "Havenboards",

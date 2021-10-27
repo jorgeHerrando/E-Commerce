@@ -30,7 +30,7 @@ const usersController = {
     // // existe el user? - JSON
     // let userToLogin = User.findByField("email", req.body.email);
 
-    // existe el user?
+    // Validación propia: existe el user?
     let userToLogin = await db.User.findOne({
       include: ["image", "role", "address"],
       where: {
@@ -92,6 +92,7 @@ const usersController = {
   // envío register
   createUser: async (req, res) => {
     const resultValidation = validationResult(req);
+    console.log(req);
 
     if (resultValidation.errors.length > 0) {
       return res.render("users/register", {
@@ -100,7 +101,7 @@ const usersController = {
       });
     }
 
-    // Validación propia
+    // Validación propia, que no exista ya el email
     let userInDB = await db.User.findOne({
       where: {
         email: req.body.email,
@@ -149,8 +150,33 @@ const usersController = {
 
   // detalle usuario
   profile: (req, res) => {
-    res.render("users/profile", {
+    return res.render("users/profile", {
       user: req.session.userLogged,
+    });
+  },
+
+  // orders
+  order: async (req, res) => {
+    // recoge el id por param
+    let id = req.params.id;
+
+    // todas las orders del user
+    let orders = await db.Order.findAll({
+      include: ["orderDetails", "user", "address", "paymentMethod"],
+      where: {
+        user_id: id,
+      },
+    });
+    // todos los orderDetail del user
+    let orderDetail = await db.OrderDetail.findAll({
+      include: ["order", "product"],
+      where: {
+        user_id: id,
+      },
+    });
+    return res.render("users/orders", {
+      orders,
+      orderDetail,
     });
   },
 
@@ -175,6 +201,7 @@ const usersController = {
 
     let user = req.session.userLogged;
 
+    // busco user a editar
     let userToUpdate = await db.User.findOne({
       include: ["image", "role", "address"],
       where: {
@@ -200,7 +227,6 @@ const usersController = {
         }
       );
     }
-    console.log(req.file);
 
     // IMAGE
     // si viene imagen
@@ -237,7 +263,6 @@ const usersController = {
         break;
       }
     }
-    console.log(notEmptyAddress.length > 0);
 
     // si el user tiene address se actualiza el address
     if (userToUpdate.address) {

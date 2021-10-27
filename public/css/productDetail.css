@@ -1,0 +1,132 @@
+.small-container {
+  max-width: 1000px;
+  margin: auto;
+  padding-left: 25px;
+  padding-right: 20px;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.single-product {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.small-img-row {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 15%;
+}
+
+.col-2 img {
+  max-width: 100%;
+  padding: 50px 0;
+}
+
+/* que las img pequeñas tengan una altura mínima */
+.small-img-col {
+  flex-basis: 24%;
+  cursor: pointer;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.single-product .col-2 img {
+  padding: 4%;
+}
+
+.single-product .col-2 {
+  padding: 20px;
+}
+
+.col-2 {
+  flex-basis: 50%;
+  min-width: 300px;
+}
+
+/* para manipular la sección de la foto grande en detail */
+.col-2-left {
+  display: flex;
+  /*flex-direction: column;*/
+  flex-direction: row-reverse;
+}
+/* le damos altura mínima y lo centramos con flex */
+.main-picture {
+  width: 100%;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+}
+
+.col-2 h1 {
+  font-size: 28px;
+  line-height: 32px;
+  margin: 25px 0;
+}
+
+.col-2 p.discount,
+.col-2 h4.discount-price {
+  display: inline-block;
+}
+.col-2 h4.discount-price {
+  padding-right: 1rem;
+}
+.col-2 p.discount {
+  color: #25ca25;
+}
+
+.single-product select {
+  display: block;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.single-product h4 {
+  margin: 20px 0;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.single-product input {
+  width: 50px;
+  height: 40px;
+  padding-left: 10px;
+  font-size: 20px;
+  margin-right: 10px;
+  border: 1px solid #153351;
+}
+
+.single-product a {
+  text-decoration: none;
+  color: #555;
+}
+
+.single-product .fa {
+  color: #4abbc7;
+  margin-left: 10px;
+}
+
+.single-product p {
+  color: #555;
+}
+
+.btn {
+  display: inline-block;
+  background: #fcd89d;
+  color: #fff;
+  padding: 10px 25px;
+  margin: 30px 0;
+  border-radius: 30px;
+  transition: background 0.5s;
+}
+
+.btn:hover {
+  background: #4abbc7;
+}

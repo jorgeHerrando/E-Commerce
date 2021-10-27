@@ -28,10 +28,18 @@ const { body } = require("express-validator");
 // const sizes = ["", "S", "M", "L"];
 
 const validations = [
-  body("name").notEmpty().withMessage("Tienes que escribir un nombre"),
+  body("name")
+    .notEmpty()
+    .withMessage("Tienes que escribir un nombre")
+    .bail()
+    .isLength({ min: 5 })
+    .withMessage("Tiene que tener al menos 5 caracteres"),
   body("description")
     .notEmpty()
-    .withMessage("Tienes que escribir una descripción para el producto"),
+    .withMessage("Tienes que escribir una descripción para el producto")
+    .bail()
+    .isLength({ min: 20 })
+    .withMessage("Tiene que tener al menos 20 caracteres"),
   body("category")
     .notEmpty()
     .withMessage("Tienes que seleccionar una categoría"),
@@ -64,7 +72,7 @@ const validations = [
     .withMessage("Tienes que poner al menos un tag para el producto creado"),
   body("image").custom((value, { req }) => {
     let file = req.files;
-    let acceptedExtensions = [".jpg", ".png", ".gif"];
+    let acceptedExtensions = [".jpg", ".jpeg", ".png", ".gif"];
 
     if (file.length >= 1) {
       //probe mil cosas y es la única que funciona

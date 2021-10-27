@@ -1,0 +1,129 @@
+main.main-brands {
+  margin-top: 88px;
+}
+
+/* box-shadow para articles con clase .box-shadow */
+.brands-article-box-shadow {
+  transition: box-shadow 0.3s;
+}
+.brands-article-box-shadow:hover {
+  box-shadow: 0 0 8px #153351;
+}
+
+section.brands-category {
+  position: relative;
+}
+section.brands-category h1 {
+  position: absolute;
+  top: 65%;
+  transform: translateY(-100%);
+  left: 5%;
+  font-size: 1.5rem;
+  color: #fff;
+  font-family: "Heebo", sans-serif;
+  letter-spacing: 0.08rem;
+}
+
+div.brands-top-image {
+  display: flex;
+}
+div.brands-top-image img {
+  max-height: 350px;
+  min-height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+div.brands-main-section {
+  padding: 1.5rem 3%;
+}
+
+section.brands-info article {
+  margin-bottom: 2rem;
+  width: 100%;
+  position: relative;
+}
+section.brands-info article h2 {
+  position: absolute;
+  left: 5%;
+  bottom: 10%;
+  font-weight: 900;
+  letter-spacing: 0.08rem;
+  color: #153351;
+  font-family: "Heebo", sans-serif;
+}
+section.brands-info article img {
+  width: 100%;
+  object-fit: cover;
+  display: flex;
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 415 ----------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+/* para pantallas mayores que iPhone 8 Plus */
+@media (min-width: 415px) {
+  section.brands-category h1 {
+    font-size: 2rem;
+  }
+
+  section.brands-info article h2 {
+    font-size: 2rem;
+  }
+
+  /* main.main-index {
+    padding: 0;
+  } */
+
+  div.brands-main-section section.brands-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  div.brands-main-section section.brands-info article.brands-picture {
+    width: 48%;
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 769 ---------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+/* Para tablets y mayores */
+@media (min-width: 769px) {
+  main.main-brands {
+    margin-top: 145px;
+  }
+
+  div.brands-top-image img {
+    max-height: 420px;
+  }
+
+  div.brands-main-section section.brands-info article.brands-picture {
+    width: 30%;
+  }
+}
+
+/* ----------------------------------------------------------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 1050 ---------------------------------------------- */
+/* ----------------------------------------------------------------------------------------------- */
+
+/* Para desktop */
+@media (min-width: 1050px) {
+  main.main-brands {
+    margin-top: 118px;
+  }
+  div.brands-top-image img {
+    max-height: 480px;
+  }
+  div.brands-main-section section.brands-info article.brands-picture {
+    width: 23%;
+  }
+}

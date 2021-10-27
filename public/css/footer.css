@@ -1,0 +1,133 @@
+footer {
+  padding: 0 5%;
+  background-color: #000;
+  color: #fff;
+}
+
+/* logo */
+.logo-footer {
+  text-align: center;
+  padding-top: 1rem;
+}
+/* .logo-footer a {
+  } */
+.logo-footer img {
+  width: 60px;
+}
+
+/* main-section */
+.main-footer {
+  margin-top: 1rem;
+}
+
+.main-footer .nav-footer ul {
+  list-style: none;
+  margin-bottom: 1.5rem;
+}
+.main-footer .nav-footer ul.footer-menu {
+  margin-bottom: 0;
+}
+
+.main-footer .nav-footer ul li {
+  padding-bottom: 5px;
+}
+.main-footer .nav-footer ul li:first-child {
+  color: #fcd89d;
+}
+.main-footer .nav-footer ul li:last-child {
+  padding-bottom: 0;
+}
+
+.main-footer .nav-footer ul h3 {
+  margin-bottom: 5px;
+}
+
+section.social-footer-desktop {
+  display: none;
+}
+
+/* social-section */
+.social-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  margin: 1.5rem 8%;
+}
+
+.social-footer a {
+  max-width: 30px;
+}
+
+.social-footer a img {
+  width: 100%;
+  color: #fff;
+}
+
+ul.footer-info li a,
+ul.footer-menu li a {
+  transition: color 0.3s;
+}
+ul.footer-info li a:hover,
+ul.footer-menu li a:hover {
+  color: #4abbc7;
+}
+
+.subscribe-footer {
+  margin-bottom: 2rem;
+  padding-top: 0.5rem;
+}
+.subscribe-footer p {
+  padding-bottom: 5px;
+  /* color: #fcd89d; */
+}
+.subscribe-footer input {
+  padding: 5px 10px;
+  border-radius: 5px;
+  width: 70%;
+  max-width: 250px;
+}
+.subscribe-footer button {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: #4abbc7;
+}
+
+.copyright {
+  padding-bottom: 1rem;
+}
+.copyright p {
+  text-align: center;
+}
+
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 415 ----------------------------------------------- */
+
+@media (min-width: 415px) {
+  nav.nav-footer {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  nav.nav-footer ul.footer-menu {
+    text-align: right;
+  }
+}
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 769 ----------------------------------------------- */
+
+/* Para tablets y mayores */
+@media (min-width: 769px) {
+  section.social-footer {
+    display: none;
+  }
+  section.social-footer-desktop {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-grow: 1;
+    max-width: 40%;
+  }
+  section.social-footer-desktop img {
+    max-width: 30px;
+  }
+}

@@ -1,21 +1,26 @@
 const { body } = require("express-validator");
 
+// para validar que ambas contraseñas son iguales
 const passwordValidation = [
   body("password")
     .notEmpty()
     .withMessage("Tienes que escribir un password")
     .bail()
-    .isLength({ min: 6, max: 20 })
+    .isLength({ min: 8, max: 20 })
     .withMessage(
-      "La contraseña debe tener al menos 6 dígitos, incluir una mayúscula, una minúscula, y un número"
+      "La contraseña debe tener al menos 8 dígitos, incluir una mayúscula, una minúscula, un número y un carácter especial('#?!@$%^&*-')"
     )
     .matches("[0-9]")
     .withMessage(
-      "La contraseña debe tener al menos 6 dígitos, incluir una mayúscula, una minúscula, y un número"
+      "La contraseña debe tener al menos 8 dígitos, incluir una mayúscula, una minúscula, un número y un carácter especial('#?!@$%^&*-')"
     )
     .matches("[A-Z]")
     .withMessage(
-      "La contraseña debe tener al menos 6 dígitos, incluir una mayúscula, una minúscula, y un número"
+      "La contraseña debe tener al menos 8 dígitos, incluir una mayúscula, una minúscula, un número y un carácter especial('#?!@$%^&*-')"
+    )
+    .matches("[#?!@$%^&*-]")
+    .withMessage(
+      "La contraseña debe tener al menos 8 dígitos, incluir una mayúscula, una minúscula, un número y un carácter especial('#?!@$%^&*-')"
     ),
 
   body("password2").custom((value, { req }) => {
@@ -30,8 +35,3 @@ const passwordValidation = [
 ];
 
 module.exports = passwordValidation;
-
-// try
-// catch(err) {
-
-// }

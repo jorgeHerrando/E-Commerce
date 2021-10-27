@@ -1,0 +1,179 @@
+section.shop-category {
+  position: relative;
+}
+section.shop-category h1 {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+  left: 5%;
+  font-size: 1.5rem;
+  color: #fff;
+  font-family: "Heebo", sans-serif;
+  letter-spacing: 0.08rem;
+}
+section.shop-category article.shop-category-picture {
+  width: 100%;
+}
+section.shop-category article.shop-category-picture div.top-promotion-top {
+  display: flex;
+}
+section.shop-category article.shop-category-picture img {
+  width: 100%;
+}
+section.shop-category article.shop-filter {
+  padding: 1rem 5%;
+  display: flex;
+  justify-content: space-between;
+}
+section.shop-category article.shop-filter button {
+  min-width: 80px;
+  max-width: 155px;
+  flex-grow: 1;
+  margin-right: 8px;
+}
+section.shop-category article.shop-filter div.shop-filter-select {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+section.shop-category article.shop-category-picture img {
+  max-height: 480px;
+  min-height: 200px;
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 0%;
+}
+
+section.shop-view {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1rem 5%;
+}
+section.shop-view article.shop-view-img {
+  width: 50%;
+  padding: 0.5rem 1rem;
+  max-height: 400px;
+  min-height: 300px;
+  margin: 1rem 0;
+}
+
+/* box-shadow para articles con clase .box-shadow */
+.shop-article-box-shadow {
+  transition: box-shadow 0.3s;
+}
+.shop-article-box-shadow:hover {
+  box-shadow: 0 0 8px #153351;
+}
+article.shop-view-img div.shop-product-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+article.shop-view-img div.shop-product-container div.shop-img-container {
+  height: 75%;
+}
+/* la cajita con precio y nombre de producto la mandamos abajo para que se vean todas alineadas */
+article.shop-view-img div.shop-product-container div.shop-product-info {
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  font-size: 0.8rem;
+}
+section.shop-view article.shop-view-img img {
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+  min-height: 180px;
+}
+section.shop-view article.shop-view-img div.shop-product-info div {
+  padding: 5px 5%;
+}
+section.shop-view article.shop-view-img div.shop-product-info div span {
+  color: #25ca25;
+  float: left;
+}
+section.shop-view
+  article.shop-view-img
+  div.shop-product-info
+  div.shop-article-title {
+  padding-top: 5px;
+}
+section.shop-view article.shop-view-img div.shop-article-title {
+  border-bottom: 1px solid #bbc2c4;
+  padding-bottom: 0;
+}
+section.shop-view article.shop-view-img div.shop-article-price {
+  border-top: 1px solid #bbc2c4;
+  text-align: right;
+}
+
+section.shop-more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 2rem;
+}
+
+section.shop-more a.shop-more-button {
+  width: 200px;
+  max-width: 250px;
+  text-align: center;
+  background-color: #4abbc7;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* PAGINACIÓN */
+section.shop-pagination {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1.5rem;
+}
+section.shop-pagination form {
+  width: 30px;
+  text-align: center;
+}
+section.shop-pagination form button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #153351;
+}
+section.shop-pagination form button:hover {
+  color: #4abbc7;
+}
+
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 415 ----------------------------------------------- */
+
+/* para pantallas mayores que iPhone 8 Plus */
+@media (min-width: 415px) {
+  /* ------------------------- SHOP --------------------*/
+
+  section.shop-view article.shop-view-img {
+    width: 33%;
+  }
+  section.shop-category h1 {
+    font-size: 2rem;
+  }
+}
+
+/* ------------------------------------- MEDIA - QUERIES ----------------------------------------- */
+/* ------------------------------------------- 769 ----------------------------------------------- */
+/* ------------------------- SHOP --------------------*/
+
+@media (min-width: 769px) {
+  section.shop-view article.shop-view-img {
+    width: 25%;
+  }
+  section.shop-category h1 {
+    font-size: 2.8rem;
+  }
+  article.shop-view-img div.shop-product-container div.shop-product-info {
+    font-size: 1rem;
+  }
+}

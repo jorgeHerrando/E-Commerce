@@ -1,0 +1,67 @@
+main.main-orders {
+  padding: 1rem 5%;
+}
+
+section.orders-list {
+  display: flex;
+  flex-direction: column;
+  min-height: 300px;
+  justify-content: center;
+}
+section.orders-list div.orders-top-row ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+section.orders-list ul li.order-product-title {
+  width: 46.8%;
+}
+section.orders-list ul li.order-amount,
+section.orders-list ul li.order-price {
+  width: 15.6%;
+}
+section.orders-list ul li.order-number {
+  width: 10%;
+}
+section.orders-list ul li.order-total-price {
+  width: 12%;
+}
+
+section.orders-list div.orders-top-row {
+  margin-bottom: 1rem;
+}
+
+section.orders-list div.orders-table div.order-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+section.orders-list div.orders-table ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+div.orders-table div.order-container {
+  display: flex;
+  flex-direction: column;
+  width: 78%;
+}
+
+div.orders-table div.order-container div.order-product {
+  display: flex;
+  justify-content: space-between;
+}
+div.orders-table div.order-container div.order-product li {
+  width: 60%;
+}
+
+div.orders-table div.order-container div.order-product li.order-amount,
+div.orders-table div.order-container div.order-product li.order-price {
+  width: 20%;
+}
+
+.product-column {
+  padding-left: 1rem;
+}

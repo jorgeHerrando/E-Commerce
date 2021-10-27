@@ -31,20 +31,99 @@
     <!-- stylesheets -->
     <!-- vienen desde public si ponemos / al ppo -->
     <link rel="stylesheet" href="/css/normalize.css" />
+    <!-- global -->
     <link rel="stylesheet" href="/css/styles.css" />
 
-    <!-- si es la página profile... -->
+    <!-- header -->
+    <link rel="stylesheet" href="/css/header.css" />
+
+    <!-- si es la página inicial... -->
+    <% if(title == "Havenboards") { %>
+    <link rel="stylesheet" href="/css/top-promo-img.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <% } %>
+
+    <!-- si es la página shop... -->
+    <% if(title == "Havenboards - Tienda") { %>
+    <link rel="stylesheet" href="/css/shop.css" />
+    <% } %>
+
+    <!-- si es la página carrito... -->
+    <% if(title == "Havenboards - Shopping Cart") { %>
+    <link rel="stylesheet" href="/css/productCart.css" />
+    <% } %>
+
+    <!-- si es la página product detail... -->
+    <% if(title == "Havenboards - Product Detail") { %>
+    <link rel="stylesheet" href="/css/productDetail.css" />
+    <% } %>
+
+    <!-- si es la página login... -->
+    <% if(title == "Havenboards - Log In" ) {%>
+    <link rel="stylesheet" href="/css/login.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <% } %>
+
+    <!-- si es la página register... -->
+    <% if(title == "Sign Up" ) {%>
+    <link rel="stylesheet" href="/css/top-promo-img.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <script type="text/javascript" src="/js/validatorRegister.js"></script>
+
+    <% } %>
+
+    <!-- si es la create product... -->
+    <% if(title == "Havenboards - Loading Product" ) {%>
+    <link rel="stylesheet" href="/css/top-promo-img.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <% } %>
+
+    <!-- si es la página editar producto -->
+    <% if(title == "Havenboards - Editing Product") { %>
+    <link rel="stylesheet" href="/css/top-promo-img.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/editProduct.css" />
+    <% } %>
+
+    <!-- si es la página editar profile -->
+    <% if(title == "Edit Profile") { %>
+    <link rel="stylesheet" href="/css/top-promo-img.css" />
+    <link rel="stylesheet" href="/css/form.css" />
+    <link rel="stylesheet" href="/css/editProfile.css" />
+    <% } %>
+
+    <!-- si es la página profile -->
     <% if(title == "Profile") { %>
     <link rel="stylesheet" href="/css/profile.css" />
     <% } %>
-    <!-- si es la página delete user... -->
+
+    <!-- si es la página orders -->
+    <% if(title == "Orders") { %>
+    <link rel="stylesheet" href="/css/orders.css" />
+    <% } %>
+
+    <!-- si es la página deleteuser -->
     <% if(title == "Delete user") { %>
     <link rel="stylesheet" href="/css/userDelete.css" />
     <% } %>
-    <!-- si es la página 404... -->
+
+    <!-- si es la página 404 -->
     <% if(title == "Havenboards - Not found") { %>
     <link rel="stylesheet" href="/css/404.css" />
     <% } %>
+
+    <!-- si es la página brands -->
+    <% if(title == "Havenboards - Brands") { %>
+    <link rel="stylesheet" href="/css/brands.css" />
+    <% } %>
+
+    <!-- si es la página info -->
+    <% if(title == "Havenboards - Info") { %>
+    <link rel="stylesheet" href="/css/info.css" />
+    <% } %>
+
+    <!-- footer -->
+    <link rel="stylesheet" href="/css/footer.css" />
 
     <script
       src="https://kit.fontawesome.com/a20967f511.js"

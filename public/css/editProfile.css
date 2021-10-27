@@ -1,0 +1,13 @@
+section.personal-data,
+section.address {
+  padding-bottom: 1rem;
+}
+section.personal-data h3,
+section.address h3 {
+  padding: 1rem 1.5rem;
+  border: 1.3px solid #6d7b0b;
+}
+section.personal-data fieldset,
+section.address fieldset {
+  border: none;
+}

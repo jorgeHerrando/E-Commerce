@@ -40,16 +40,9 @@
 
               <p>
                 <label for="description">Descripción*</label>
-                <textarea
-                  type="text"
-                  name="description"
-                  id="description"
-                  required
-                  
-                  placeholder="Jean azul oscuro con calce Slim elastizado y un lavado localizado con aspecto desgastado"
-                  class="<%= locals.errors && errors.description ? 'is-invalid' : null %>" 
-                  value="<%= locals.oldData && oldData.description ? oldData.description : null%>"/>
-              </textarea>
+                <textarea type="text" name="description" id="description" required placeholder="Jean azul oscuro con calce Slim elastizado y un lavado localizado con aspecto desgastado" class="<%= locals.errors && errors.description ? 'is-invalid' : null %>">
+                  <%= locals.oldData && oldData.description ? oldData.description : "" %>
+                </textarea>
                   <% if (locals.errors && errors.description) { %>
                     <label class="infovalidacion">
                       <%= errors.description.msg %>
@@ -186,13 +179,8 @@
                   
                 <option value="" disabled selected>Seleccionar Talle</option>
                   <% for (const oneSize of sizes) { %>
-                    <% if(oneSize.id == 0) { %>
-                      <option value="<%= oneSize.id %>" 
-                        <%= locals.oldData && (oldData.size == oneSize.id) ? 'selected':"" %>>Talle Único</option>
-                    <% } else { %>
-                      <option value="<%= oneSize.id %>" 
-                      <%= locals.oldData && (oldData.size == oneSize.id) ? 'selected':"" %>><%= oneSize.name %></option>
-                    <% } %>
+                    <option value="<%= oneSize.id %>" 
+                    <%= locals.oldData && (oldData.size == oneSize.id) ? 'selected':"" %>><%= oneSize.name %></option>
                   <% } %>
                   
                 </select>
@@ -233,10 +221,18 @@
                   </label>
                 <% } %>
                 <div class="checkbox-container">
-                <% for (let tag of tags) { %>
+                <% for (let i=0; i<tags.length; i++) { %>
                   <div class="checkbox-row">
-                    <input class="checkedOne" type="checkbox" id="<%= tag.name %>" name="tag" value="<%= tag.id %>" <%= locals.oldData && (oldData.tag == tag.id) ? 'checked':"" %> onclick="onlyOneChecked('checkedOne')" required>
-                    <label for="<%= tag.name %>"><%= tag.name %></label>
+                    <input class="checkedOne" type="checkbox" id="<%= tags[i].name %>" name="tag" value="<%= tags[i].id %>" 
+                    <% if(locals.oldData && oldData.tag) { %>
+                      <%console.log(typeof oldData.tag) %>
+                      <% if(typeof oldData.tag == "object") { %>
+                        <%= oldData.tag.includes(tags[i].id.toString()) ? 'checked' : "" %>
+                      <% } else if(typeof oldData.tag == "string") { %>
+                        <%= oldData.tag == tags[i].id ? 'checked' : "" %>
+                      <% } %>
+                    <% } %>onclick="onlyOneChecked('checkedOne')" required>
+                    <label for="<%= tags[i].name %>"><%= tags[i].name %></label>
                   </div>
                 <% } %>
                 </div>

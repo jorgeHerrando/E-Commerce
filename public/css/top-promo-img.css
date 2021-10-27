@@ -1,0 +1,17 @@
+/* hacemos el contenedror de la img relative para colocar componentes encima, y le damos altura máxima */
+main section.top-promotion article.top-promotion-img {
+  width: 100%;
+  position: relative;
+}
+/* con esto se soluciona el mini gap que aparecía */
+main section.top-promotion article.top-promotion-img div.top-promotion-top {
+  display: flex;
+}
+/* centramos las imagenes */
+main section.top-promotion article.top-promotion-img img {
+  width: 100%;
+  object-fit: cover;
+  object-position: 50% 0%;
+  max-height: 480px;
+  min-height: 200px;
+}
