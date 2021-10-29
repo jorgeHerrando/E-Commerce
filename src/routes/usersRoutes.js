@@ -13,6 +13,7 @@ const passwordValidation = require("../middlewares/passwordMiddleware");
 
 // ************ Controller Require ************
 const usersController = require("../controllers/usersController");
+const adminMiddleware = require("../middlewares/adminMiddleware");
 
 // Formulario de registro
 router.get("/register", guestMiddleware, usersController.register); //con guestMiddleware no puede entrar a register o login (+abajo)

@@ -16,18 +16,19 @@
           <div class="contact-form">
 
             <!-- seteamos el form para que pueda recibir imágenes y le damos la ruta que tomará al mandarse -->
-            <form action="/products/<%= editProduct.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+            <form id="editProduct-form" action="/products/<%= editProduct.id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
               <p>
-                <label for="name">Nombre del Producto*</label>
+                <label for="name-editP">Nombre del Producto*</label>
                 <input
                   type="text"
                   name="name"
-                  id="name"
+                  id="name-editP"
                   required
                   class="<%= locals.errors && errors.name ? 'is-invalid' : null %>"
                   value="<%= locals.oldData && oldData.name ? oldData.name : editProduct.name %>"
                 />
+                <span class="infovalidacion name-validation"></span>
                 <% if (locals.errors && errors.name) { %>
                   <label class="infovalidacion">
                     <%= errors.name.msg %>
@@ -36,15 +37,16 @@
               </p>
 
               <p>
-                <label for="description">Descripción*</label>
+                <label for="description-editP">Descripción*</label>
                 <textarea
                   type="text" name="description"
-                  id="description"
+                  id="description-editP"
                   required
                   class="<%= locals.errors && errors.description ? 'is-invalid' : null %>"
                   value="<%= locals.oldData && oldData.description ? oldData.description : editProduct.description %>"/
                   ><%= editProduct.description %>
                 </textarea>
+                <span class="infovalidacion description-validation"></span>
                 <% if (locals.errors && errors.description) { %>
                   <label class="infovalidacion">
                     <%= errors.description.msg %>
@@ -53,10 +55,11 @@
               </p>
 
               <p>
-                <label for="imagen">Ingrese una o más imágenes</label>
-                <input type="file" name="image" multiple accept="image/*" 
+                <label for="image-editP">Ingrese una o más imágenes</label>
+                <input type="file" id="image-editP" name="image" multiple accept="image/*" 
                 class="<%= locals.errors && errors.image ? 'is-invalid' : null %>"
                 />
+                <span class="infovalidacion image-validation"></span>
 
                 <!-- de momento sólo las mostramos. Habrá que implementar código para poder borrar/editar -->
                 <span class="img-edit-product-container">
@@ -74,10 +77,10 @@
               </p>
 
               <p>
-                <label for="category">Categoría*</label>
+                <label for="category-editP">Categoría*</label>
                 <select
                   name="category"
-                  id="category"
+                  id="category-editP"
                   required
                 >
 
@@ -86,6 +89,7 @@
                   <option value="<%=oneCategory.id%>" <%= editProduct.category.id == oneCategory.id ? 'selected':"" %>><%= oneCategory.name %></option>
                 <% } %>
                 </select>
+                <span class="infovalidacion category-validation"></span>
                 <% if (locals.errors && errors.category) { %>
                   <label class="infovalidacion">
                     <%= errors.category.msg %>
@@ -94,10 +98,10 @@
               </p>
 
               <p>
-                <label for="subcategory">Subcategoría</label>
+                <label for="subcategory-editP">Subcategoría</label>
                 <select
                   name="subcategory"
-                  id="subcategory" 
+                  id="subcategory-editP" 
                 >
 
                   <option value="" <%= editProduct.subcategory == null ? 'selected':"" %>>Ninguna</option>
@@ -119,10 +123,10 @@
               </p>
 
               <p>
-                <label for="brand">Marca*</label>
+                <label for="brand-editP">Marca*</label>
                 <select
                   name="brand"
-                  id="brand"
+                  id="brand-editP"
                   required
                 >
                 <!-- comprobamos en cada uno de los option si el valor de la marca es la que se va a mostrar. Si es así, preseleccionarla para que aparezca directamente -->
@@ -130,6 +134,7 @@
                   <option value="<%= oneBrand.id %>" <%= editProduct.brand.id ===  oneBrand.id ? 'selected':"" %>><%= oneBrand.name %></option>
                 <% } %>
                 </select>
+                <span class="infovalidacion brand-validation"></span>
                 <% if (locals.errors && errors.brand) { %>
                   <label class="infovalidacion">
                     <%= errors.brand.msg %>
@@ -138,10 +143,11 @@
               </p>
 
               <p>
-                <label for="price">Precio*</label>
-                <input type="number" step="0.01" name="price" id="price" required
+                <label for="price-editP">Precio*</label>
+                <input type="number" step="0.01" name="price" id="price-editP" required
                 value="<%= locals.oldData && oldData.price ? oldData.price : editProduct.price %>"
                 class="<%= locals.errors && errors.price ? 'is-invalid' : null %>" />
+                <span class="infovalidacion price-validation"></span>
                 <% if (locals.errors && errors.price) { %>
                   <label class="infovalidacion">
                     <%= errors.price.msg %>
@@ -150,9 +156,10 @@
               </p>
 
               <p>
-                <label for="discount">Ingrese descuento*</label>
-                <input type="number" step="0.01" name="discount" id="discount" required value="<%= locals.oldData && oldData.discount ? oldData.discount : editProduct.discount %>" 
+                <label for="discount-editP">Ingrese descuento*</label>
+                <input type="number" step="0.01" name="discount" id="discount-editP" required value="<%= locals.oldData && oldData.discount ? oldData.discount : editProduct.discount %>" 
                 class="<%= locals.errors && errors.discount ? 'is-invalid' : null %>"  />
+                <span class="infovalidacion discount-validation"></span>
                 <% if (locals.errors && errors.discount) { %>
                   <label class="infovalidacion">
                     <%= errors.discount.msg %>
@@ -161,16 +168,17 @@
               </p>
 
               <p>
-                <label for="sale">En rebajas*</label>
+                <label for="sale-editP">En rebajas*</label>
                 <select
                   name="sale"
-                  id="sale"
+                  id="sale-editP"
                   required
                 >
                 <!-- poner un if discount distinto 0? -->
                   <option value="1" <%= editProduct.sale == 1 ? 'selected':"" %>>Sí</option>
                   <option value="0"  <%= editProduct.sale == 0 ? 'selected':"" %>>No</option>
                 </select>
+                <span class="infovalidacion sale-validation"></span>
                 <% if (locals.errors && errors.sale) { %>
                   <label class="infovalidacion">
                     <%= errors.sale.msg %>

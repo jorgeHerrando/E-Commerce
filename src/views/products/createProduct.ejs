@@ -18,7 +18,7 @@
           <div class="contact-form">
 
             <!-- seteamos el form para que pueda recibir imágenes y le damos la ruta que tomará al mandarse -->
-            <form action="/products/create" method="POST" enctype="multipart/form-data">
+            <form id="createProduct-form" action="/products/create" method="POST" enctype="multipart/form-data">
 
               <p>
                 <label for="name">Nombre del Producto*</label>
@@ -31,6 +31,7 @@
                   placeholder="Jean Azul Marino"
                   class="<%= locals.errors && errors.name ? 'is-invalid' : null %>"
                   value="<%= locals.oldData && oldData.name ? oldData.name : null%>"/>
+                <span class="infovalidacion name-validation"></span>
                 <% if (locals.errors && errors.name) { %>
                   <label class="infovalidacion">
                     <%= errors.name.msg %>
@@ -43,6 +44,7 @@
                 <textarea type="text" name="description" id="description" required placeholder="Jean azul oscuro con calce Slim elastizado y un lavado localizado con aspecto desgastado" class="<%= locals.errors && errors.description ? 'is-invalid' : null %>">
                   <%= locals.oldData && oldData.description ? oldData.description : "" %>
                 </textarea>
+                <span class="infovalidacion description-validation"></span>
                   <% if (locals.errors && errors.description) { %>
                     <label class="infovalidacion">
                       <%= errors.description.msg %>
@@ -53,6 +55,7 @@
               <p>
                 <label for="image">Ingrese una o más imágenes*</label>
                 <input type="file" name="image" id="image" multiple accept="image/*" class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" required/>
+                <span class="infovalidacion image-validation"></span>
                 <% if (locals.errors && errors.image) { %>
                   <label class="infovalidacion">
                     <%= errors.image.msg %>
@@ -77,6 +80,7 @@
                   <% } %>
                   
                 </select>
+                <span class="infovalidacion category-validation"></span>
                 <% if (locals.errors && errors.category) { %>
                   <label class="infovalidacion">
                     <%= errors.category.msg %>
@@ -121,6 +125,7 @@
                   <% } %>
 
                 </select>
+                <span class="infovalidacion brand-validation"></span>
                 <% if (locals.errors && errors.brand) { %>
                   <label class="infovalidacion">
                     <%= errors.brand.msg %>
@@ -134,6 +139,7 @@
                 class="<%= locals.errors && errors.price ? 'is-invalid' : null %>"
                 value="<%= locals.oldData && oldData.price ? oldData.price : null%>" 
                 />
+                <span class="infovalidacion price-validation"></span>
                 <% if (locals.errors && errors.price) { %>
                   <label class="infovalidacion">
                     <%= errors.price.msg %>
@@ -145,6 +151,7 @@
                 <label for="discount">Ingrese descuento*</label>
                 <input type="number" step="0.01" name="discount" id="discount" required class="<%= locals.errors && errors.discount ? 'is-invalid' : null %>" 
                 value="<%= locals.oldData && oldData.discount ? oldData.discount : null%>"/>
+                <span class="infovalidacion discount-validation"></span>
                 <% if (locals.errors && errors.discount) { %>
                   <label class="infovalidacion">
                     <%= errors.discount.msg %>
@@ -160,12 +167,13 @@
                   required
                 >
                 <!-- poner un if discount distinto 0? -->
-                  <option disabled selected>Tiene descuento</option>
+                  <option disabled selected value="">Tiene descuento</option>
                   <option value="1" 
                   <%= locals.oldData  && (oldData.sale === "1") ? 'selected':"" %>>Sí</option>
                   <option value="0" 
                   <%= locals.oldData  && (oldData.sale === "0") ? 'selected':"" %>>No</option>
                 </select>
+                <span class="infovalidacion sale-validation"></span>
                 <% if (locals.errors && errors.sale) { %>
                   <label class="infovalidacion">
                     <%= errors.sale.msg %>
@@ -175,7 +183,7 @@
 
               <p>
                 <label for="size">Talle*</label>
-                <select name="size" id="size">
+                <select name="size" id="size" required>
                   
                 <option value="" disabled selected>Seleccionar Talle</option>
                   <% for (const oneSize of sizes) { %>
@@ -184,6 +192,7 @@
                   <% } %>
                   
                 </select>
+                <span class="infovalidacion size-validation"></span>
                 <% if (locals.errors && errors.size) { %>
                   <label class="infovalidacion">
                     <%= errors.size.msg %>
@@ -206,6 +215,7 @@
                 <% } %>
                   
                 </select>
+                <span class="infovalidacion stock-validation"></span>
                 <% if (locals.errors && errors.stock) { %>
                   <label class="infovalidacion">
                     <%= errors.stock.msg %>
@@ -225,7 +235,6 @@
                   <div class="checkbox-row">
                     <input class="checkedOne" type="checkbox" id="<%= tags[i].name %>" name="tag" value="<%= tags[i].id %>" 
                     <% if(locals.oldData && oldData.tag) { %>
-                      <%console.log(typeof oldData.tag) %>
                       <% if(typeof oldData.tag == "object") { %>
                         <%= oldData.tag.includes(tags[i].id.toString()) ? 'checked' : "" %>
                       <% } else if(typeof oldData.tag == "string") { %>

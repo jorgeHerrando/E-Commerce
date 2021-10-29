@@ -15,16 +15,16 @@
         <div class="contact-wrapper">
           <div class="contact-form">
 
-            <form action="/users/profile/edit" method="POST" enctype="multipart/form-data">
+            <form id="editProfile-form" action="/users/profile/edit" method="POST" enctype="multipart/form-data">
               <section class="personal-data">
                 <h3>Datos personales</h3>
               <fieldset>
               <p>
-                <label for="firstName">Nombre</label>
+                <label for="firstName-editP">Nombre</label>
                 <input
                   type="text"
                   name="firstName"
-                  id="firstName"
+                  id="firstName-editP"
                   minlength="1"
                   maxlength="20"
                   required
@@ -32,7 +32,8 @@
                   placeholder="Introduzca su nombre"
                   class="<%= locals.errors && errors.firstName ? 'is-invalid' : null %>"
                   value="<%= locals.oldData && oldData.firstName ? oldData.firstName : user.firstName %>"
-                  />
+                />
+                <span class="infovalidacion firstName-validation"></span>
                 <% if (locals.errors && errors.firstName) { %> 
                   <label class="infovalidacion">
                     <%= errors.firstName.msg %>
@@ -41,11 +42,11 @@
               </p>
 
               <p>
-                <label for="lastName">Apellido</label>
+                <label for="lastName-editP">Apellido</label>
                 <input
                   type="text"
                   name="lastName"
-                  id="lastName"
+                  id="lastName-editP"
                   minlength="1"
                   maxlength="20"
                   required
@@ -53,7 +54,8 @@
                   placeholder="Introduzca su apellido"
                   class="<%= locals.errors && errors.lastName ? 'is-invalid' : null %>"
                   value="<%= locals.oldData && oldData.lastName ? oldData.lastName : user.lastName %>"
-                  />
+                />
+                <span class="infovalidacion lastName-validation"></span>
                 <% if (locals.errors && errors.lastName) { %> 
                   <label class="infovalidacion">
                     <%= errors.lastName.msg %>
@@ -62,11 +64,12 @@
               </p>
 
               <p>
-                <label for="image">Cambiar imagen de perfil</label>
+                <label for="image-editP">Cambiar imagen de perfil</label>
                 <input type="file"
                   name="avatar"
-                  id="image"
+                  id="image-editP"
                   class="<%= locals.errors && errors.avatar ? 'is-invalid' : null %>"/>
+                  <span class="infovalidacion image-validation"></span>
                   <% if (locals.errors && errors.avatar) { %> 
                     <label class="infovalidacion">
                       <%= errors.avatar.msg %>
@@ -91,6 +94,7 @@
                   class="<%= locals.errors && errors.streetName ? 'is-invalid' : null %>"
                   value="<%= (user.address && user.address.streetName) ? user.address.streetName : "" %>"
                 />
+                <span class="infovalidacion streetName-validation"></span>
                 <% if (locals.errors && errors.streetName) { %> 
                   <label class="infovalidacion">
                     <%= errors.streetName.msg %>
@@ -108,6 +112,7 @@
                   class="<%= locals.errors && errors.number ? 'is-invalid' : null %>"
                   value="<%= (user.address && user.address.number) ? user.address.number : "" %>"
                 />
+                <span class="infovalidacion number-validation"></span>
                 <% if (locals.errors && errors.number) { %> 
                   <label class="infovalidacion">
                     <%= errors.number.msg %>
@@ -125,6 +130,7 @@
                   class="<%= locals.errors && errors.apartment ? 'is-invalid' : null %>"
                   value="<%= (user.address && user.address.apartment) ? user.address.apartment : "" %>"
                 />
+                <span class="infovalidacion apartment-validation"></span>
                 <% if (locals.errors && errors.apartment) { %> 
                   <label class="infovalidacion">
                     <%= errors.apartment.msg %>
@@ -142,6 +148,7 @@
                   class="<%= locals.errors && errors.province ? 'is-invalid' : null %>"
                   value="<%= (user.address && user.address.province) ? user.address.province : "" %>"
                 />
+                <span class="infovalidacion province-validation"></span>
                 <% if (locals.errors && errors.province) { %> 
                   <label class="infovalidacion">
                     <%= errors.province.msg %>
@@ -159,6 +166,7 @@
                   class="<%= locals.errors && errors.city ? 'is-invalid' : null %>"
                   value="<%= (user.address && user.address.city) ? user.address.city : "" %>"
                 />
+                <span class="infovalidacion city-validation"></span>
                 <% if (locals.errors && errors.city) { %> 
                   <label class="infovalidacion">
                     <%= errors.city.msg %>
@@ -176,6 +184,7 @@
                   class="<%= locals.errors && errors.postalCode ? 'is-invalid' : null %>"
                   value="<%= (user.address && user.address.postalCode) ? user.address.postalCode : "" %>"
                 />
+                <span class="infovalidacion postalCode-validation"></span>
                 <% if (locals.errors && errors.postalCode) { %> 
                   <label class="infovalidacion">
                     <%= errors.postalCode.msg %>
@@ -183,6 +192,7 @@
                 <% } %>
               </p>
 
+              <!-- usar node-fetch -->
               <p>
                 <label for="country">País</label>
                 <input
@@ -193,6 +203,7 @@
                   class="<%= locals.errors && errors.country ? 'is-invalid' : null %>"
                   value="<%= (user.address && user.address.country) ? user.address.country : "" %>"
                 />
+                <span class="infovalidacion country-validation"></span>
                 <% if (locals.errors && errors.country) { %> 
                   <label class="infovalidacion">
                     <%= errors.country.msg %>

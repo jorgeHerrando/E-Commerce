@@ -10,28 +10,31 @@
               <h2 class="logo">Iniciar Sesión</h2>
               <div class="contact-wrapper">
                 <div class="contact-form">
-                  <form action="/users/login" method="POST">
+                  <form id="login-form" action="/users/login" method="POST">
                     <p>
-                      <label for="userName">Email</label>
+                      <label for="emailLogin">Email</label>
                       <input
                         type="email"
                         name="email"
-                        id="email"
+                        id="emailLogin"
                         required
                         title="El campo debe tener formato email"
                         placeholder="Introduzca su email"
                         class="<%= locals.errors && errors.email ? 'is-invalid' : null %>"
                         value="<%= locals.oldData && oldData.email ? oldData.email : null%>"
                       />
+                      <span class="infovalidacion email-validation"></span>
                       <% if (locals.errors && errors.email) { %> 
-                        <label class="infovalidacion">
+                        <label class="infovalidacion backLogin">
                           <%= errors.email.msg %>
                         </label>
                       <% } %>
                     </p>
                     <p>
-                      <label>Contraseña</label>
-                      <input type="password" name="password" required placeholder="Introduzca su contraseña" class="<%= locals.errors && errors.password ? 'is-invalid' : null %>"/>
+                      <label for="passwordLogin">Contraseña</label>
+                      <input type="password" name="password"
+                      id="passwordLogin" required placeholder="Introduzca su contraseña" class="<%= locals.errors && errors.password ? 'is-invalid' : null %>"/>
+                      <span class="infovalidacion password-validation"></span>
                       <% if (locals.errors && errors.password) { %> 
                         <label class="infovalidacion">
                           <%= errors.password.msg %>
