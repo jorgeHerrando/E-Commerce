@@ -48,7 +48,7 @@ window.onload = function () {
       return;
     }
     setValid(firstName);
-    lastName.focus();
+    // lastName.focus();
     return true;
   }
 
@@ -64,7 +64,7 @@ window.onload = function () {
       return;
     }
     setValid(lastName);
-    image.focus();
+    // image.focus();
     return true;
   }
 
@@ -155,16 +155,16 @@ window.onload = function () {
         setInvalid(number, `Debes introducir un número`);
       } else {
         setValid(number);
-        apartment.focus();
+        // apartment.focus();
         return true;
       }
     }
   }
 
-  // validacion country
-  function validateCountry() {
-    // hay que hacer node-fetch en controller
-  }
+  // // validacion country
+  // function validateCountry() {
+  //   // hay que hacer node-fetch en controller
+  // }
 
   // FUNCIONES AUXILIARES
   function checkIfEmpty(field) {
@@ -244,14 +244,24 @@ window.onload = function () {
     validateLastName();
   });
 
+  image.addEventListener("change", function () {
+    validateImage();
+  });
+
+  streetName.addEventListener("focus", function () {
+    elementOnFocus(streetName);
+  });
+  streetName.addEventListener("blur", function () {
+    streetName.classList.remove("on-focus");
+  });
+  // streetName.addEventListener("blur", function () {
+  //   validateCountry();
+  // });
+
   country.addEventListener("focus", function () {
     elementOnFocus(country);
   });
   country.addEventListener("blur", function () {
-    validatePassword();
-  });
-
-  image.addEventListener("change", function () {
-    validateImage();
+    country.classList.remove("on-focus");
   });
 };

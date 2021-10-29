@@ -53,7 +53,7 @@ window.onload = function () {
       return;
     }
     setValid(name);
-    description.focus();
+    // description.focus();
     return true;
   }
 
@@ -69,7 +69,7 @@ window.onload = function () {
       return;
     }
     setValid(description);
-    image.focus();
+    // image.focus();
     return true;
   }
 
@@ -118,7 +118,7 @@ window.onload = function () {
       return;
     }
     setValid(category);
-    subcategory.focus();
+    // subcategory.focus();
     return true;
   }
 
@@ -129,7 +129,7 @@ window.onload = function () {
       return;
     }
     setValid(brand);
-    price.focus();
+    // price.focus();
     return true;
   }
 
@@ -146,7 +146,7 @@ window.onload = function () {
       setInvalid(price, `Debes introducir un número`);
     } else {
       setValid(price);
-      discount.focus();
+      // discount.focus();
       return true;
     }
   }
@@ -164,7 +164,7 @@ window.onload = function () {
       setInvalid(discount, `Debes introducir un número`);
     } else {
       setValid(discount);
-      sale.focus();
+      // sale.focus();
       return true;
     }
   }
