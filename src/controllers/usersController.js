@@ -1,5 +1,6 @@
 const fs = require("fs");
 const path = require("path");
+const axios = require("axios");
 
 const { validationResult, body } = require("express-validator");
 const bcrypt = require("bcryptjs");
@@ -9,6 +10,7 @@ const bcrypt = require("bcryptjs");
 
 // para trabajar con la DB
 const db = require("../database/models");
+// const { response } = require("express");
 const Op = db.Sequelize.Op;
 
 const usersController = {
@@ -182,9 +184,16 @@ const usersController = {
 
   // detalle usuario
   editProfile: (req, res) => {
-    return res.render("users/editProfile", {
-      user: req.session.userLogged,
-    });
+    axios
+      .get("https://restcountries.com/v3.1/all")
+      .then((countries) => {
+        console.log(countries.data);
+        return res.render("users/editProfile", {
+          user: req.session.userLogged,
+          countries: countries,
+        });
+      })
+      .catch((error) => console.log(error));
   },
 
   processEditProfile: async (req, res) => {

@@ -11,3 +11,7 @@ section.personal-data fieldset,
 section.address fieldset {
   border: none;
 }
+
+select.countries-select {
+  width: 100%;
+}
