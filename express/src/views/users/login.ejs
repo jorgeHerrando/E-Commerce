@@ -1,0 +1,76 @@
+<%- include('../partials/head', { title: "Havenboards - Log In" }) %>
+  <body>
+    <%- include('../partials/header') %>
+
+    <main>
+      <div class="top-section-login">
+        <div class="content content-login">
+          <div class="contact-form-container">
+            <section class="login-form">
+              <h2 class="logo">Iniciar Sesión</h2>
+              <div class="contact-wrapper">
+                <div class="contact-form">
+                  <form id="login-form" action="/users/login" method="POST">
+                    <p>
+                      <label for="emailLogin">Email</label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="emailLogin"
+                        required
+                        title="El campo debe tener formato email"
+                        placeholder="Introduzca su email"
+                        class="<%= locals.errors && errors.email ? 'is-invalid' : null %>"
+                        value="<%= locals.oldData && oldData.email ? oldData.email : null%>"
+                      />
+                      <span class="infovalidacion email-validation"></span>
+                      <% if (locals.errors && errors.email) { %> 
+                        <label class="infovalidacion backLogin">
+                          <%= errors.email.msg %>
+                        </label>
+                      <% } %>
+                    </p>
+                    <p class="login-password">
+                      <label for="passwordLogin">Contraseña</label>
+                      <input type="password" name="password"
+                      id="passwordLogin" required placeholder="Introduzca su contraseña" class="<%= locals.errors && errors.password ?'is-invalid':null%>"/>
+                      <span class="showBtn"><img class="show-icon" src="/images/icons/hide.png" alt="hide icon" /></span>
+                      <span class="infovalidacion password-validation"></span>
+                      <% if (locals.errors && errors.password) { %> 
+                        <label class="infovalidacion">
+                          <%= errors.password.msg %>
+                        </label>
+                      <% } %>
+                    </p>
+                    <div class="block">
+                      <input type="checkbox" name="remember" id="remember" />
+                      <label for="remember">Recordar Mi Usuario</label>
+                    </div>
+                      
+                      <!-- register -->
+                    
+                    <p class="block">
+                      <button type="submit">Iniciar Sesión</button>
+                    </p>
+                    <p class="centrado">
+                      <label for=""
+                        ><a href="#">¿Olvidaste tu contraseña?</a></label
+                      >
+                    </p>
+                  </form>
+                </div>
+              </div>
+            </section>
+            <section class="signup-form">
+              <h2 class="logo">¿Eres nuevo? Regístrate:</h2>
+              <p class="block">
+                <a href="/users/register"><button type="submit">Registrate</button></a>
+              </p>
+            </section>
+          </div>
+        </div>
+      </div>
+    </main>
+    <%- include('../partials/footer') %>
+  </body>
+</html>

@@ -1,0 +1,261 @@
+<%- include('../partials/head', {
+  title: "Havenboards - Loading Product",
+}) %>
+  <body>
+  <%- include('../partials/header') %>
+
+    <main>
+      <div class="top-section">
+        <section class="top-promotion">
+          <article class="top-promotion-img">
+            <img src="/images/panoramic/login4.jpg" alt="Foto para login" />
+          </article>
+        </section>
+      </div>
+      <div class="content">
+        <h1 class="logo">Alta de Producto</h1>
+        <div class="contact-wrapper">
+          <div class="contact-form">
+
+            <!-- seteamos el form para que pueda recibir imágenes y le damos la ruta que tomará al mandarse -->
+            <form id="createProduct-form" action="/products/create" method="POST" enctype="multipart/form-data">
+
+              <p>
+                <label for="name">Nombre del Producto*</label>
+                <input
+                  type="text"
+                  name="name"
+                  id="name"
+                  required
+                  
+                  placeholder="Jean Azul Marino"
+                  class="<%= locals.errors && errors.name ? 'is-invalid' : null %>"
+                  value="<%= locals.oldData && oldData.name ? oldData.name : null%>"/>
+                  <span class="infovalidacion name-validation"></span>
+                <% if (locals.errors && errors.name) { %>
+                  <label class="infovalidacion">
+                    <%= errors.name.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="description">Descripción*</label>
+                <textarea name="description" id="description" required placeholder="Jean azul oscuro con calce Slim elastizado y un lavado localizado con aspecto desgastado" class="<%= locals.errors && errors.description?'is-invalid' : null %>" value=""><%= locals.oldData && oldData.description ? oldData.description : ""%></textarea>
+                
+                <span class="infovalidacion description-validation"></span>
+                  <% if (locals.errors && errors.description) { %>
+                    <label class="infovalidacion">
+                      <%= errors.description.msg %>
+                    </label>
+                  <% } %>
+              </p>
+
+              <p>
+                <label for="image">Ingrese una o más imágenes*</label>
+                <input type="file" name="image" id="image" multiple accept="image/*" class="<%= locals.errors && errors.image ? 'is-invalid' : null %>" required/>
+                <span class="infovalidacion image-validation"></span>
+                <% if (locals.errors && errors.image) { %>
+                  <label class="infovalidacion">
+                    <%= errors.image.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="category">Categoría*</label>
+                <select
+                  name="category"
+                  id="category"
+                  required
+                >
+
+                  <option value="" disabled selected>Seleccionar Categoría</option>
+
+                  <!-- traemos data de la DB y accedemos al nombre -->
+                  <% for (let oneCategory of categories) { %>
+                    <option value="<%= oneCategory.id %>" 
+                    <%= locals.oldData && (oldData.category == oneCategory.id) ? 'selected':"" %>><%= oneCategory.name %></option>
+                  <% } %>
+                  
+                </select>
+                <span class="infovalidacion category-validation"></span>
+                <% if (locals.errors && errors.category) { %>
+                  <label class="infovalidacion">
+                    <%= errors.category.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="subcategory">Subcategoría</label>
+                <select
+                  name="subcategory"
+                  id="subcategory" 
+                >
+                  <option value=""
+                  <%= locals.oldData  && (oldData.subcategory === "") ? 'selected':"" %>>Ninguna</option>
+
+                  <% for (const oneSubcategory of subcategories) { %>
+                    <option value="<%= oneSubcategory.id %>" 
+                    <%= locals.oldData && (oldData.subcategory == oneSubcategory.id) ? 'selected':"" %>><%= oneSubcategory.name %></option>
+                  <% } %>
+
+                </select>
+                <% if (locals.errors && errors.subcategory) { %>
+                  <label class="infovalidacion">
+                    <%= errors.subcategory.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="brand">Marca*</label>
+                <select
+                  name="brand"
+                  id="brand"
+                  required
+                > 
+                  <option value="" disabled selected>Seleccionar Marca</option>
+
+                  <% for (const oneBrand of brands) { %>
+                    <option value="<%= oneBrand.id %>" 
+                    <%= locals.oldData && (oldData.brand == oneBrand.id) ? 'selected':"" %>><%= oneBrand.name %></option>
+                  <% } %>
+
+                </select>
+                <span class="infovalidacion brand-validation"></span>
+                <% if (locals.errors && errors.brand) { %>
+                  <label class="infovalidacion">
+                    <%= errors.brand.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="price">Ingrese precio*</label>
+                <input pattern="[0-9]*" type="number" step="0.01" name="price" id="price"  required 
+                class="<%= locals.errors && errors.price ? 'is-invalid' : null %>"
+                value="<%= locals.oldData && oldData.price ? oldData.price : null%>" 
+                />
+                <span class="infovalidacion price-validation"></span>
+                <% if (locals.errors && errors.price) { %>
+                  <label class="infovalidacion">
+                    <%= errors.price.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="discount">Ingrese descuento*</label>
+                <input type="number" step="0.01" name="discount" id="discount" required class="<%= locals.errors && errors.discount ? 'is-invalid' : null %>" 
+                value="<%= locals.oldData && oldData.discount ? oldData.discount : null%>"/>
+                <span class="infovalidacion discount-validation"></span>
+                <% if (locals.errors && errors.discount) { %>
+                  <label class="infovalidacion">
+                    <%= errors.discount.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="sale">En rebajas*</label>
+                <select
+                  name="sale"
+                  id="sale"
+                  required
+                >
+                <!-- poner un if discount distinto 0? -->
+                  <option disabled selected value="">Tiene descuento</option>
+                  <option value="1" 
+                  <%= locals.oldData  && (oldData.sale === "1") ? 'selected':"" %>>Sí</option>
+                  <option value="0" 
+                  <%= locals.oldData  && (oldData.sale === "0") ? 'selected':"" %>>No</option>
+                </select>
+                <span class="infovalidacion sale-validation"></span>
+                <% if (locals.errors && errors.sale) { %>
+                  <label class="infovalidacion">
+                    <%= errors.sale.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="size">Talle*</label>
+                <select name="size" id="size" required>
+                  
+                <option value="" disabled selected>Seleccionar Talle</option>
+                  <% for (const oneSize of sizes) { %>
+                    <option value="<%= oneSize.id %>" 
+                    <%= locals.oldData && (oldData.size == oneSize.id) ? 'selected':"" %>><%= oneSize.name %></option>
+                  <% } %>
+                  
+                </select>
+                <span class="infovalidacion size-validation"></span>
+                <% if (locals.errors && errors.size) { %>
+                  <label class="infovalidacion">
+                    <%= errors.size.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <label for="stock">Cantidad*</label>
+                <select
+                  name="stock"
+                  id="stock"
+                  required
+                >
+                <option value="" disabled selected>Seleccionar cantidad</option>
+
+                <% for (let i=1; i<=10; i++) { %>
+                  <option value="<%= i %>" 
+                  <%= locals.oldData && (oldData.stock == i) ? 'selected':"" %>><%= i %></option>
+                <% } %>
+                  
+                </select>
+                <span class="infovalidacion stock-validation"></span>
+                <% if (locals.errors && errors.stock) { %>
+                  <label class="infovalidacion">
+                    <%= errors.stock.msg %>
+                  </label>
+                <% } %>
+              </p>
+
+              <p>
+                <legend>Elige al menos un tag*</legend>
+                <% if (locals.errors && errors.tag) { %>
+                  <label class="infovalidacion">
+                    <%= errors.tag.msg %>
+                  </label>
+                <% } %>
+                <div class="checkbox-container">
+                <% for (let i=0; i<tags.length; i++) { %>
+                  <div class="checkbox-row">
+                    <input class="checkedOne" type="checkbox" id="<%= tags[i].name %>" name="tag" value="<%= tags[i].id %>" 
+                    <% if(locals.oldData && oldData.tag) { %>
+                      <% if(typeof oldData.tag == "object") { %>
+                        <%= oldData.tag.includes(tags[i].id.toString()) ? 'checked' : "" %>
+                      <% } else if(typeof oldData.tag == "string") { %>
+                        <%= oldData.tag == tags[i].id ? 'checked' : "" %>
+                      <% } %>
+                    <% } %>onclick="onlyOneChecked('checkedOne')" required>
+                    <label for="<%= tags[i].name %>"><%= tags[i].name %></label>
+                  </div>
+                <% } %>
+                </div>
+              </p>
+              
+              <p class="block">
+                <button type="submit">Crear Producto</button>
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <%- include('../partials/footer') %>
+    <script src="/js/checkedOne.js"></script>
+  </body>
+</html>
