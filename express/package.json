@@ -1,21 +1,21 @@
 {
-  "name": "e-commerce",
+  "name": "grupo_3_havenboards",
   "version": "1.0.0",
-  "description": "Front-End--Back-End--MVC--//-- E-commerce fully functional",
+  "description": "Proyecto integrador DH grupo 3",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jorgeHerrando/E-Commerce.git"
+    "url": "git+https://github.com/jorgeHerrando/grupo_3_havenboards.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jorgeHerrando/E-Commerce/issues"
+    "url": "https://github.com/jorgeHerrando/grupo_3_havenboards/issues"
   },
-  "homepage": "https://github.com/jorgeHerrando/E-Commerce#readme",
+  "homepage": "https://github.com/jorgeHerrando/grupo_3_havenboards#readme",
   "dependencies": {
     "axios": "^0.24.0",
     "bcryptjs": "^2.4.3",
@@ -30,7 +30,7 @@
     "mysql2": "^2.3.0",
     "node-fetch": "^3.0.0",
     "normalize": "^0.3.1",
-    "sequelize": "^5.22.4",
+    "sequelize": "^5.21.13",
     "uuid": "^8.3.2"
   }
 }
