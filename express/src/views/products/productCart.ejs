@@ -4,77 +4,71 @@
   <body>
   <%- include('../partials/header') %>
     <main class="main-cart">
+      <% if(cartProduct.length != 0){ %>
       <h1>Su pedido</h1>
       <section class="cart-shopping">
+          <div class="product-detail">
+             <div class="row">
+                <div class="col-12 col-lg-8 pt-4">
+                   <% cartProduct.forEach(item => { %>
+                   
+                   
+                    <article class="cart-product-description">
+                        <div class="cart-product-img-container">
+                          <a href="/products/productDetail/<%=item.product.id%>"
+                            ><img
+                              src="/images/products/<%= item.product.images[0].name %>"
+                              alt="<%= item.product.name %>"
+                          /></a>
+                        </div>
+                        <div class="cart-product-container">
+                          <div class="cart-product-top">
+                            <div class="cart-product">
+                              <a href="/products/productDetail/<%=item.product.id%>"
+                                ><h4 class="cart-product-item"><%=item.product.name%></h4></a
+                              >
+                              <p class="cart-product-price">Precio: $<%=item.salePrice%></p>
+                              <p class="cart-product-price">Cantidad: <%=item.quantity%></p>
+                            </div>
+                            
+                          </div>
+                          <div class="cart-product-bottom">
+                            <form action="/cart/deleteElement" method="POST" class="mt-4">
+                              <input type="hidden" name="itemId" value="<%= item.product_id %>">
+                              <button type="submit" class="btn btn-danger ">ELIMINAR</button>
+                           </form>
+                          </div>
+                        </div>
+                    </article>
+                   <hr>
+                   <% }); %>
+                   
+                </div>
+                <div class="col-12 col-lg-4">
+                   <article >
+                      <h2 >
+                         Total: $<%= total %>
+                      </h2>
+                      <hr>
+    
+                      <form action="/cart/checkout" method="POST"  style="display: inline-bock">
+                        <button type="submit" class="go-to payment">Iniciar compra</button>
+                      </form>
+                      <hr>
+                      <button class="keep-buying"><a href="/products">Seguir comprando</a>
+                      </button>
+                      <hr>
+                   </article>
+                </div>
+             </div>
+          </div>
+          <% } else { %>
+          <div class="col-12">
+             <!--Que esto no lo vea Edu. Jajajajajajaja   Abrazos-->
+             <h2 class="text-center" style="padding: 100px 0; color: white; background-color: tomato;">No tienes productos agregados a tu carrito!</h2>
+          </div>
+          <% } %>
         <!-- descripcion del carrito -->
-        <article class="cart-product-description">
-          <div class="cart-product-img-container">
-            <a href="/products/productDetail"
-              ><img
-                src="/images/products/1200x1601_snow_berzerker.jpg"
-                alt="producto en carrito"
-            /></a>
-          </div>
-          <div class="cart-product-container">
-            <div class="cart-product-top">
-              <div class="cart-product">
-                <a href="/products/productDetail"
-                  ><h4 class="cart-product-item">Nombre del producto</h4></a
-                >
-                <p class="cart-product-price">Precio</p>
-              </div>
-            </div>
-            <div class="cart-product-bottom">
-              <form action="#" method="POST">
-                <input
-                  type="number"
-                  name="product-quantity"
-                  id="product-quantity"
-                  placeholder="Cantidad"
-                />
-              </form>
-            </div>
-          </div>
-          <div class="cart-trash">
-            <i class="fas fa-trash"></i>
-          </div>
-        </article>
-        <!-- delivery -->
-        <article class="cart-delivery-container">
-          <div class="cart-delivery-pre">
-            <h4><strong>Subtotal (sin envío): </strong></h4>
-            <h4><strong>Precio: </strong></h4>
-          </div>
-          <div class="cart-delivery-price">
-            <form action="#" method="POST">
-              <label for="delivery">¿A dónde lo enviamos?</label>
-              <select name="delivery" id="delivery">
-                <option value="CABA">Ciudad Autónoma de Buenos Aires</option>
-                <option value="Norte">GBA Norte</option>
-                <option value="Sur">GBA Sur</option>
-                <option value="Este">GBA Este</option>
-                <option value="Oeste">GBA Oeste</option>
-              </select>
-              <button type="submit">Aplicar</button>
-            </form>
-          </div>
-        </article>
-        <!-- precio total -->
-        <article class="cart-price">
-          <h4>Total:</h4>
-          <p>£100</p>
-        </article>
-      </section>
-      <section class="cart-action-buttons">
-        <!-- cart buttons -->
-        <article class="cart-buttons">
-          <button class="go-to payment">Iniciar compra</button>
-          
-          <button class="keep-buying"><a href="/products">Seguir comprando</a>
-          </button>
-          
-        </article>
-      </section>
     </main>
 
     <%- include('../partials/footer') %>

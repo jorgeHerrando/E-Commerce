@@ -4,9 +4,8 @@
 
     <main class="main-orders">
       <section class="orders-list">
-        <!-- si hay orders -->
-        <% if (orders.length>0) { %>
-          <div class="orders-top-row">
+        <% if (carts.length>0) { %>
+          <!-- <div class="orders-top-row">
             <ul>
               <li class="order-number">Orden</li>
               <li class="order-product-title product-column">Producto</li>
@@ -14,47 +13,46 @@
               <li class="order-price">Precio</li>
               <li class="order-total-price">Precio Total</li>
             </ul>
-          </div>
+          </div> -->
           <div class="orders-table">
             <ul>
               <!-- por cada order -->
-              <% for(let i=0; i<orders.length; i++) { %>
-                <div class="order-row">
-
-                  <li class="order-number">
-                    <%= i+1 %>
-                  </li>
-                  
-                  <div class="order-container">
-                    <!-- por cada orderDetail -->
-                    <% for (let detail of orderDetail) { %>
-                      <!-- que coincida con el id de order -->
-                      <% if(orders[i].id == detail.order_id) { %>
-                        <div class="order-product product-column">
-        
-                          <li>
-                            <%= detail.product.name %>
-                          </li>
-                          <li class="order-amount">
-                            <%= detail.amount %>
-                          </li>
-                          <li class="order-price">
-                            <%= detail.price %>
-                          </li>
-                        </div>
-                      <% } %>
-                    <% } %>
+              <% for(let i=0; i<carts.length; i++) { %>
+                <a href="/cart/orderDetail/<%= carts[i].id %>">
+                  <div class="col-12 mt-3">
+                     <section class="row">
+                        <h4 class="col-4"><%= new Date(carts[i].createdAt).toLocaleDateString() %> </h4>
+                        <section class="col-8 row info">
+                           <div class="col-6">
+                              <ul>
+                                 <% carts[i].items.forEach(item => { %>
+                                    <li style="font-size: 12px;">
+                                       <small>
+                                          <%= item.product.name %> x<%= item.quantity %>
+                                       </small>
+                                    </li>
+                                 <% }) %>
+                              </ul>
+                           </div>
+                           <div class="col-6">
+                              <p >
+                                 $<%= carts[i].total %>
+                              </p>
+                           </div>
+                        </section>
+                        <section class="col-3">
+                           
+                        </section>
+                     </section>
                   </div>
-                  <li class="order-total-price">
-                    <%= orders[i].totalPrice %>
-                  </li>
-                </div>
+               </a>
+               <hr>
               <% } %>
             </ul>
           </div>
         <% } else { %>
-          <p>No tienes órdenes a tu nombre.</p>
-        <% } %>
+          <p>No tienes compras a tu nombre.</p>
+        <% } %>      
       </section>
     </main>
     <%- include('../partials/footer') %>

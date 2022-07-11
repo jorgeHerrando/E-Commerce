@@ -13,6 +13,24 @@ header div.top-header {
 main {
   margin-top: 88px;
 }
+.cartIcon {
+  width: 18px;
+  position: relative;
+}
+.cartIcon img {
+  width: 100%;
+}
+.cartIcon span {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+  background-color: #fff;
+  border-radius: 50%;
+  padding: 2px 5px;
+  font-size: 10px;
+  font-weight: bold;
+  color: #000;
+}
 /* este header solo se verá en tablets y desktop */
 .header-account {
   padding: 7px 5%;

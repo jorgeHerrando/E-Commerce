@@ -70,9 +70,19 @@
             
 
             <p>
-              <input type="number" value="1" />
-              <a href="#" class="btn">Add to Cart</a>
-              <h3>Product Details<i class="fa fa-indent"></i></h3>
+              <form action="/cart/addToCart" method="POST" >
+                <input type="hidden" name="productId" value="<%= detailProduct.id %>">
+                
+                
+                <button class="btn btn-success" type="submit">Add To Cart</button>
+                <label for="amount">Cantidad</label>
+                <input  class="form-control" type="number" id="amount" name="amount" value="1">
+              </form>
+              <% if (locals.errors && errors.amount) { %> 
+                <label class="infovalidacion">
+                  <%= errors.amount.msg %>
+                </label>
+              <% } %>
               <br />
             </p>
             <p>
@@ -91,15 +101,15 @@
         SmallImg[0].onclick = function () {
           ProductImg.src = SmallImg[0].src;
         };
-        SmallImg[1].onclick = function () {
+        SmallImg.length > 1 ? [1].onclick = function () {
           ProductImg.src = SmallImg[1].src;
-        };
-        SmallImg[2].onclick = function () {
+        }: "";
+        SmallImg.length > 2 ? SmallImg[2].onclick = function () {
           ProductImg.src = SmallImg[2].src;
-        };
-        SmallImg[3].onclick = function () {
+        } : "";
+        SmallImg.length > 3 ? SmallImg[3].onclick = function () {
           ProductImg.src = SmallImg[3].src;
-        };
+        }: "";
       </script>
     </main>
 

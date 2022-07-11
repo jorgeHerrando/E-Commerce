@@ -15,6 +15,10 @@ const app = express();
 
 const userLoggedMiddleware = require("./src/middlewares/userLoggedMiddleware");
 
+//Aqui requiero el middleare que controla la cantidad de elementos existentes en el carrito de compras por usuario
+
+const carritoCantidadMiddleware = require("./src/middlewares/cartQuantityMiddleware");
+
 // ************ Middlewares ************
 app.use(cors());
 // declarar session antes que el middleware de logueo
@@ -31,6 +35,9 @@ app.use(cookies()); //para trabajar con cookies
 // comprobar si esta logueado en todas las rutas
 app.use(userLoggedMiddleware);
 
+//Aquí llamo a mi middleware para saber la cantidad de elementos que tiene el carrito
+app.use(carritoCantidadMiddleware);
+
 app.use(express.static("public")); // Necesario para los archivos estáticos en el folder /public
 app.use(express.urlencoded({ extended: false })); // to recognize the incoming Request Object as strings or arrays. Nos permite capturar la info del formulario en req.body
 app.use(express.json()); // to recognize the incoming-outgoing Request Object as a JSON Object
@@ -46,6 +53,8 @@ app.set("views", path.join(__dirname, "src/views")); // express accede directame
 const mainRouter = require("./src/routes/mainRouter");
 const usersRouter = require("./src/routes/usersRoutes");
 const productsRouter = require("./src/routes/productsRoutes");
+//Aquí incorporo la ruta del carrito
+const cartRoutes = require("./src/routes/cartRoutes");
 
 const apiUsersRouter = require("./src/routes/api/apiUsersRoutes");
 const apiProductsRouter = require("./src/routes/api/apiProductsRoutes");
@@ -53,6 +62,7 @@ const apiProductsRouter = require("./src/routes/api/apiProductsRoutes");
 app.use("/", mainRouter);
 app.use("/users", usersRouter);
 app.use("/products", productsRouter);
+app.use("/cart", cartRoutes);
 
 app.use("/api/users", apiUsersRouter);
 app.use("/api/products", apiProductsRouter);

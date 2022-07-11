@@ -160,26 +160,46 @@ const usersController = {
   // orders
   order: async (req, res) => {
     // recoge el id por param
-    let id = req.params.id;
+    db.Cart.findAll({
+      where: {
+        user_id: req.session.userLogged.id,
+      },
+      include: {
+        as: "user",
+        model: db.User,
+        // nested: true,
+      },
+      include: {
+        as: "items",
+        model: db.Item,
+        include: ["product"],
+        nested: true,
+      },
+    }).then((carts) => {
+      console.log(carts);
+      res.render(path.resolve(__dirname, "..", "views", "users", "orders"), {
+        carts,
+      });
+    });
 
     // todas las orders del user
-    let orders = await db.Order.findAll({
-      include: ["orderDetails", "user", "address", "paymentMethod"],
-      where: {
-        user_id: id,
-      },
-    });
-    // todos los orderDetail del user
-    let orderDetail = await db.OrderDetail.findAll({
-      include: ["order", "product"],
-      where: {
-        user_id: id,
-      },
-    });
-    return res.render("users/orders", {
-      orders,
-      orderDetail,
-    });
+    // let orders = await db.Order.findAll({
+    //   include: ["orderDetails", "user", "address", "paymentMethod"],
+    //   where: {
+    //     user_id: id,
+    //   },
+    // });
+    // // todos los orderDetail del user
+    // let orderDetail = await db.OrderDetail.findAll({
+    //   include: ["order", "product"],
+    //   where: {
+    //     user_id: id,
+    //   },
+    // });
+    // return res.render("users/orders", {
+    //   orders,
+    //   orderDetail,
+    // });
   },
 
   // detalle usuario

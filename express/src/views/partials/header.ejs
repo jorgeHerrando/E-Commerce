@@ -14,6 +14,15 @@
           <a href="/users/profile">Profile</a>
         </li>
         <li>
+          <a href="/cart/cartDetail"
+            ><div class="cartIcon">
+              <img src="/images/icons/cart.png"/>
+              <span><%= locals.cartAmount %>
+              </span>
+            </div>
+            </a>
+        </li>
+        <li>
           <a href="/users/logout">Log out <i class="fas fa-sign-in-alt"></i></a>
         </li>
       <% } else { %>
@@ -53,6 +62,14 @@
             <a href="/users/profile">Profile</a>
           </li>
           <li>
+            <a href="/products/productCart"
+              >holaaaa<ion-icon name="cart-outline"></ion-icon>
+              <span class="badge badge-info"
+                ><%= locals.cartAmount %>
+              </span></a
+            >
+          </li>
+          <li>
             <a href="/users/logout">Log out </a>
           </li>
           <% } else { %>
@@ -61,7 +78,6 @@
               >INICIAR SESIÓN </a>
           </li>
           <% } %>
-        </ul>
       </li>
     </ul>
   </nav>

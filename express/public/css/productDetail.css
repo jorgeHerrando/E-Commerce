@@ -12,6 +12,13 @@
   justify-content: space-around;
 }
 
+.infovalidacion {
+  font-size: 13px;
+  color: #bf1725;
+  padding-left: 3px;
+  display: inline-block;
+}
+
 .single-product {
   padding-top: 20px;
   padding-bottom: 20px;

@@ -1,0 +1,46 @@
+<%- include('../partials/head', { title: "Order Detail" }) %>
+  <body>
+    <%- include('../partials/header') %>
+
+
+    <div>
+      <div class="row">
+        <article class="col-12">
+          <h2 class="display-5 text-white bg-info text-center pt-5">
+            Detalle de la compra
+          </h2>
+        </article>
+      </div>
+      <div>
+        <div class="row">
+          <div class="col-6 col-sm-12">
+            <article>
+              <h2><strong>Número de orden: </strong><%= cart.orderNumber %></h2>
+              <hr class="mb-4" />
+              <strong>Total:</strong>
+              <p>$<%= cart.total %></p>
+              <br />
+              <strong>Productos:</strong>
+              <ul>
+                <% cart.items.forEach(item => { %>
+                <li>
+                  <p>
+                    <%= item.product.name %> x<%= item.quantity %> -
+                    <strong
+                      ><small><%= item.user.firstName %></small></strong
+                    >
+                  </p>
+                </li>
+                <% }) %>
+              </ul>
+              <br />
+              <strong>Fecha de compra:</strong>
+              <p><%= new Date(cart.createdAt).toLocaleDateString()%></p>
+              <hr />
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
